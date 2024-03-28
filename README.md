@@ -35,5 +35,6 @@ Design a system capable of sampling, storing, displaying, and recreating analog 
 
 ## Team Members
 - Art
-- Ayden Rollins
 - Zak Konik
+- Ayden Rollins
+
