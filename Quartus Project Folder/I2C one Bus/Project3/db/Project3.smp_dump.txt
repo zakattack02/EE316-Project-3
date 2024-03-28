@@ -1,0 +1,57 @@
+
+State Machine - |DE2_115|top_level:Inst_top_level|next_clkgenstate
+Name next_clkgenstate.Module4 next_clkgenstate.Module2 next_clkgenstate.Module1 
+next_clkgenstate.Module1 0 0 0 
+next_clkgenstate.Module2 0 1 1 
+next_clkgenstate.Module4 1 0 1 
+
+State Machine - |DE2_115|top_level:Inst_top_level|next_pwmstate
+Name next_pwmstate.PModule4 next_pwmstate.PModule3 next_pwmstate.PModule2 next_pwmstate.PModule1 
+next_pwmstate.PModule1 0 0 0 0 
+next_pwmstate.PModule2 0 0 1 1 
+next_pwmstate.PModule3 0 1 0 1 
+next_pwmstate.PModule4 1 0 0 1 
+
+State Machine - |DE2_115|top_level:Inst_top_level|current_ClkGenState
+Name current_ClkGenState.Module4 current_ClkGenState.Module2 current_ClkGenState.Module1 
+current_ClkGenState.Module1 0 0 0 
+current_ClkGenState.Module2 0 1 1 
+current_ClkGenState.Module4 1 0 1 
+
+State Machine - |DE2_115|top_level:Inst_top_level|current_PWMState
+Name current_PWMState.PModule4 current_PWMState.PModule3 current_PWMState.PModule2 current_PWMState.PModule1 
+current_PWMState.PModule1 0 0 0 0 
+current_PWMState.PModule2 0 0 1 1 
+current_PWMState.PModule3 0 1 0 1 
+current_PWMState.PModule4 1 0 0 1 
+
+State Machine - |DE2_115|top_level:Inst_top_level|I2C_user_logic:INST_LCD_I2C_UsrLogic|State
+Name State.ADCread State.ADCWrite State.LCDwrite State.LCDstart 
+State.LCDstart 0 0 0 0 
+State.LCDwrite 0 0 1 1 
+State.ADCWrite 0 1 0 1 
+State.ADCread 1 0 0 1 
+
+State Machine - |DE2_115|top_level:Inst_top_level|I2C_user_logic:INST_LCD_I2C_UsrLogic|i2c_master:INST_I2C_master|state
+Name state.stop state.mstr_ack state.slv_ack2 state.rd state.wr state.slv_ack1 state.command state.start state.ready 
+state.ready 0 0 0 0 0 0 0 0 0 
+state.start 0 0 0 0 0 0 0 1 1 
+state.command 0 0 0 0 0 0 1 0 1 
+state.slv_ack1 0 0 0 0 0 1 0 0 1 
+state.wr 0 0 0 0 1 0 0 0 1 
+state.rd 0 0 0 1 0 0 0 0 1 
+state.slv_ack2 0 0 1 0 0 0 0 0 1 
+state.mstr_ack 0 1 0 0 0 0 0 0 1 
+state.stop 1 0 0 0 0 0 0 0 1 
+
+State Machine - |DE2_115|top_level:Inst_top_level|Main2State_Machine:INST_StateMachine|next_state
+Name next_state.CLOCK_GEN_MODE next_state.PWM_mode next_state.INIT 
+next_state.INIT 0 0 0 
+next_state.PWM_mode 0 1 1 
+next_state.CLOCK_GEN_MODE 1 0 1 
+
+State Machine - |DE2_115|top_level:Inst_top_level|Main2State_Machine:INST_StateMachine|current_state
+Name current_state.CLOCK_GEN_MODE current_state.PWM_mode current_state.INIT 
+current_state.INIT 0 0 0 
+current_state.PWM_mode 0 1 1 
+current_state.CLOCK_GEN_MODE 1 0 1 

@@ -1,0 +1,2 @@
+v1
+PORT_SWAPPING,PORT_SWAP_TYPE_DSPMULT,top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|lpm_mult:Mult0|mult_b3t:auto_generated|mac_mult1,

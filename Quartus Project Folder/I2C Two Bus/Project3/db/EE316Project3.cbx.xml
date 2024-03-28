@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="EE316Project3">
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2_115|top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|lpm_mult:Mult0" CBX_FILE_NAME="mult_b3t.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

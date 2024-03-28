@@ -1,0 +1,1782 @@
+Analysis & Synthesis report for EE316Project3
+Tue Feb 20 14:29:30 2024
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Partition Status Summary
+  7. Dependent File Changes for Partition Top
+  8. Partition for Top-Level Resource Utilization by Entity
+  9. State Machine - |DE2_115|top_level:Inst_top_level|current_ClkGenState
+ 10. State Machine - |DE2_115|top_level:Inst_top_level|current_PWMState
+ 11. State Machine - |DE2_115|top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|State
+ 12. State Machine - |DE2_115|top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|i2c_master:INST_I2C_master|state
+ 13. State Machine - |DE2_115|top_level:Inst_top_level|ADC_I2C_user_logic:INST_ADC_I2C_USRLOGIC|State
+ 14. State Machine - |DE2_115|top_level:Inst_top_level|ADC_I2C_user_logic:INST_ADC_I2C_USRLOGIC|i2c_master:INST_I2C_master|state
+ 15. State Machine - |DE2_115|top_level:Inst_top_level|Main2State_Machine:INST_StateMachine|current_state
+ 16. User-Specified and Inferred Latches
+ 17. Registers Removed During Synthesis
+ 18. Removed Registers Triggering Further Register Optimizations
+ 19. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 20. Parameter Settings for User Entity Instance: top_level:Inst_top_level|ADC_I2C_user_logic:INST_ADC_I2C_USRLOGIC|i2c_master:INST_I2C_master
+ 21. Parameter Settings for User Entity Instance: top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|i2c_master:INST_I2C_master
+ 22. Parameter Settings for User Entity Instance: top_level:Inst_top_level|btn_debounce_toggle:Inst_Key0
+ 23. Parameter Settings for User Entity Instance: top_level:Inst_top_level|btn_debounce_toggle:Inst_Key1
+ 24. Parameter Settings for User Entity Instance: top_level:Inst_top_level|btn_debounce_toggle:Inst_Key2
+ 25. Parameter Settings for User Entity Instance: top_level:Inst_top_level|btn_debounce_toggle:INST_DebouncedKey0
+ 26. Parameter Settings for User Entity Instance: top_level:Inst_top_level|btn_debounce_toggle:INST_BTN1Pulse
+ 27. Parameter Settings for User Entity Instance: top_level:Inst_top_level|PWM:INST_PWM0
+ 28. Parameter Settings for Inferred Entity Instance: top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|lpm_mult:Mult0
+ 29. Partition Dependent Files
+ 30. Port Connectivity Checks: "top_level:Inst_top_level|PWM:INST_PWM0"
+ 31. Port Connectivity Checks: "top_level:Inst_top_level|btn_debounce_toggle:INST_BTN1Pulse"
+ 32. Port Connectivity Checks: "top_level:Inst_top_level|btn_debounce_toggle:INST_DebouncedKey0"
+ 33. Port Connectivity Checks: "top_level:Inst_top_level|btn_debounce_toggle:Inst_Key2"
+ 34. Port Connectivity Checks: "top_level:Inst_top_level|btn_debounce_toggle:Inst_Key1"
+ 35. Port Connectivity Checks: "top_level:Inst_top_level|btn_debounce_toggle:Inst_Key0"
+ 36. Port Connectivity Checks: "top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|i2c_master:INST_I2C_master"
+ 37. Port Connectivity Checks: "top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic"
+ 38. Port Connectivity Checks: "top_level:Inst_top_level|ADC_I2C_user_logic:INST_ADC_I2C_USRLOGIC|i2c_master:INST_I2C_master"
+ 39. Elapsed Time Per Partition
+ 40. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++---------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                          ;
++------------------------------------+--------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Tue Feb 20 14:29:30 2024            ;
+; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
+; Revision Name                      ; EE316Project3                                    ;
+; Top-level Entity Name              ; DE2_115                                          ;
+; Family                             ; Cyclone IV E                                     ;
+; Total logic elements               ; N/A until Partition Merge                        ;
+;     Total combinational functions  ; N/A until Partition Merge                        ;
+;     Dedicated logic registers      ; N/A until Partition Merge                        ;
+; Total registers                    ; N/A until Partition Merge                        ;
+; Total pins                         ; N/A until Partition Merge                        ;
+; Total virtual pins                 ; N/A until Partition Merge                        ;
+; Total memory bits                  ; N/A until Partition Merge                        ;
+; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                        ;
+; Total PLLs                         ; N/A until Partition Merge                        ;
++------------------------------------+--------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP4CE115F29C7      ;                    ;
+; Top-level entity name                                                      ; DE2_115            ; EE316Project3      ;
+; Family name                                                                ; Cyclone IV E       ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 6           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-6         ; < 0.1%      ;
+;     Processors 7-12        ;   0.0%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                          ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                      ; Library ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------+---------+
+; ClockGeneration.vhd              ; yes             ; User VHDL File               ; U:/Project3/ClockGeneration.vhd                                   ;         ;
+; top_level.vhd                    ; yes             ; User VHDL File               ; U:/Project3/top_level.vhd                                         ;         ;
+; reset_delay.vhd                  ; yes             ; User VHDL File               ; U:/Project3/reset_delay.vhd                                       ;         ;
+; DE2_115.vhd                      ; yes             ; User VHDL File               ; U:/Project3/DE2_115.vhd                                           ;         ;
+; i2c_master_2.1.vhd               ; yes             ; User VHDL File               ; U:/Project3/i2c_master_2.1.vhd                                    ;         ;
+; I2C_user_logic.vhd               ; yes             ; User VHDL File               ; U:/Project3/I2C_user_logic.vhd                                    ;         ;
+; ADC_I2C_user_logic.vhd           ; yes             ; User VHDL File               ; U:/Project3/ADC_I2C_user_logic.vhd                                ;         ;
+; state_machine.vhd                ; yes             ; User VHDL File               ; U:/Project3/state_machine.vhd                                     ;         ;
+; PWM.vhd                          ; yes             ; User VHDL File               ; U:/Project3/PWM.vhd                                               ;         ;
+; btn_debounce_toggle.vhd          ; yes             ; Auto-Found VHDL File         ; U:/Project3/btn_debounce_toggle.vhd                               ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_mult.tdf    ;         ;
+; aglobal130.inc                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/aglobal130.inc  ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_add_sub.inc ;         ;
+; multcore.inc                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/multcore.inc    ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/bypassff.inc    ;         ;
+; altshift.inc                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altshift.inc    ;         ;
+; db/mult_b3t.tdf                  ; yes             ; Auto-Generated Megafunction  ; U:/Project3/db/mult_b3t.tdf                                       ;         ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------+
+; Partition Status Summary                               ;
++----------------+-------------+-------------------------+
+; Partition Name ; Synthesized ; Reason                  ;
++----------------+-------------+-------------------------+
+; Top            ; yes         ; Dependent files changed ;
++----------------+-------------+-------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Dependent File Changes for Partition Top                                                                                                                                         ;
++-------------------------------------------------------+---------------------+-------------------+----------+----------------------------------+----------------------------------+
+; Hierarchy                                             ; File Name           ; Relative Location ; Change   ; Old                              ; New                              ;
++-------------------------------------------------------+---------------------+-------------------+----------+----------------------------------+----------------------------------+
+; top_level:inst_top_level|clockgeneration:inst_clk_gen ; ClockGeneration.vhd ; Project Directory ; Checksum ; 83869c77aa22d6337d919de99968ad9c ; 8d02a4793c6c7c92e912ab8656448665 ;
++-------------------------------------------------------+---------------------+-------------------+----------+----------------------------------+----------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Partition for Top-Level Resource Utilization by Entity                                                                                                                                                                                                                              ;
++--------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                       ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                   ; Library Name ;
++--------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------+--------------+
+; |DE2_115                                         ; 845 (2)           ; 410 (0)      ; 0           ; 1            ; 1       ; 0         ; 0    ; 0            ; |DE2_115                                                                                              ; work         ;
+;    |top_level:Inst_top_level|                    ; 843 (93)          ; 410 (26)     ; 0           ; 1            ; 1       ; 0         ; 0    ; 0            ; |DE2_115|top_level:Inst_top_level                                                                     ; work         ;
+;       |ADC_I2C_user_logic:INST_ADC_I2C_USRLOGIC| ; 147 (47)          ; 70 (23)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_115|top_level:Inst_top_level|ADC_I2C_user_logic:INST_ADC_I2C_USRLOGIC                            ; work         ;
+;          |i2c_master:INST_I2C_master|            ; 100 (100)         ; 47 (47)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_115|top_level:Inst_top_level|ADC_I2C_user_logic:INST_ADC_I2C_USRLOGIC|i2c_master:INST_I2C_master ; work         ;
+;       |ClockGeneration:INST_CLK_GEN|             ; 44 (44)           ; 42 (42)      ; 0           ; 1            ; 1       ; 0         ; 0    ; 0            ; |DE2_115|top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN                                        ; work         ;
+;          |lpm_mult:Mult0|                        ; 0 (0)             ; 0 (0)        ; 0           ; 1            ; 1       ; 0         ; 0    ; 0            ; |DE2_115|top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|lpm_mult:Mult0                         ; work         ;
+;             |mult_b3t:auto_generated|            ; 0 (0)             ; 0 (0)        ; 0           ; 1            ; 1       ; 0         ; 0    ; 0            ; |DE2_115|top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|lpm_mult:Mult0|mult_b3t:auto_generated ; work         ;
+;       |LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|  ; 405 (318)         ; 158 (124)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_115|top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic                             ; work         ;
+;          |i2c_master:INST_I2C_master|            ; 87 (87)           ; 34 (34)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_115|top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|i2c_master:INST_I2C_master  ; work         ;
+;       |Main2State_Machine:INST_StateMachine|     ; 17 (17)           ; 11 (11)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_115|top_level:Inst_top_level|Main2State_Machine:INST_StateMachine                                ; work         ;
+;       |PWM:INST_PWM0|                            ; 16 (16)           ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_115|top_level:Inst_top_level|PWM:INST_PWM0                                                       ; work         ;
+;       |Reset_Delay:Inst_clk_Reset_Delay|         ; 27 (27)           ; 21 (21)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_115|top_level:Inst_top_level|Reset_Delay:Inst_clk_Reset_Delay                                    ; work         ;
+;       |btn_debounce_toggle:INST_BTN1Pulse|       ; 24 (24)           ; 20 (20)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_115|top_level:Inst_top_level|btn_debounce_toggle:INST_BTN1Pulse                                  ; work         ;
+;       |btn_debounce_toggle:INST_DebouncedKey0|   ; 24 (24)           ; 20 (20)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_115|top_level:Inst_top_level|btn_debounce_toggle:INST_DebouncedKey0                              ; work         ;
+;       |btn_debounce_toggle:Inst_Key0|            ; 23 (23)           ; 17 (17)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_115|top_level:Inst_top_level|btn_debounce_toggle:Inst_Key0                                       ; work         ;
+;       |btn_debounce_toggle:Inst_Key2|            ; 23 (23)           ; 17 (17)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_115|top_level:Inst_top_level|btn_debounce_toggle:Inst_Key2                                       ; work         ;
++--------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------+
+; State Machine - |DE2_115|top_level:Inst_top_level|current_ClkGenState                                                 ;
++-----------------------------+-----------------------------+-----------------------------+-----------------------------+
+; Name                        ; current_ClkGenState.Module4 ; current_ClkGenState.Module2 ; current_ClkGenState.Module1 ;
++-----------------------------+-----------------------------+-----------------------------+-----------------------------+
+; current_ClkGenState.Module1 ; 0                           ; 0                           ; 0                           ;
+; current_ClkGenState.Module2 ; 0                           ; 1                           ; 1                           ;
+; current_ClkGenState.Module4 ; 1                           ; 0                           ; 1                           ;
++-----------------------------+-----------------------------+-----------------------------+-----------------------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |DE2_115|top_level:Inst_top_level|current_PWMState                                                                        ;
++---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+
+; Name                      ; current_PWMState.PModule4 ; current_PWMState.PModule3 ; current_PWMState.PModule2 ; current_PWMState.PModule1 ;
++---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+
+; current_PWMState.PModule1 ; 0                         ; 0                         ; 0                         ; 0                         ;
+; current_PWMState.PModule2 ; 0                         ; 0                         ; 1                         ; 1                         ;
+; current_PWMState.PModule3 ; 0                         ; 1                         ; 0                         ; 1                         ;
+; current_PWMState.PModule4 ; 1                         ; 0                         ; 0                         ; 1                         ;
++---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------+
+; State Machine - |DE2_115|top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|State ;
++-------------+------------+-------------+--------------------------------------------------------+
+; Name        ; State.stop ; State.write ; State.start                                            ;
++-------------+------------+-------------+--------------------------------------------------------+
+; State.start ; 0          ; 0           ; 0                                                      ;
+; State.write ; 0          ; 1           ; 1                                                      ;
+; State.stop  ; 1          ; 0           ; 1                                                      ;
++-------------+------------+-------------+--------------------------------------------------------+
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |DE2_115|top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|i2c_master:INST_I2C_master|state                       ;
++----------------+------------+----------------+----------------+----------+----------+----------------+---------------+-------------+-------------+
+; Name           ; state.stop ; state.mstr_ack ; state.slv_ack2 ; state.rd ; state.wr ; state.slv_ack1 ; state.command ; state.start ; state.ready ;
++----------------+------------+----------------+----------------+----------+----------+----------------+---------------+-------------+-------------+
+; state.ready    ; 0          ; 0              ; 0              ; 0        ; 0        ; 0              ; 0             ; 0           ; 0           ;
+; state.start    ; 0          ; 0              ; 0              ; 0        ; 0        ; 0              ; 0             ; 1           ; 1           ;
+; state.command  ; 0          ; 0              ; 0              ; 0        ; 0        ; 0              ; 1             ; 0           ; 1           ;
+; state.slv_ack1 ; 0          ; 0              ; 0              ; 0        ; 0        ; 1              ; 0             ; 0           ; 1           ;
+; state.wr       ; 0          ; 0              ; 0              ; 0        ; 1        ; 0              ; 0             ; 0           ; 1           ;
+; state.rd       ; 0          ; 0              ; 0              ; 1        ; 0        ; 0              ; 0             ; 0           ; 1           ;
+; state.slv_ack2 ; 0          ; 0              ; 1              ; 0        ; 0        ; 0              ; 0             ; 0           ; 1           ;
+; state.mstr_ack ; 0          ; 1              ; 0              ; 0        ; 0        ; 0              ; 0             ; 0           ; 1           ;
+; state.stop     ; 1          ; 0              ; 0              ; 0        ; 0        ; 0              ; 0             ; 0           ; 1           ;
++----------------+------------+----------------+----------------+----------+----------+----------------+---------------+-------------+-------------+
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------+
+; State Machine - |DE2_115|top_level:Inst_top_level|ADC_I2C_user_logic:INST_ADC_I2C_USRLOGIC|State ;
++-------------+------------+------------+-------------+--------------------------------------------+
+; Name        ; State.stop ; State.read ; State.write ; State.start                                ;
++-------------+------------+------------+-------------+--------------------------------------------+
+; State.start ; 0          ; 0          ; 0           ; 0                                          ;
+; State.write ; 0          ; 0          ; 1           ; 1                                          ;
+; State.read  ; 0          ; 1          ; 0           ; 1                                          ;
+; State.stop  ; 1          ; 0          ; 0           ; 1                                          ;
++-------------+------------+------------+-------------+--------------------------------------------+
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |DE2_115|top_level:Inst_top_level|ADC_I2C_user_logic:INST_ADC_I2C_USRLOGIC|i2c_master:INST_I2C_master|state                      ;
++----------------+------------+----------------+----------------+----------+----------+----------------+---------------+-------------+-------------+
+; Name           ; state.stop ; state.mstr_ack ; state.slv_ack2 ; state.rd ; state.wr ; state.slv_ack1 ; state.command ; state.start ; state.ready ;
++----------------+------------+----------------+----------------+----------+----------+----------------+---------------+-------------+-------------+
+; state.ready    ; 0          ; 0              ; 0              ; 0        ; 0        ; 0              ; 0             ; 0           ; 0           ;
+; state.start    ; 0          ; 0              ; 0              ; 0        ; 0        ; 0              ; 0             ; 1           ; 1           ;
+; state.command  ; 0          ; 0              ; 0              ; 0        ; 0        ; 0              ; 1             ; 0           ; 1           ;
+; state.slv_ack1 ; 0          ; 0              ; 0              ; 0        ; 0        ; 1              ; 0             ; 0           ; 1           ;
+; state.wr       ; 0          ; 0              ; 0              ; 0        ; 1        ; 0              ; 0             ; 0           ; 1           ;
+; state.rd       ; 0          ; 0              ; 0              ; 1        ; 0        ; 0              ; 0             ; 0           ; 1           ;
+; state.slv_ack2 ; 0          ; 0              ; 1              ; 0        ; 0        ; 0              ; 0             ; 0           ; 1           ;
+; state.mstr_ack ; 0          ; 1              ; 0              ; 0        ; 0        ; 0              ; 0             ; 0           ; 1           ;
+; state.stop     ; 1          ; 0              ; 0              ; 0        ; 0        ; 0              ; 0             ; 0           ; 1           ;
++----------------+------------+----------------+----------------+----------+----------+----------------+---------------+-------------+-------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------+
+; State Machine - |DE2_115|top_level:Inst_top_level|Main2State_Machine:INST_StateMachine|current_state      ;
++------------------------------+------------------------------+------------------------+--------------------+
+; Name                         ; current_state.CLOCK_GEN_MODE ; current_state.PWM_mode ; current_state.INIT ;
++------------------------------+------------------------------+------------------------+--------------------+
+; current_state.INIT           ; 0                            ; 0                      ; 0                  ;
+; current_state.PWM_mode       ; 0                            ; 1                      ; 1                  ;
+; current_state.CLOCK_GEN_MODE ; 1                            ; 0                      ; 1                  ;
++------------------------------+------------------------------+------------------------+--------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                                 ;
++--------------------------------------------------------+---------------------------------------------------+------------------------+
+; Latch Name                                             ; Latch Enable Signal                               ; Free of Timing Hazards ;
++--------------------------------------------------------+---------------------------------------------------+------------------------+
+; top_level:Inst_top_level|PWN_module[0]                 ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|PWN_module[1]                 ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|next_clkgenstate.Module1_1923 ; top_level:Inst_top_level|next_clkgenstate.Module2 ; yes                    ;
+; top_level:Inst_top_level|next_pwmstate.PModule1_1971   ; top_level:Inst_top_level|next_pwmstate.PModule2   ; yes                    ;
+; top_level:Inst_top_level|next_pwmstate.PModule3_1947   ; top_level:Inst_top_level|next_pwmstate.PModule2   ; yes                    ;
+; top_level:Inst_top_level|next_clkgenstate.Module4_1895 ; top_level:Inst_top_level|next_clkgenstate.Module2 ; yes                    ;
+; top_level:Inst_top_level|next_pwmstate.PModule2_1959   ; top_level:Inst_top_level|next_pwmstate.PModule2   ; yes                    ;
+; top_level:Inst_top_level|oLed0                         ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|FinaloPWM                     ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|oLed1                         ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|oLed2                         ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|oLed3                         ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|FirstLine[66]                 ; GND                                               ; yes                    ;
+; top_level:Inst_top_level|FirstLine[70]                 ; GND                                               ; yes                    ;
+; top_level:Inst_top_level|FirstLine[74]                 ; GND                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[22]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[26]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[18]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[30]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[34]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[38]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[42]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[14]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[10]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[2]                 ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[6]                 ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[94]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[98]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[90]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[86]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[82]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[102]               ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[106]               ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[78]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[74]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[54]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[58]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[50]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[66]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[70]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[46]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[114]               ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[118]               ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[126]               ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[110]               ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[21]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[25]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[17]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[29]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[33]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[41]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[57]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[61]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[65]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[81]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[85]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[105]               ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[1]                 ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|FirstLine[65]                 ; GND                                               ; yes                    ;
+; top_level:Inst_top_level|FirstLine[89]                 ; GND                                               ; yes                    ;
+; top_level:Inst_top_level|FirstLine[69]                 ; GND                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[125]               ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[117]               ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[109]               ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|FirstLine[64]                 ; GND                                               ; yes                    ;
+; top_level:Inst_top_level|FirstLine[88]                 ; GND                                               ; yes                    ;
+; top_level:Inst_top_level|FirstLine[68]                 ; GND                                               ; yes                    ;
+; top_level:Inst_top_level|FirstLine[36]                 ; GND                                               ; yes                    ;
+; top_level:Inst_top_level|FirstLine[32]                 ; GND                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[20]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[24]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[16]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[28]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[32]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[36]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[40]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[8]                 ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[88]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[84]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[92]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[96]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[100]               ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[104]               ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[72]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[76]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[60]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[64]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[56]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[52]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[48]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[120]               ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[116]               ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|FirstLine[51]                 ; GND                                               ; yes                    ;
+; top_level:Inst_top_level|FirstLine[83]                 ; GND                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[123]               ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[107]               ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[3]                 ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[27]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[43]                ; VCC                                               ; yes                    ;
+; top_level:Inst_top_level|SecondLine[59]                ; VCC                                               ; yes                    ;
+; Number of user-specified and inferred latches = 108    ;                                                   ;                        ;
++--------------------------------------------------------+---------------------------------------------------+------------------------+
+Table restricted to first 100 entries. Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                                                                                                           ;
++------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------+
+; Register name                                                                                                          ; Reason for Removal                                                                                                  ;
++------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------+
+; top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|n3[0..2,6,8..31]                                                 ; Stuck at GND due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|PWM:INST_PWM0|PWMState_Sig[0..2]                                                              ; Stuck at GND due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data[0]                                          ; Stuck at GND due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data1[126,127]                                   ; Stuck at GND due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data1[125]                                       ; Stuck at VCC due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data1[118..124]                                  ; Stuck at GND due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data1[117]                                       ; Stuck at VCC due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data1[110..116]                                  ; Stuck at GND due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data1[109]                                       ; Stuck at VCC due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data1[102..108]                                  ; Stuck at GND due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data1[101]                                       ; Stuck at VCC due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data1[87,90,91,95..100]                          ; Stuck at GND due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data1[82]                                        ; Stuck at VCC due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data1[79]                                        ; Stuck at GND due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data1[78]                                        ; Stuck at VCC due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data1[77]                                        ; Stuck at GND due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data1[72,75]                                     ; Stuck at VCC due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data1[71]                                        ; Stuck at GND due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data1[62]                                        ; Stuck at VCC due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data1[55,60,61]                                  ; Stuck at GND due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data1[53]                                        ; Stuck at VCC due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data1[52]                                        ; Stuck at GND due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data1[48]                                        ; Stuck at VCC due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data1[47]                                        ; Stuck at GND due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data1[42,46]                                     ; Stuck at VCC due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data1[39]                                        ; Stuck at GND due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data1[34,37]                                     ; Stuck at VCC due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data1[30,31]                                     ; Stuck at GND due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data1[29]                                        ; Stuck at VCC due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data1[22..28]                                    ; Stuck at GND due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data1[21]                                        ; Stuck at VCC due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data1[14..20]                                    ; Stuck at GND due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data1[13]                                        ; Stuck at VCC due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data1[6..12]                                     ; Stuck at GND due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data1[5]                                         ; Stuck at VCC due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data1[0..4]                                      ; Stuck at GND due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data[4]                                          ; Stuck at GND due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data[5]                                          ; Stuck at VCC due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data[7,9,11,12]                                  ; Stuck at GND due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data[13]                                         ; Stuck at VCC due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data[15,19,23,31]                                ; Stuck at GND due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data[37]                                         ; Stuck at VCC due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data[39,47,49]                                   ; Stuck at GND due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data[53]                                         ; Stuck at VCC due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data[55]                                         ; Stuck at GND due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data[62]                                         ; Stuck at VCC due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data[68]                                         ; Stuck at GND due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data[69]                                         ; Stuck at VCC due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data[71,79,80,87,89]                             ; Stuck at GND due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data[93]                                         ; Stuck at VCC due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data[95,97]                                      ; Stuck at GND due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data[101]                                        ; Stuck at VCC due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data[103,108,111..113,115,119,121,122,124,127]   ; Stuck at GND due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|rw_sig                                                ; Stuck at GND due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|address[0..2]                                         ; Stuck at VCC due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|address[3,4]                                          ; Stuck at GND due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|address[5]                                            ; Stuck at VCC due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|address[6]                                            ; Stuck at GND due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|ADC_I2C_user_logic:INST_ADC_I2C_USRLOGIC|address[0..2]                                        ; Stuck at GND due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|ADC_I2C_user_logic:INST_ADC_I2C_USRLOGIC|address[3]                                           ; Stuck at VCC due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|ADC_I2C_user_logic:INST_ADC_I2C_USRLOGIC|address[4,5]                                         ; Stuck at GND due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|ADC_I2C_user_logic:INST_ADC_I2C_USRLOGIC|address[6]                                           ; Stuck at VCC due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|n3[4,5,7]                                                        ; Merged with top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|n3[3]                                             ;
+; top_level:Inst_top_level|btn_debounce_toggle:Inst_Key1|btn_cntr[15]                                                    ; Merged with top_level:Inst_top_level|btn_debounce_toggle:INST_BTN1Pulse|btn_cntr[15]                                ;
+; top_level:Inst_top_level|btn_debounce_toggle:Inst_Key1|btn_cntr[14]                                                    ; Merged with top_level:Inst_top_level|btn_debounce_toggle:INST_BTN1Pulse|btn_cntr[14]                                ;
+; top_level:Inst_top_level|btn_debounce_toggle:Inst_Key1|btn_cntr[13]                                                    ; Merged with top_level:Inst_top_level|btn_debounce_toggle:INST_BTN1Pulse|btn_cntr[13]                                ;
+; top_level:Inst_top_level|btn_debounce_toggle:Inst_Key1|btn_cntr[12]                                                    ; Merged with top_level:Inst_top_level|btn_debounce_toggle:INST_BTN1Pulse|btn_cntr[12]                                ;
+; top_level:Inst_top_level|btn_debounce_toggle:Inst_Key1|btn_cntr[11]                                                    ; Merged with top_level:Inst_top_level|btn_debounce_toggle:INST_BTN1Pulse|btn_cntr[11]                                ;
+; top_level:Inst_top_level|btn_debounce_toggle:Inst_Key1|btn_cntr[10]                                                    ; Merged with top_level:Inst_top_level|btn_debounce_toggle:INST_BTN1Pulse|btn_cntr[10]                                ;
+; top_level:Inst_top_level|btn_debounce_toggle:Inst_Key1|btn_cntr[9]                                                     ; Merged with top_level:Inst_top_level|btn_debounce_toggle:INST_BTN1Pulse|btn_cntr[9]                                 ;
+; top_level:Inst_top_level|btn_debounce_toggle:Inst_Key1|btn_cntr[8]                                                     ; Merged with top_level:Inst_top_level|btn_debounce_toggle:INST_BTN1Pulse|btn_cntr[8]                                 ;
+; top_level:Inst_top_level|btn_debounce_toggle:Inst_Key1|btn_cntr[7]                                                     ; Merged with top_level:Inst_top_level|btn_debounce_toggle:INST_BTN1Pulse|btn_cntr[7]                                 ;
+; top_level:Inst_top_level|btn_debounce_toggle:Inst_Key1|btn_cntr[6]                                                     ; Merged with top_level:Inst_top_level|btn_debounce_toggle:INST_BTN1Pulse|btn_cntr[6]                                 ;
+; top_level:Inst_top_level|btn_debounce_toggle:Inst_Key1|btn_cntr[5]                                                     ; Merged with top_level:Inst_top_level|btn_debounce_toggle:INST_BTN1Pulse|btn_cntr[5]                                 ;
+; top_level:Inst_top_level|btn_debounce_toggle:Inst_Key1|btn_cntr[4]                                                     ; Merged with top_level:Inst_top_level|btn_debounce_toggle:INST_BTN1Pulse|btn_cntr[4]                                 ;
+; top_level:Inst_top_level|btn_debounce_toggle:Inst_Key1|btn_cntr[3]                                                     ; Merged with top_level:Inst_top_level|btn_debounce_toggle:INST_BTN1Pulse|btn_cntr[3]                                 ;
+; top_level:Inst_top_level|btn_debounce_toggle:Inst_Key1|btn_cntr[2]                                                     ; Merged with top_level:Inst_top_level|btn_debounce_toggle:INST_BTN1Pulse|btn_cntr[2]                                 ;
+; top_level:Inst_top_level|btn_debounce_toggle:Inst_Key1|btn_cntr[1]                                                     ; Merged with top_level:Inst_top_level|btn_debounce_toggle:INST_BTN1Pulse|btn_cntr[1]                                 ;
+; top_level:Inst_top_level|btn_debounce_toggle:Inst_Key1|btn_reg                                                         ; Merged with top_level:Inst_top_level|btn_debounce_toggle:INST_BTN1Pulse|btn_reg                                     ;
+; top_level:Inst_top_level|btn_debounce_toggle:Inst_Key1|btn_cntr[0]                                                     ; Merged with top_level:Inst_top_level|btn_debounce_toggle:INST_BTN1Pulse|btn_cntr[0]                                 ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|i2c_master:INST_I2C_master|addr_rw[4,5,7]             ; Merged with top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|i2c_master:INST_I2C_master|addr_rw[0]  ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|i2c_master:INST_I2C_master|data_tx[1]                 ; Merged with top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|i2c_master:INST_I2C_master|addr_rw[0]  ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|i2c_master:INST_I2C_master|addr_rw[2,3,6]             ; Merged with top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|i2c_master:INST_I2C_master|addr_rw[1]  ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|i2c_master:INST_I2C_master|data_tx[3]                 ; Merged with top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|i2c_master:INST_I2C_master|addr_rw[1]  ;
+; top_level:Inst_top_level|ADC_I2C_user_logic:INST_ADC_I2C_USRLOGIC|i2c_master:INST_I2C_master|addr_rw[7]                ; Merged with top_level:Inst_top_level|ADC_I2C_user_logic:INST_ADC_I2C_USRLOGIC|i2c_master:INST_I2C_master|addr_rw[4] ;
+; top_level:Inst_top_level|ADC_I2C_user_logic:INST_ADC_I2C_USRLOGIC|i2c_master:INST_I2C_master|addr_rw[2,3,5,6]          ; Merged with top_level:Inst_top_level|ADC_I2C_user_logic:INST_ADC_I2C_USRLOGIC|i2c_master:INST_I2C_master|addr_rw[1] ;
+; top_level:Inst_top_level|ADC_I2C_user_logic:INST_ADC_I2C_USRLOGIC|i2c_master:INST_I2C_master|data_tx[2..7]             ; Merged with top_level:Inst_top_level|ADC_I2C_user_logic:INST_ADC_I2C_USRLOGIC|i2c_master:INST_I2C_master|addr_rw[1] ;
+; top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|N[0..2,18..31]                                                   ; Stuck at GND due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|i2c_master:INST_I2C_master|addr_rw[0]                 ; Stuck at GND due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|ADC_I2C_user_logic:INST_ADC_I2C_USRLOGIC|i2c_master:INST_I2C_master|addr_rw[1]                ; Stuck at GND due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|i2c_master:INST_I2C_master|addr_rw[1]                 ; Stuck at VCC due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|ADC_I2C_user_logic:INST_ADC_I2C_USRLOGIC|i2c_master:INST_I2C_master|addr_rw[4]                ; Stuck at VCC due to stuck port data_in                                                                              ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data1[38,40,44,45,50,54,56,58,63,76,85,86,93,94] ; Merged with top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data[77]                          ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data[35,44,45,63,73]                             ; Merged with top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data[77]                          ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data1[33,35,41,43,49,57,59,67,73,80,81,84]       ; Merged with top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|prev_data1[92]                         ;
+; top_level:Inst_top_level|ADC_I2C_user_logic:INST_ADC_I2C_USRLOGIC|State.stop                                           ; Stuck at GND due to stuck port data_in                                                                              ;
+; Total Number of Removed Registers = 267                                                                                ;                                                                                                                     ;
++------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                                                                        ;
++------------------------------------------------------------------------------+---------------------------+---------------------------------------------------------------------------------------------------------+
+; Register name                                                                ; Reason for Removal        ; Registers Removed due to This Register                                                                  ;
++------------------------------------------------------------------------------+---------------------------+---------------------------------------------------------------------------------------------------------+
+; top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|n3[0]                  ; Stuck at GND              ; top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|N[24],                                            ;
+;                                                                              ; due to stuck port data_in ; top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|N[25],                                            ;
+;                                                                              ;                           ; top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|N[26],                                            ;
+;                                                                              ;                           ; top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|N[27],                                            ;
+;                                                                              ;                           ; top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|N[28],                                            ;
+;                                                                              ;                           ; top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|N[29],                                            ;
+;                                                                              ;                           ; top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|N[30],                                            ;
+;                                                                              ;                           ; top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|N[31]                                             ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|rw_sig      ; Stuck at GND              ; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|i2c_master:INST_I2C_master|addr_rw[0]  ;
+;                                                                              ; due to stuck port data_in ;                                                                                                         ;
+; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|address[0]  ; Stuck at VCC              ; top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|i2c_master:INST_I2C_master|addr_rw[1]  ;
+;                                                                              ; due to stuck port data_in ;                                                                                                         ;
+; top_level:Inst_top_level|ADC_I2C_user_logic:INST_ADC_I2C_USRLOGIC|address[0] ; Stuck at GND              ; top_level:Inst_top_level|ADC_I2C_user_logic:INST_ADC_I2C_USRLOGIC|i2c_master:INST_I2C_master|addr_rw[1] ;
+;                                                                              ; due to stuck port data_in ;                                                                                                         ;
+; top_level:Inst_top_level|ADC_I2C_user_logic:INST_ADC_I2C_USRLOGIC|address[3] ; Stuck at VCC              ; top_level:Inst_top_level|ADC_I2C_user_logic:INST_ADC_I2C_USRLOGIC|i2c_master:INST_I2C_master|addr_rw[4] ;
+;                                                                              ; due to stuck port data_in ;                                                                                                         ;
++------------------------------------------------------------------------------+---------------------------+---------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------+
+; 3:1                ; 6 bits    ; 12 LEs        ; 0 LEs                ; 12 LEs                 ; Yes        ; |DE2_115|top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|i2c_master:INST_I2C_master|data_tx[7]  ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 0 LEs                ; 4 LEs                  ; Yes        ; |DE2_115|top_level:Inst_top_level|ADC_I2C_user_logic:INST_ADC_I2C_USRLOGIC|byteSel_prev[1]                       ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 0 LEs                ; 6 LEs                  ; Yes        ; |DE2_115|top_level:Inst_top_level|ADC_I2C_user_logic:INST_ADC_I2C_USRLOGIC|i2c_master:INST_I2C_master|data_tx[1] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |DE2_115|top_level:Inst_top_level|btn_debounce_toggle:Inst_Key0|btn_cntr[15]                                     ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |DE2_115|top_level:Inst_top_level|btn_debounce_toggle:Inst_Key2|btn_cntr[2]                                      ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |DE2_115|top_level:Inst_top_level|btn_debounce_toggle:INST_BTN1Pulse|btn_cntr[14]                                ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |DE2_115|top_level:Inst_top_level|btn_debounce_toggle:INST_DebouncedKey0|btn_cntr[6]                             ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |DE2_115|top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|i2c_master:INST_I2C_master|bit_cnt[2]  ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |DE2_115|top_level:Inst_top_level|ADC_I2C_user_logic:INST_ADC_I2C_USRLOGIC|i2c_master:INST_I2C_master|bit_cnt[2] ;
+; 6:1                ; 14 bits   ; 56 LEs        ; 14 LEs               ; 42 LEs                 ; Yes        ; |DE2_115|top_level:Inst_top_level|ADC_I2C_user_logic:INST_ADC_I2C_USRLOGIC|Counter[4]                            ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |DE2_115|top_level:Inst_top_level|Main2State_Machine:INST_StateMachine|current_state.PWM_mode                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: top_level:Inst_top_level|ADC_I2C_user_logic:INST_ADC_I2C_USRLOGIC|i2c_master:INST_I2C_master ;
++----------------+----------+---------------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value    ; Type                                                                                                          ;
++----------------+----------+---------------------------------------------------------------------------------------------------------------+
+; input_clk      ; 50000000 ; Signed Integer                                                                                                ;
+; bus_clk        ; 100000   ; Signed Integer                                                                                                ;
++----------------+----------+---------------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|i2c_master:INST_I2C_master ;
++----------------+----------+--------------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value    ; Type                                                                                                         ;
++----------------+----------+--------------------------------------------------------------------------------------------------------------+
+; input_clk      ; 50000000 ; Signed Integer                                                                                               ;
+; bus_clk        ; 100000   ; Signed Integer                                                                                               ;
++----------------+----------+--------------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: top_level:Inst_top_level|btn_debounce_toggle:Inst_Key0 ;
++----------------+------------------+-----------------------------------------------------------------+
+; Parameter Name ; Value            ; Type                                                            ;
++----------------+------------------+-----------------------------------------------------------------+
+; cntr_max       ; 1111111111111111 ; Unsigned Binary                                                 ;
++----------------+------------------+-----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: top_level:Inst_top_level|btn_debounce_toggle:Inst_Key1 ;
++----------------+------------------+-----------------------------------------------------------------+
+; Parameter Name ; Value            ; Type                                                            ;
++----------------+------------------+-----------------------------------------------------------------+
+; cntr_max       ; 1111111111111111 ; Unsigned Binary                                                 ;
++----------------+------------------+-----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: top_level:Inst_top_level|btn_debounce_toggle:Inst_Key2 ;
++----------------+------------------+-----------------------------------------------------------------+
+; Parameter Name ; Value            ; Type                                                            ;
++----------------+------------------+-----------------------------------------------------------------+
+; cntr_max       ; 1111111111111111 ; Unsigned Binary                                                 ;
++----------------+------------------+-----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: top_level:Inst_top_level|btn_debounce_toggle:INST_DebouncedKey0 ;
++----------------+------------------+--------------------------------------------------------------------------+
+; Parameter Name ; Value            ; Type                                                                     ;
++----------------+------------------+--------------------------------------------------------------------------+
+; cntr_max       ; 0000000000000001 ; Unsigned Binary                                                          ;
++----------------+------------------+--------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: top_level:Inst_top_level|btn_debounce_toggle:INST_BTN1Pulse ;
++----------------+------------------+----------------------------------------------------------------------+
+; Parameter Name ; Value            ; Type                                                                 ;
++----------------+------------------+----------------------------------------------------------------------+
+; cntr_max       ; 1111111111111111 ; Unsigned Binary                                                      ;
++----------------+------------------+----------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: top_level:Inst_top_level|PWM:INST_PWM0 ;
++----------------+-------+------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                       ;
++----------------+-------+------------------------------------------------------------+
+; n              ; 8     ; Signed Integer                                             ;
++----------------+-------+------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|lpm_mult:Mult0 ;
++------------------------------------------------+--------------+-------------------------------------------------------+
+; Parameter Name                                 ; Value        ; Type                                                  ;
++------------------------------------------------+--------------+-------------------------------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY                                            ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY                                          ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE                                          ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE                                        ;
+; LPM_WIDTHA                                     ; 9            ; Untyped                                               ;
+; LPM_WIDTHB                                     ; 9            ; Untyped                                               ;
+; LPM_WIDTHP                                     ; 18           ; Untyped                                               ;
+; LPM_WIDTHR                                     ; 18           ; Untyped                                               ;
+; LPM_WIDTHS                                     ; 1            ; Untyped                                               ;
+; LPM_REPRESENTATION                             ; SIGNED       ; Untyped                                               ;
+; LPM_PIPELINE                                   ; 0            ; Untyped                                               ;
+; LATENCY                                        ; 0            ; Untyped                                               ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped                                               ;
+; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped                                               ;
+; USE_EAB                                        ; OFF          ; Untyped                                               ;
+; MAXIMIZE_SPEED                                 ; 5            ; Untyped                                               ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped                                               ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped                                               ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K                                   ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped                                               ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped                                               ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped                                               ;
+; CBXI_PARAMETER                                 ; mult_b3t     ; Untyped                                               ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped                                               ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped                                               ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped                                               ;
++------------------------------------------------+--------------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------+
+; Partition Dependent Files                                                                ;
++-------------------------+-------------------+---------+----------------------------------+
+; File                    ; Location          ; Library ; Checksum                         ;
++-------------------------+-------------------+---------+----------------------------------+
+; ADC_I2C_user_logic.vhd  ; Project Directory ; work    ; 064740e50fd417fbfbc47a27d525d3bf ;
+; btn_debounce_toggle.vhd ; Project Directory ; work    ; e733bd2d1c661da2507ac480622f0282 ;
+; ClockGeneration.vhd     ; Project Directory ; work    ; 8d02a4793c6c7c92e912ab8656448665 ;
+; DE2_115.vhd             ; Project Directory ; work    ; 19f456b4e6134480fb6350d1c54adf4f ;
+; i2c_master_2.1.vhd      ; Project Directory ; work    ; 37d6f06320456747eab7c6879af4f785 ;
+; I2C_user_logic.vhd      ; Project Directory ; work    ; 7b3ede24d894e575ec96f1c3880c5791 ;
+; PWM.vhd                 ; Project Directory ; work    ; a6c2f828e1baed0b84f892ea94c9cde0 ;
+; reset_delay.vhd         ; Project Directory ; work    ; 7baa51f45faf37808282ebd27542e876 ;
+; state_machine.vhd       ; Project Directory ; work    ; e22e50a1127bb760a58f8faa868f812e ;
+; top_level.vhd           ; Project Directory ; work    ; e1cf9fbac8ece80943e1bb50191dcb2f ;
++-------------------------+-------------------+---------+----------------------------------+
+
+
++--------------------------------------------------------------------+
+; Port Connectivity Checks: "top_level:Inst_top_level|PWM:INST_PWM0" ;
++----------+-------+----------+--------------------------------------+
+; Port     ; Type  ; Severity ; Details                              ;
++----------+-------+----------+--------------------------------------+
+; pwmstate ; Input ; Info     ; Stuck at GND                         ;
++----------+-------+----------+--------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "top_level:Inst_top_level|btn_debounce_toggle:INST_BTN1Pulse"                            ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; btn_o    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; toggle_o ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "top_level:Inst_top_level|btn_debounce_toggle:INST_DebouncedKey0"                        ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; btn_o    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; toggle_o ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "top_level:Inst_top_level|btn_debounce_toggle:Inst_Key2"                                 ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; toggle_o ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; pulse_o  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "top_level:Inst_top_level|btn_debounce_toggle:Inst_Key1"                                 ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; toggle_o ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; pulse_o  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "top_level:Inst_top_level|btn_debounce_toggle:Inst_Key0"                                 ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; toggle_o ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; pulse_o  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic|i2c_master:INST_I2C_master" ;
++------------+--------+----------+----------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                                ;
++------------+--------+----------+----------------------------------------------------------------------------------------+
+; data_wr[3] ; Input  ; Info     ; Stuck at VCC                                                                           ;
+; data_wr[1] ; Input  ; Info     ; Stuck at GND                                                                           ;
+; data_rd    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.    ;
+; ack_error  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.    ;
++------------+--------+----------+----------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic" ;
++---------------------------+-------+----------+-----------------------------------------------+
+; Port                      ; Type  ; Severity ; Details                                       ;
++---------------------------+-------+----------+-----------------------------------------------+
+; firstlineinput[127..126]  ; Input ; Info     ; Stuck at GND                                  ;
+; firstlineinput[124..118]  ; Input ; Info     ; Stuck at GND                                  ;
+; firstlineinput[116..110]  ; Input ; Info     ; Stuck at GND                                  ;
+; firstlineinput[108..102]  ; Input ; Info     ; Stuck at GND                                  ;
+; firstlineinput[100..95]   ; Input ; Info     ; Stuck at GND                                  ;
+; firstlineinput[91..90]    ; Input ; Info     ; Stuck at GND                                  ;
+; firstlineinput[61..60]    ; Input ; Info     ; Stuck at GND                                  ;
+; firstlineinput[31..30]    ; Input ; Info     ; Stuck at GND                                  ;
+; firstlineinput[28..22]    ; Input ; Info     ; Stuck at GND                                  ;
+; firstlineinput[20..14]    ; Input ; Info     ; Stuck at GND                                  ;
+; firstlineinput[12..6]     ; Input ; Info     ; Stuck at GND                                  ;
+; firstlineinput[4..0]      ; Input ; Info     ; Stuck at GND                                  ;
+; firstlineinput[125]       ; Input ; Info     ; Stuck at VCC                                  ;
+; firstlineinput[117]       ; Input ; Info     ; Stuck at VCC                                  ;
+; firstlineinput[109]       ; Input ; Info     ; Stuck at VCC                                  ;
+; firstlineinput[101]       ; Input ; Info     ; Stuck at VCC                                  ;
+; firstlineinput[87]        ; Input ; Info     ; Stuck at GND                                  ;
+; firstlineinput[82]        ; Input ; Info     ; Stuck at VCC                                  ;
+; firstlineinput[79]        ; Input ; Info     ; Stuck at GND                                  ;
+; firstlineinput[78]        ; Input ; Info     ; Stuck at VCC                                  ;
+; firstlineinput[77]        ; Input ; Info     ; Stuck at GND                                  ;
+; firstlineinput[75]        ; Input ; Info     ; Stuck at VCC                                  ;
+; firstlineinput[72]        ; Input ; Info     ; Stuck at VCC                                  ;
+; firstlineinput[71]        ; Input ; Info     ; Stuck at GND                                  ;
+; firstlineinput[62]        ; Input ; Info     ; Stuck at VCC                                  ;
+; firstlineinput[55]        ; Input ; Info     ; Stuck at GND                                  ;
+; firstlineinput[53]        ; Input ; Info     ; Stuck at VCC                                  ;
+; firstlineinput[52]        ; Input ; Info     ; Stuck at GND                                  ;
+; firstlineinput[48]        ; Input ; Info     ; Stuck at VCC                                  ;
+; firstlineinput[47]        ; Input ; Info     ; Stuck at GND                                  ;
+; firstlineinput[46]        ; Input ; Info     ; Stuck at VCC                                  ;
+; firstlineinput[42]        ; Input ; Info     ; Stuck at VCC                                  ;
+; firstlineinput[39]        ; Input ; Info     ; Stuck at GND                                  ;
+; firstlineinput[37]        ; Input ; Info     ; Stuck at VCC                                  ;
+; firstlineinput[34]        ; Input ; Info     ; Stuck at VCC                                  ;
+; firstlineinput[29]        ; Input ; Info     ; Stuck at VCC                                  ;
+; firstlineinput[21]        ; Input ; Info     ; Stuck at VCC                                  ;
+; firstlineinput[13]        ; Input ; Info     ; Stuck at VCC                                  ;
+; firstlineinput[5]         ; Input ; Info     ; Stuck at VCC                                  ;
+; secondlineinput[122..121] ; Input ; Info     ; Stuck at GND                                  ;
+; secondlineinput[113..111] ; Input ; Info     ; Stuck at GND                                  ;
+; secondlineinput[80..79]   ; Input ; Info     ; Stuck at GND                                  ;
+; secondlineinput[12..11]   ; Input ; Info     ; Stuck at GND                                  ;
+; secondlineinput[127]      ; Input ; Info     ; Stuck at GND                                  ;
+; secondlineinput[124]      ; Input ; Info     ; Stuck at GND                                  ;
+; secondlineinput[119]      ; Input ; Info     ; Stuck at GND                                  ;
+; secondlineinput[115]      ; Input ; Info     ; Stuck at GND                                  ;
+; secondlineinput[108]      ; Input ; Info     ; Stuck at GND                                  ;
+; secondlineinput[103]      ; Input ; Info     ; Stuck at GND                                  ;
+; secondlineinput[101]      ; Input ; Info     ; Stuck at VCC                                  ;
+; secondlineinput[97]       ; Input ; Info     ; Stuck at GND                                  ;
+; secondlineinput[95]       ; Input ; Info     ; Stuck at GND                                  ;
+; secondlineinput[93]       ; Input ; Info     ; Stuck at VCC                                  ;
+; secondlineinput[89]       ; Input ; Info     ; Stuck at GND                                  ;
+; secondlineinput[87]       ; Input ; Info     ; Stuck at GND                                  ;
+; secondlineinput[71]       ; Input ; Info     ; Stuck at GND                                  ;
+; secondlineinput[69]       ; Input ; Info     ; Stuck at VCC                                  ;
+; secondlineinput[68]       ; Input ; Info     ; Stuck at GND                                  ;
+; secondlineinput[62]       ; Input ; Info     ; Stuck at VCC                                  ;
+; secondlineinput[55]       ; Input ; Info     ; Stuck at GND                                  ;
+; secondlineinput[53]       ; Input ; Info     ; Stuck at VCC                                  ;
+; secondlineinput[49]       ; Input ; Info     ; Stuck at GND                                  ;
+; secondlineinput[47]       ; Input ; Info     ; Stuck at GND                                  ;
+; secondlineinput[39]       ; Input ; Info     ; Stuck at GND                                  ;
+; secondlineinput[37]       ; Input ; Info     ; Stuck at VCC                                  ;
+; secondlineinput[31]       ; Input ; Info     ; Stuck at GND                                  ;
+; secondlineinput[23]       ; Input ; Info     ; Stuck at GND                                  ;
+; secondlineinput[19]       ; Input ; Info     ; Stuck at GND                                  ;
+; secondlineinput[15]       ; Input ; Info     ; Stuck at GND                                  ;
+; secondlineinput[13]       ; Input ; Info     ; Stuck at VCC                                  ;
+; secondlineinput[9]        ; Input ; Info     ; Stuck at GND                                  ;
+; secondlineinput[7]        ; Input ; Info     ; Stuck at GND                                  ;
+; secondlineinput[5]        ; Input ; Info     ; Stuck at VCC                                  ;
+; secondlineinput[4]        ; Input ; Info     ; Stuck at GND                                  ;
+; secondlineinput[0]        ; Input ; Info     ; Stuck at GND                                  ;
++---------------------------+-------+----------+-----------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "top_level:Inst_top_level|ADC_I2C_user_logic:INST_ADC_I2C_USRLOGIC|i2c_master:INST_I2C_master" ;
++---------------+--------+----------+--------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                              ;
++---------------+--------+----------+--------------------------------------------------------------------------------------+
+; data_wr[7..2] ; Input  ; Info     ; Stuck at GND                                                                         ;
+; ack_error     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.  ;
++---------------+--------+----------+--------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:03     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
+    Info: Processing started: Tue Feb 20 14:29:24 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Project3 -c EE316Project3
+Info (11104): Parallel Compilation has detected 12 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 6 of the 6 physical processors detected instead.
+Info (12021): Found 2 design units, including 1 entities, in source file clockgeneration.vhd
+    Info (12022): Found design unit 1: ClockGeneration-Behavioral
+    Info (12023): Found entity 1: ClockGeneration
+Info (12021): Found 2 design units, including 1 entities, in source file top_level.vhd
+    Info (12022): Found design unit 1: top_level-Structural
+    Info (12023): Found entity 1: top_level
+Info (12021): Found 2 design units, including 1 entities, in source file reset_delay.vhd
+    Info (12022): Found design unit 1: Reset_Delay-Arch
+    Info (12023): Found entity 1: Reset_Delay
+Info (12021): Found 2 design units, including 1 entities, in source file de2_115.vhd
+    Info (12022): Found design unit 1: DE2_115-structural
+    Info (12023): Found entity 1: DE2_115
+Info (12021): Found 2 design units, including 1 entities, in source file i2c_master_2.1.vhd
+    Info (12022): Found design unit 1: i2c_master-logic
+    Info (12023): Found entity 1: i2c_master
+Info (12021): Found 2 design units, including 1 entities, in source file i2c_user_logic.vhd
+    Info (12022): Found design unit 1: LCDI2C_user_logic-Behavioral
+    Info (12023): Found entity 1: LCDI2C_user_logic
+Info (12021): Found 2 design units, including 1 entities, in source file adc_i2c_user_logic.vhd
+    Info (12022): Found design unit 1: ADC_I2C_user_logic-Behavioral
+    Info (12023): Found entity 1: ADC_I2C_user_logic
+Info (12021): Found 2 design units, including 1 entities, in source file state_machine.vhd
+    Info (12022): Found design unit 1: Main2State_Machine-Behavioral
+    Info (12023): Found entity 1: Main2State_Machine
+Info (12021): Found 2 design units, including 1 entities, in source file pwm.vhd
+    Info (12022): Found design unit 1: PWM-Behavioral
+    Info (12023): Found entity 1: PWM
+Info (12127): Elaborating entity "DE2_115" for the top level hierarchy
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(16): used implicit default value for signal "HEX0" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(17): used implicit default value for signal "HEX1" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(18): used implicit default value for signal "HEX2" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(19): used implicit default value for signal "HEX3" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(25): used implicit default value for signal "LEDG" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(28): used implicit default value for signal "UART_CTS" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(30): used implicit default value for signal "UART_TXD" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(33): used implicit default value for signal "IRDA_TXD" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(37): used implicit default value for signal "DRAM_ADDR" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(38): used implicit default value for signal "DRAM_DQM" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(39): used implicit default value for signal "DRAM_WE_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(40): used implicit default value for signal "DRAM_CAS_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(41): used implicit default value for signal "DRAM_RAS_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(42): used implicit default value for signal "DRAM_CS_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(43): used implicit default value for signal "DRAM_BA" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(44): used implicit default value for signal "DRAM_CLK" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(45): used implicit default value for signal "DRAM_CKE" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(48): used implicit default value for signal "FL_ADDR" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(49): used implicit default value for signal "FL_WE_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(50): used implicit default value for signal "FL_RST_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(51): used implicit default value for signal "FL_OE_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(52): used implicit default value for signal "FL_CE_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(54): used implicit default value for signal "FL_WP_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(57): used implicit default value for signal "SRAM_ADDR" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(58): used implicit default value for signal "SRAM_UB_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(59): used implicit default value for signal "SRAM_LB_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(60): used implicit default value for signal "SRAM_WE_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(61): used implicit default value for signal "SRAM_CE_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(62): used implicit default value for signal "SRAM_OE_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(65): used implicit default value for signal "OTG_ADDR" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(66): used implicit default value for signal "OTG_CS_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(67): used implicit default value for signal "OTG_RD_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(68): used implicit default value for signal "OTG_WR_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(69): used implicit default value for signal "OTG_RST_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(74): used implicit default value for signal "OTG_DACK_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(76): used implicit default value for signal "LCD_ON" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(77): used implicit default value for signal "LCD_BLON" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(78): used implicit default value for signal "LCD_RW" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(79): used implicit default value for signal "LCD_EN" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(80): used implicit default value for signal "LCD_RS" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(89): used implicit default value for signal "I2C_SCLK" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(96): used implicit default value for signal "VGA_CLK" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(97): used implicit default value for signal "VGA_HS" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(98): used implicit default value for signal "VGA_VS" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(99): used implicit default value for signal "VGA_BLANK_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(100): used implicit default value for signal "VGA_SYNC_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(101): used implicit default value for signal "VGA_R" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(102): used implicit default value for signal "VGA_G" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(103): used implicit default value for signal "VGA_B" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(106): used implicit default value for signal "ENET_CMD" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(107): used implicit default value for signal "ENET_CS_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(108): used implicit default value for signal "ENET_WR_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(109): used implicit default value for signal "ENET_RD_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(110): used implicit default value for signal "ENET_RST_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(112): used implicit default value for signal "ENET_CLK" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(117): used implicit default value for signal "AUD_DACDAT" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(119): used implicit default value for signal "AUD_XCK" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(125): used implicit default value for signal "TD_RESET_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10873): Using initial value X (don't care) for net "LEDR[17..1]" at DE2_115.vhd(26)
+Info (12128): Elaborating entity "top_level" for hierarchy "top_level:Inst_top_level"
+Warning (10541): VHDL Signal Declaration warning at top_level.vhd(146): used implicit default value for signal "I2CandLCDData" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at top_level.vhd(153): used implicit default value for signal "PWMmode" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10492): VHDL Process Statement warning at top_level.vhd(214): signal "oPwm0" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at top_level.vhd(198): inferring latch(es) for signal or variable "oLed0", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at top_level.vhd(198): inferring latch(es) for signal or variable "oLed1", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at top_level.vhd(198): inferring latch(es) for signal or variable "oLed2", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at top_level.vhd(198): inferring latch(es) for signal or variable "oLed3", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at top_level.vhd(198): inferring latch(es) for signal or variable "PWN_module", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at top_level.vhd(198): inferring latch(es) for signal or variable "FirstLine", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at top_level.vhd(198): inferring latch(es) for signal or variable "SecondLine", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at top_level.vhd(198): inferring latch(es) for signal or variable "FinaloPWM", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at top_level.vhd(198): inferring latch(es) for signal or variable "next_pwmstate", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at top_level.vhd(198): inferring latch(es) for signal or variable "next_clkgenstate", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "next_clkgenstate.Module4" at top_level.vhd(198)
+Info (10041): Inferred latch for "next_clkgenstate.Module2" at top_level.vhd(198)
+Info (10041): Inferred latch for "next_clkgenstate.Module1" at top_level.vhd(198)
+Info (10041): Inferred latch for "next_pwmstate.PModule4" at top_level.vhd(198)
+Info (10041): Inferred latch for "next_pwmstate.PModule3" at top_level.vhd(198)
+Info (10041): Inferred latch for "next_pwmstate.PModule2" at top_level.vhd(198)
+Info (10041): Inferred latch for "next_pwmstate.PModule1" at top_level.vhd(198)
+Info (10041): Inferred latch for "FinaloPWM" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[0]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[1]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[2]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[3]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[4]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[5]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[6]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[7]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[8]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[9]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[10]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[11]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[12]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[13]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[14]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[15]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[16]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[17]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[18]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[19]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[20]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[21]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[22]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[23]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[24]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[25]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[26]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[27]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[28]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[29]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[30]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[31]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[32]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[33]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[34]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[35]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[36]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[37]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[38]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[39]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[40]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[41]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[42]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[43]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[44]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[45]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[46]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[47]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[48]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[49]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[50]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[51]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[52]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[53]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[54]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[55]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[56]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[57]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[58]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[59]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[60]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[61]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[62]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[63]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[64]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[65]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[66]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[67]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[68]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[69]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[70]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[71]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[72]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[73]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[74]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[75]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[76]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[77]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[78]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[79]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[80]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[81]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[82]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[83]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[84]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[85]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[86]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[87]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[88]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[89]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[90]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[91]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[92]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[93]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[94]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[95]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[96]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[97]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[98]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[99]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[100]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[101]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[102]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[103]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[104]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[105]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[106]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[107]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[108]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[109]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[110]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[111]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[112]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[113]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[114]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[115]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[116]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[117]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[118]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[119]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[120]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[121]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[122]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[123]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[124]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[125]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[126]" at top_level.vhd(198)
+Info (10041): Inferred latch for "SecondLine[127]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[0]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[1]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[2]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[3]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[4]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[5]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[6]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[7]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[8]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[9]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[10]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[11]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[12]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[13]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[14]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[15]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[16]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[17]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[18]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[19]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[20]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[21]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[22]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[23]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[24]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[25]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[26]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[27]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[28]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[29]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[30]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[31]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[32]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[33]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[34]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[35]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[36]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[37]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[38]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[39]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[40]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[41]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[42]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[43]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[44]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[45]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[46]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[47]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[48]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[49]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[50]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[51]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[52]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[53]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[54]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[55]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[56]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[57]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[58]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[59]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[60]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[61]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[62]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[63]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[64]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[65]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[66]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[67]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[68]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[69]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[70]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[71]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[72]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[73]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[74]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[75]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[76]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[77]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[78]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[79]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[80]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[81]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[82]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[83]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[84]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[85]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[86]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[87]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[88]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[89]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[90]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[91]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[92]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[93]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[94]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[95]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[96]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[97]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[98]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[99]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[100]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[101]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[102]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[103]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[104]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[105]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[106]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[107]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[108]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[109]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[110]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[111]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[112]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[113]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[114]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[115]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[116]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[117]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[118]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[119]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[120]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[121]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[122]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[123]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[124]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[125]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[126]" at top_level.vhd(198)
+Info (10041): Inferred latch for "FirstLine[127]" at top_level.vhd(198)
+Info (10041): Inferred latch for "PWN_module[0]" at top_level.vhd(198)
+Info (10041): Inferred latch for "PWN_module[1]" at top_level.vhd(198)
+Info (10041): Inferred latch for "oLed3" at top_level.vhd(198)
+Info (10041): Inferred latch for "oLed2" at top_level.vhd(198)
+Info (10041): Inferred latch for "oLed1" at top_level.vhd(198)
+Info (10041): Inferred latch for "oLed0" at top_level.vhd(198)
+Info (12128): Elaborating entity "Main2State_Machine" for hierarchy "top_level:Inst_top_level|Main2State_Machine:INST_StateMachine"
+Warning (10036): Verilog HDL or VHDL warning at state_machine.vhd(29): object "PWM_state_count" assigned a value but never read
+Info (12128): Elaborating entity "ADC_I2C_user_logic" for hierarchy "top_level:Inst_top_level|ADC_I2C_user_logic:INST_ADC_I2C_USRLOGIC"
+Info (12128): Elaborating entity "i2c_master" for hierarchy "top_level:Inst_top_level|ADC_I2C_user_logic:INST_ADC_I2C_USRLOGIC|i2c_master:INST_I2C_master"
+Info (12128): Elaborating entity "LCDI2C_user_logic" for hierarchy "top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic"
+Info (12128): Elaborating entity "Reset_Delay" for hierarchy "top_level:Inst_top_level|Reset_Delay:Inst_clk_Reset_Delay"
+Warning (12125): Using design file btn_debounce_toggle.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: btn_debounce_toggle-Behavioral
+    Info (12023): Found entity 1: btn_debounce_toggle
+Info (12128): Elaborating entity "btn_debounce_toggle" for hierarchy "top_level:Inst_top_level|btn_debounce_toggle:Inst_Key0"
+Info (12128): Elaborating entity "btn_debounce_toggle" for hierarchy "top_level:Inst_top_level|btn_debounce_toggle:INST_DebouncedKey0"
+Info (12128): Elaborating entity "PWM" for hierarchy "top_level:Inst_top_level|PWM:INST_PWM0"
+Warning (10492): VHDL Process Statement warning at PWM.vhd(35): signal "PWMState_Sig" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (12128): Elaborating entity "ClockGeneration" for hierarchy "top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN"
+Warning (10540): VHDL Signal Declaration warning at ClockGeneration.vhd(13): used explicit default value for signal "clock_enable" because signal was never assigned a value
+Info (12205): 1 design partition requires Analysis and Synthesis
+    Info (12211): Partition "Top" requires synthesis because there were changes to its dependent source files
+Info (12209): No design partitions will skip synthesis in the current incremental compilation
+Info (278001): Inferred 1 megafunctions from design logic
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|Mult0"
+Info (12130): Elaborated megafunction instantiation "top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|lpm_mult:Mult0"
+Info (12133): Instantiated megafunction "top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|lpm_mult:Mult0" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTHA" = "9"
+    Info (12134): Parameter "LPM_WIDTHB" = "9"
+    Info (12134): Parameter "LPM_WIDTHP" = "18"
+    Info (12134): Parameter "LPM_WIDTHR" = "18"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_b3t.tdf
+    Info (12023): Found entity 1: mult_b3t
+Info (281020): Starting Logic Optimization and Technology Mapping for Top Partition
+Warning (13034): The following nodes have both tri-state and non-tri-state drivers
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[27]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[28]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[29]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[30]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[32]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[34]" and its non-tri-state driver.
+Warning (13039): The following bidir pins have no drivers
+    Warning (13040): Bidir "GPIO[0]" has no driver
+    Warning (13040): Bidir "GPIO[2]" has no driver
+    Warning (13040): Bidir "GPIO[4]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[0]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[1]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[2]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[3]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[4]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[5]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[6]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[7]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[8]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[9]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[10]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[11]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[12]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[13]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[14]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[15]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[16]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[17]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[18]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[19]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[20]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[21]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[22]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[23]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[24]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[25]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[26]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[27]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[28]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[29]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[30]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[31]" has no driver
+    Warning (13040): Bidir "FL_DQ[0]" has no driver
+    Warning (13040): Bidir "FL_DQ[1]" has no driver
+    Warning (13040): Bidir "FL_DQ[2]" has no driver
+    Warning (13040): Bidir "FL_DQ[3]" has no driver
+    Warning (13040): Bidir "FL_DQ[4]" has no driver
+    Warning (13040): Bidir "FL_DQ[5]" has no driver
+    Warning (13040): Bidir "FL_DQ[6]" has no driver
+    Warning (13040): Bidir "FL_DQ[7]" has no driver
+    Warning (13040): Bidir "SRAM_DQ[0]" has no driver
+    Warning (13040): Bidir "SRAM_DQ[1]" has no driver
+    Warning (13040): Bidir "SRAM_DQ[2]" has no driver
+    Warning (13040): Bidir "SRAM_DQ[3]" has no driver
+    Warning (13040): Bidir "SRAM_DQ[4]" has no driver
+    Warning (13040): Bidir "SRAM_DQ[5]" has no driver
+    Warning (13040): Bidir "SRAM_DQ[6]" has no driver
+    Warning (13040): Bidir "SRAM_DQ[7]" has no driver
+    Warning (13040): Bidir "SRAM_DQ[8]" has no driver
+    Warning (13040): Bidir "SRAM_DQ[9]" has no driver
+    Warning (13040): Bidir "SRAM_DQ[10]" has no driver
+    Warning (13040): Bidir "SRAM_DQ[11]" has no driver
+    Warning (13040): Bidir "SRAM_DQ[12]" has no driver
+    Warning (13040): Bidir "SRAM_DQ[13]" has no driver
+    Warning (13040): Bidir "SRAM_DQ[14]" has no driver
+    Warning (13040): Bidir "SRAM_DQ[15]" has no driver
+    Warning (13040): Bidir "OTG_DATA[0]" has no driver
+    Warning (13040): Bidir "OTG_DATA[1]" has no driver
+    Warning (13040): Bidir "OTG_DATA[2]" has no driver
+    Warning (13040): Bidir "OTG_DATA[3]" has no driver
+    Warning (13040): Bidir "OTG_DATA[4]" has no driver
+    Warning (13040): Bidir "OTG_DATA[5]" has no driver
+    Warning (13040): Bidir "OTG_DATA[6]" has no driver
+    Warning (13040): Bidir "OTG_DATA[7]" has no driver
+    Warning (13040): Bidir "OTG_DATA[8]" has no driver
+    Warning (13040): Bidir "OTG_DATA[9]" has no driver
+    Warning (13040): Bidir "OTG_DATA[10]" has no driver
+    Warning (13040): Bidir "OTG_DATA[11]" has no driver
+    Warning (13040): Bidir "OTG_DATA[12]" has no driver
+    Warning (13040): Bidir "OTG_DATA[13]" has no driver
+    Warning (13040): Bidir "OTG_DATA[14]" has no driver
+    Warning (13040): Bidir "OTG_DATA[15]" has no driver
+    Warning (13040): Bidir "OTG_FSPEED" has no driver
+    Warning (13040): Bidir "OTG_LSPEED" has no driver
+    Warning (13040): Bidir "LCD_DATA[0]" has no driver
+    Warning (13040): Bidir "LCD_DATA[1]" has no driver
+    Warning (13040): Bidir "LCD_DATA[2]" has no driver
+    Warning (13040): Bidir "LCD_DATA[3]" has no driver
+    Warning (13040): Bidir "LCD_DATA[4]" has no driver
+    Warning (13040): Bidir "LCD_DATA[5]" has no driver
+    Warning (13040): Bidir "LCD_DATA[6]" has no driver
+    Warning (13040): Bidir "LCD_DATA[7]" has no driver
+    Warning (13040): Bidir "SD_DAT[0]" has no driver
+    Warning (13040): Bidir "SD_DAT[1]" has no driver
+    Warning (13040): Bidir "SD_DAT[2]" has no driver
+    Warning (13040): Bidir "SD_DAT[3]" has no driver
+    Warning (13040): Bidir "SD_CMD" has no driver
+    Warning (13040): Bidir "SD_CLK" has no driver
+    Warning (13040): Bidir "I2C_SDAT" has no driver
+    Warning (13040): Bidir "PS2_DAT" has no driver
+    Warning (13040): Bidir "PS2_CLK" has no driver
+    Warning (13040): Bidir "PS2_DAT2" has no driver
+    Warning (13040): Bidir "PS2_CLK2" has no driver
+    Warning (13040): Bidir "ENET_DATA[0]" has no driver
+    Warning (13040): Bidir "ENET_DATA[1]" has no driver
+    Warning (13040): Bidir "ENET_DATA[2]" has no driver
+    Warning (13040): Bidir "ENET_DATA[3]" has no driver
+    Warning (13040): Bidir "ENET_DATA[4]" has no driver
+    Warning (13040): Bidir "ENET_DATA[5]" has no driver
+    Warning (13040): Bidir "ENET_DATA[6]" has no driver
+    Warning (13040): Bidir "ENET_DATA[7]" has no driver
+    Warning (13040): Bidir "ENET_DATA[8]" has no driver
+    Warning (13040): Bidir "ENET_DATA[9]" has no driver
+    Warning (13040): Bidir "ENET_DATA[10]" has no driver
+    Warning (13040): Bidir "ENET_DATA[11]" has no driver
+    Warning (13040): Bidir "ENET_DATA[12]" has no driver
+    Warning (13040): Bidir "ENET_DATA[13]" has no driver
+    Warning (13040): Bidir "ENET_DATA[14]" has no driver
+    Warning (13040): Bidir "ENET_DATA[15]" has no driver
+    Warning (13040): Bidir "AUD_ADCLRCK" has no driver
+    Warning (13040): Bidir "AUD_DACLRCK" has no driver
+    Warning (13040): Bidir "AUD_BCLK" has no driver
+    Warning (13040): Bidir "GPIO[5]" has no driver
+    Warning (13040): Bidir "GPIO[6]" has no driver
+    Warning (13040): Bidir "GPIO[7]" has no driver
+    Warning (13040): Bidir "GPIO[8]" has no driver
+    Warning (13040): Bidir "GPIO[9]" has no driver
+    Warning (13040): Bidir "GPIO[10]" has no driver
+    Warning (13040): Bidir "GPIO[11]" has no driver
+    Warning (13040): Bidir "GPIO[12]" has no driver
+    Warning (13040): Bidir "GPIO[13]" has no driver
+    Warning (13040): Bidir "GPIO[14]" has no driver
+    Warning (13040): Bidir "GPIO[15]" has no driver
+    Warning (13040): Bidir "GPIO[16]" has no driver
+    Warning (13040): Bidir "GPIO[17]" has no driver
+    Warning (13040): Bidir "GPIO[18]" has no driver
+    Warning (13040): Bidir "GPIO[19]" has no driver
+    Warning (13040): Bidir "GPIO[20]" has no driver
+    Warning (13040): Bidir "GPIO[21]" has no driver
+    Warning (13040): Bidir "GPIO[22]" has no driver
+    Warning (13040): Bidir "GPIO[23]" has no driver
+    Warning (13040): Bidir "GPIO[24]" has no driver
+    Warning (13040): Bidir "GPIO[25]" has no driver
+    Warning (13040): Bidir "GPIO[26]" has no driver
+    Warning (13040): Bidir "GPIO[31]" has no driver
+Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[38]" merged with LATCH primitive "top_level:Inst_top_level|PWN_module[1]"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[30]" merged with LATCH primitive "top_level:Inst_top_level|PWN_module[1]"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[26]" merged with LATCH primitive "top_level:Inst_top_level|PWN_module[1]"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[24]" merged with LATCH primitive "top_level:Inst_top_level|PWN_module[1]"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[22]" merged with LATCH primitive "top_level:Inst_top_level|PWN_module[1]"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[17]" merged with LATCH primitive "top_level:Inst_top_level|PWN_module[1]"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[8]" merged with LATCH primitive "top_level:Inst_top_level|PWN_module[1]"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[98]" merged with LATCH primitive "top_level:Inst_top_level|PWN_module[1]"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[106]" merged with LATCH primitive "top_level:Inst_top_level|PWN_module[1]"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[107]" merged with LATCH primitive "top_level:Inst_top_level|PWN_module[1]"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[110]" merged with LATCH primitive "top_level:Inst_top_level|PWN_module[1]"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[118]" merged with LATCH primitive "top_level:Inst_top_level|PWN_module[1]"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[65]" merged with LATCH primitive "top_level:Inst_top_level|oLed0"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[66]" merged with LATCH primitive "top_level:Inst_top_level|oLed0"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[60]" merged with LATCH primitive "top_level:Inst_top_level|oLed1"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[28]" merged with LATCH primitive "top_level:Inst_top_level|oLed2"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[27]" merged with LATCH primitive "top_level:Inst_top_level|oLed2"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[25]" merged with LATCH primitive "top_level:Inst_top_level|oLed2"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[18]" merged with LATCH primitive "top_level:Inst_top_level|oLed2"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[16]" merged with LATCH primitive "top_level:Inst_top_level|oLed2"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[14]" merged with LATCH primitive "top_level:Inst_top_level|oLed2"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[10]" merged with LATCH primitive "top_level:Inst_top_level|oLed2"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[6]" merged with LATCH primitive "top_level:Inst_top_level|oLed2"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[3]" merged with LATCH primitive "top_level:Inst_top_level|oLed2"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[2]" merged with LATCH primitive "top_level:Inst_top_level|oLed2"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[1]" merged with LATCH primitive "top_level:Inst_top_level|oLed2"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[84]" merged with LATCH primitive "top_level:Inst_top_level|oLed2"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[91]" merged with LATCH primitive "top_level:Inst_top_level|oLed2"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[92]" merged with LATCH primitive "top_level:Inst_top_level|oLed2"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[96]" merged with LATCH primitive "top_level:Inst_top_level|oLed2"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[99]" merged with LATCH primitive "top_level:Inst_top_level|oLed2"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[114]" merged with LATCH primitive "top_level:Inst_top_level|oLed2"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[120]" merged with LATCH primitive "top_level:Inst_top_level|oLed2"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[123]" merged with LATCH primitive "top_level:Inst_top_level|oLed2"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[126]" merged with LATCH primitive "top_level:Inst_top_level|oLed2"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[36]" merged with LATCH primitive "top_level:Inst_top_level|oLed3"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[20]" merged with LATCH primitive "top_level:Inst_top_level|oLed3"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[56]" merged with LATCH primitive "top_level:Inst_top_level|oLed3"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[81]" merged with LATCH primitive "top_level:Inst_top_level|oLed3"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[88]" merged with LATCH primitive "top_level:Inst_top_level|oLed3"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[90]" merged with LATCH primitive "top_level:Inst_top_level|oLed3"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[94]" merged with LATCH primitive "top_level:Inst_top_level|oLed3"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[100]" merged with LATCH primitive "top_level:Inst_top_level|oLed3"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[102]" merged with LATCH primitive "top_level:Inst_top_level|oLed3"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[104]" merged with LATCH primitive "top_level:Inst_top_level|oLed3"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[105]" merged with LATCH primitive "top_level:Inst_top_level|oLed3"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[116]" merged with LATCH primitive "top_level:Inst_top_level|oLed3"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[67]" merged with LATCH primitive "top_level:Inst_top_level|SecondLine[34]"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[51]" merged with LATCH primitive "top_level:Inst_top_level|SecondLine[34]"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[85]" merged with LATCH primitive "top_level:Inst_top_level|SecondLine[42]"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[76]" merged with LATCH primitive "top_level:Inst_top_level|SecondLine[42]"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[57]" merged with LATCH primitive "top_level:Inst_top_level|SecondLine[42]"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[46]" merged with LATCH primitive "top_level:Inst_top_level|SecondLine[42]"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[61]" merged with LATCH primitive "top_level:Inst_top_level|SecondLine[86]"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[64]" merged with LATCH primitive "top_level:Inst_top_level|SecondLine[86]"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[70]" merged with LATCH primitive "top_level:Inst_top_level|SecondLine[86]"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[83]" merged with LATCH primitive "top_level:Inst_top_level|SecondLine[86]"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[125]" merged with LATCH primitive "top_level:Inst_top_level|SecondLine[78]"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[109]" merged with LATCH primitive "top_level:Inst_top_level|SecondLine[78]"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[21]" merged with LATCH primitive "top_level:Inst_top_level|SecondLine[78]"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[29]" merged with LATCH primitive "top_level:Inst_top_level|SecondLine[78]"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[40]" merged with LATCH primitive "top_level:Inst_top_level|SecondLine[78]"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[50]" merged with LATCH primitive "top_level:Inst_top_level|SecondLine[54]"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[43]" merged with LATCH primitive "top_level:Inst_top_level|SecondLine[33]"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[32]" merged with LATCH primitive "top_level:Inst_top_level|SecondLine[33]"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[41]" merged with LATCH primitive "top_level:Inst_top_level|SecondLine[33]"
+    Info (13026): Duplicate LATCH primitive "top_level:Inst_top_level|SecondLine[72]" merged with LATCH primitive "top_level:Inst_top_level|SecondLine[117]"
+Info (13000): Registers with preset signals will power-up high
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13009): TRI or OPNDRN buffers permanently enabled
+    Warning (13010): Node "GPIO[27]~synth"
+    Warning (13010): Node "GPIO[28]~synth"
+    Warning (13010): Node "GPIO[29]~synth"
+    Warning (13010): Node "GPIO[30]~synth"
+    Warning (13010): Node "GPIO[32]~synth"
+    Warning (13010): Node "GPIO[34]~synth"
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "HEX0[0]" is stuck at GND
+    Warning (13410): Pin "HEX0[1]" is stuck at GND
+    Warning (13410): Pin "HEX0[2]" is stuck at GND
+    Warning (13410): Pin "HEX0[3]" is stuck at GND
+    Warning (13410): Pin "HEX0[4]" is stuck at GND
+    Warning (13410): Pin "HEX0[5]" is stuck at GND
+    Warning (13410): Pin "HEX0[6]" is stuck at GND
+    Warning (13410): Pin "HEX1[0]" is stuck at GND
+    Warning (13410): Pin "HEX1[1]" is stuck at GND
+    Warning (13410): Pin "HEX1[2]" is stuck at GND
+    Warning (13410): Pin "HEX1[3]" is stuck at GND
+    Warning (13410): Pin "HEX1[4]" is stuck at GND
+    Warning (13410): Pin "HEX1[5]" is stuck at GND
+    Warning (13410): Pin "HEX1[6]" is stuck at GND
+    Warning (13410): Pin "HEX2[0]" is stuck at GND
+    Warning (13410): Pin "HEX2[1]" is stuck at GND
+    Warning (13410): Pin "HEX2[2]" is stuck at GND
+    Warning (13410): Pin "HEX2[3]" is stuck at GND
+    Warning (13410): Pin "HEX2[4]" is stuck at GND
+    Warning (13410): Pin "HEX2[5]" is stuck at GND
+    Warning (13410): Pin "HEX2[6]" is stuck at GND
+    Warning (13410): Pin "HEX3[0]" is stuck at GND
+    Warning (13410): Pin "HEX3[1]" is stuck at GND
+    Warning (13410): Pin "HEX3[2]" is stuck at GND
+    Warning (13410): Pin "HEX3[3]" is stuck at GND
+    Warning (13410): Pin "HEX3[4]" is stuck at GND
+    Warning (13410): Pin "HEX3[5]" is stuck at GND
+    Warning (13410): Pin "HEX3[6]" is stuck at GND
+    Warning (13410): Pin "HEX4[1]" is stuck at GND
+    Warning (13410): Pin "HEX5[0]" is stuck at GND
+    Warning (13410): Pin "HEX5[1]" is stuck at GND
+    Warning (13410): Pin "HEX5[2]" is stuck at GND
+    Warning (13410): Pin "HEX5[3]" is stuck at GND
+    Warning (13410): Pin "HEX5[4]" is stuck at GND
+    Warning (13410): Pin "HEX5[5]" is stuck at GND
+    Warning (13410): Pin "HEX5[6]" is stuck at VCC
+    Warning (13410): Pin "HEX6[1]" is stuck at GND
+    Warning (13410): Pin "HEX7[0]" is stuck at GND
+    Warning (13410): Pin "HEX7[1]" is stuck at GND
+    Warning (13410): Pin "HEX7[2]" is stuck at GND
+    Warning (13410): Pin "HEX7[3]" is stuck at GND
+    Warning (13410): Pin "HEX7[4]" is stuck at GND
+    Warning (13410): Pin "HEX7[5]" is stuck at GND
+    Warning (13410): Pin "HEX7[6]" is stuck at VCC
+    Warning (13410): Pin "LEDG[0]" is stuck at GND
+    Warning (13410): Pin "LEDG[1]" is stuck at GND
+    Warning (13410): Pin "LEDG[2]" is stuck at GND
+    Warning (13410): Pin "LEDG[3]" is stuck at GND
+    Warning (13410): Pin "LEDG[4]" is stuck at GND
+    Warning (13410): Pin "LEDG[5]" is stuck at GND
+    Warning (13410): Pin "LEDG[6]" is stuck at GND
+    Warning (13410): Pin "LEDG[7]" is stuck at GND
+    Warning (13410): Pin "LEDG[8]" is stuck at GND
+    Warning (13410): Pin "LEDR[1]" is stuck at GND
+    Warning (13410): Pin "LEDR[2]" is stuck at GND
+    Warning (13410): Pin "LEDR[3]" is stuck at GND
+    Warning (13410): Pin "LEDR[4]" is stuck at GND
+    Warning (13410): Pin "LEDR[5]" is stuck at GND
+    Warning (13410): Pin "LEDR[6]" is stuck at GND
+    Warning (13410): Pin "LEDR[7]" is stuck at GND
+    Warning (13410): Pin "LEDR[8]" is stuck at GND
+    Warning (13410): Pin "LEDR[9]" is stuck at GND
+    Warning (13410): Pin "LEDR[10]" is stuck at GND
+    Warning (13410): Pin "LEDR[11]" is stuck at GND
+    Warning (13410): Pin "LEDR[12]" is stuck at GND
+    Warning (13410): Pin "LEDR[13]" is stuck at GND
+    Warning (13410): Pin "LEDR[14]" is stuck at GND
+    Warning (13410): Pin "LEDR[15]" is stuck at GND
+    Warning (13410): Pin "LEDR[16]" is stuck at GND
+    Warning (13410): Pin "LEDR[17]" is stuck at GND
+    Warning (13410): Pin "UART_CTS" is stuck at GND
+    Warning (13410): Pin "UART_TXD" is stuck at GND
+    Warning (13410): Pin "IRDA_TXD" is stuck at GND
+    Warning (13410): Pin "DRAM_ADDR[0]" is stuck at GND
+    Warning (13410): Pin "DRAM_ADDR[1]" is stuck at GND
+    Warning (13410): Pin "DRAM_ADDR[2]" is stuck at GND
+    Warning (13410): Pin "DRAM_ADDR[3]" is stuck at GND
+    Warning (13410): Pin "DRAM_ADDR[4]" is stuck at GND
+    Warning (13410): Pin "DRAM_ADDR[5]" is stuck at GND
+    Warning (13410): Pin "DRAM_ADDR[6]" is stuck at GND
+    Warning (13410): Pin "DRAM_ADDR[7]" is stuck at GND
+    Warning (13410): Pin "DRAM_ADDR[8]" is stuck at GND
+    Warning (13410): Pin "DRAM_ADDR[9]" is stuck at GND
+    Warning (13410): Pin "DRAM_ADDR[10]" is stuck at GND
+    Warning (13410): Pin "DRAM_ADDR[11]" is stuck at GND
+    Warning (13410): Pin "DRAM_ADDR[12]" is stuck at GND
+    Warning (13410): Pin "DRAM_DQM[0]" is stuck at GND
+    Warning (13410): Pin "DRAM_DQM[1]" is stuck at GND
+    Warning (13410): Pin "DRAM_DQM[2]" is stuck at GND
+    Warning (13410): Pin "DRAM_DQM[3]" is stuck at GND
+    Warning (13410): Pin "DRAM_WE_N" is stuck at GND
+    Warning (13410): Pin "DRAM_CAS_N" is stuck at GND
+    Warning (13410): Pin "DRAM_RAS_N" is stuck at GND
+    Warning (13410): Pin "DRAM_CS_N" is stuck at GND
+    Warning (13410): Pin "DRAM_BA[0]" is stuck at GND
+    Warning (13410): Pin "DRAM_BA[1]" is stuck at GND
+    Warning (13410): Pin "DRAM_CLK" is stuck at GND
+    Warning (13410): Pin "DRAM_CKE" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[0]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[1]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[2]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[3]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[4]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[5]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[6]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[7]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[8]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[9]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[10]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[11]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[12]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[13]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[14]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[15]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[16]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[17]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[18]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[19]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[20]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[21]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[22]" is stuck at GND
+    Warning (13410): Pin "FL_WE_N" is stuck at GND
+    Warning (13410): Pin "FL_RST_N" is stuck at GND
+    Warning (13410): Pin "FL_OE_N" is stuck at GND
+    Warning (13410): Pin "FL_CE_N" is stuck at GND
+    Warning (13410): Pin "FL_WP_N" is stuck at GND
+    Warning (13410): Pin "SRAM_ADDR[0]" is stuck at GND
+    Warning (13410): Pin "SRAM_ADDR[1]" is stuck at GND
+    Warning (13410): Pin "SRAM_ADDR[2]" is stuck at GND
+    Warning (13410): Pin "SRAM_ADDR[3]" is stuck at GND
+    Warning (13410): Pin "SRAM_ADDR[4]" is stuck at GND
+    Warning (13410): Pin "SRAM_ADDR[5]" is stuck at GND
+    Warning (13410): Pin "SRAM_ADDR[6]" is stuck at GND
+    Warning (13410): Pin "SRAM_ADDR[7]" is stuck at GND
+    Warning (13410): Pin "SRAM_ADDR[8]" is stuck at GND
+    Warning (13410): Pin "SRAM_ADDR[9]" is stuck at GND
+    Warning (13410): Pin "SRAM_ADDR[10]" is stuck at GND
+    Warning (13410): Pin "SRAM_ADDR[11]" is stuck at GND
+    Warning (13410): Pin "SRAM_ADDR[12]" is stuck at GND
+    Warning (13410): Pin "SRAM_ADDR[13]" is stuck at GND
+    Warning (13410): Pin "SRAM_ADDR[14]" is stuck at GND
+    Warning (13410): Pin "SRAM_ADDR[15]" is stuck at GND
+    Warning (13410): Pin "SRAM_ADDR[16]" is stuck at GND
+    Warning (13410): Pin "SRAM_ADDR[17]" is stuck at GND
+    Warning (13410): Pin "SRAM_ADDR[18]" is stuck at GND
+    Warning (13410): Pin "SRAM_ADDR[19]" is stuck at GND
+    Warning (13410): Pin "SRAM_UB_N" is stuck at GND
+    Warning (13410): Pin "SRAM_LB_N" is stuck at GND
+    Warning (13410): Pin "SRAM_WE_N" is stuck at GND
+    Warning (13410): Pin "SRAM_CE_N" is stuck at GND
+    Warning (13410): Pin "SRAM_OE_N" is stuck at GND
+    Warning (13410): Pin "OTG_ADDR[0]" is stuck at GND
+    Warning (13410): Pin "OTG_ADDR[1]" is stuck at GND
+    Warning (13410): Pin "OTG_CS_N" is stuck at GND
+    Warning (13410): Pin "OTG_RD_N" is stuck at GND
+    Warning (13410): Pin "OTG_WR_N" is stuck at GND
+    Warning (13410): Pin "OTG_RST_N" is stuck at GND
+    Warning (13410): Pin "OTG_DACK_N[0]" is stuck at GND
+    Warning (13410): Pin "OTG_DACK_N[1]" is stuck at GND
+    Warning (13410): Pin "LCD_ON" is stuck at GND
+    Warning (13410): Pin "LCD_BLON" is stuck at GND
+    Warning (13410): Pin "LCD_RW" is stuck at GND
+    Warning (13410): Pin "LCD_EN" is stuck at GND
+    Warning (13410): Pin "LCD_RS" is stuck at GND
+    Warning (13410): Pin "I2C_SCLK" is stuck at GND
+    Warning (13410): Pin "VGA_CLK" is stuck at GND
+    Warning (13410): Pin "VGA_HS" is stuck at GND
+    Warning (13410): Pin "VGA_VS" is stuck at GND
+    Warning (13410): Pin "VGA_BLANK_N" is stuck at GND
+    Warning (13410): Pin "VGA_SYNC_N" is stuck at GND
+    Warning (13410): Pin "VGA_R[0]" is stuck at GND
+    Warning (13410): Pin "VGA_R[1]" is stuck at GND
+    Warning (13410): Pin "VGA_R[2]" is stuck at GND
+    Warning (13410): Pin "VGA_R[3]" is stuck at GND
+    Warning (13410): Pin "VGA_R[4]" is stuck at GND
+    Warning (13410): Pin "VGA_R[5]" is stuck at GND
+    Warning (13410): Pin "VGA_R[6]" is stuck at GND
+    Warning (13410): Pin "VGA_R[7]" is stuck at GND
+    Warning (13410): Pin "VGA_G[0]" is stuck at GND
+    Warning (13410): Pin "VGA_G[1]" is stuck at GND
+    Warning (13410): Pin "VGA_G[2]" is stuck at GND
+    Warning (13410): Pin "VGA_G[3]" is stuck at GND
+    Warning (13410): Pin "VGA_G[4]" is stuck at GND
+    Warning (13410): Pin "VGA_G[5]" is stuck at GND
+    Warning (13410): Pin "VGA_G[6]" is stuck at GND
+    Warning (13410): Pin "VGA_G[7]" is stuck at GND
+    Warning (13410): Pin "VGA_B[0]" is stuck at GND
+    Warning (13410): Pin "VGA_B[1]" is stuck at GND
+    Warning (13410): Pin "VGA_B[2]" is stuck at GND
+    Warning (13410): Pin "VGA_B[3]" is stuck at GND
+    Warning (13410): Pin "VGA_B[4]" is stuck at GND
+    Warning (13410): Pin "VGA_B[5]" is stuck at GND
+    Warning (13410): Pin "VGA_B[6]" is stuck at GND
+    Warning (13410): Pin "VGA_B[7]" is stuck at GND
+    Warning (13410): Pin "ENET_CMD" is stuck at GND
+    Warning (13410): Pin "ENET_CS_N" is stuck at GND
+    Warning (13410): Pin "ENET_WR_N" is stuck at GND
+    Warning (13410): Pin "ENET_RD_N" is stuck at GND
+    Warning (13410): Pin "ENET_RST_N" is stuck at GND
+    Warning (13410): Pin "ENET_CLK" is stuck at GND
+    Warning (13410): Pin "AUD_DACDAT" is stuck at GND
+    Warning (13410): Pin "AUD_XCK" is stuck at GND
+    Warning (13410): Pin "TD_RESET_N" is stuck at GND
+Info (286030): Timing-Driven Synthesis is running
+Info (21057): Implemented 1397 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 47 input pins
+    Info (21059): Implemented 216 output pins
+    Info (21060): Implemented 148 bidirectional pins
+    Info (21061): Implemented 985 logic cells
+    Info (21062): Implemented 1 DSP elements
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 433 warnings
+    Info: Peak virtual memory: 4689 megabytes
+    Info: Processing ended: Tue Feb 20 14:29:31 2024
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:04
+
+

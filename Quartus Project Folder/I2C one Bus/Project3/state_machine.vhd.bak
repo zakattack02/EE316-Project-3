@@ -1,0 +1,61 @@
+library IEEE; 
+use IEEE.STD_LOGIC_1164.ALL; 
+use IEEE.STD_LOGIC_ARITH.ALL; 
+use IEEE.STD_LOGIC_UNSIGNED.ALL; 
+
+-- counter is connected to the q from the univ bin counter when instiatated in the top level 
+entity state_machine is 
+    Port ( clk              : in STD_LOGIC;
+           clk_en           : in STD_LOGIC;
+			  counter          : in STD_LOGIC_VECTOR(7 downto 0) := (others => '0');
+           btn_press        : in STD_LOGIC;  
+           state            : out STD_LOGIC_VECTOR(3 downto 0)); 
+end state_machine; 
+
+architecture Behavioral of state_machine is 
+    type states is (INIT, PWM_Mode, Clk_Gen_Mode); 
+    signal current_state : states;  
+    signal state_value   : STD_LOGIC_VECTOR(3 downto 0);
+
+
+begin
+
+    process(clk, clk_en, btn_press) 
+    begin 
+--		if rising_edge(clk) then 
+--        if btn_press = '0' then -- '1' or '0' 
+--            current_state <= INIT; 
+--				
+        if rising_edge(clk) and clk_en = '1' then 
+        case current_state is 
+            when INIT => 
+                if counter = "11111111" then -- counter 
+						current_state <= PWM_Mode; 
+                end if; 
+ 
+            when PWM_Mode => 
+                if btn_press = '1' then 
+						current_state <= Clk_Gen_Mode;
+                end if; 
+
+            when Clk_Gen_Mode => 
+                if btn_press = '1' then 
+						current_state <= PWM_Mode; 
+                end if; 
+
+            when others => 
+                current_state <= INIT;  -- Reset to INIT state if in an unknown state 
+        end case; 
+		  
+--		 end if;
+		end if; 
+    end process; 
+
+ with current_state select 
+    state_value <= "00" when INIT, 
+                   "01" when PWM_Mode, 
+                   "10" when Clk_Gen_Mode, 
+                   "11" when others;  -- Default value for unknown states 
+    state <= state_value; 
+	 
+end Behavioral;

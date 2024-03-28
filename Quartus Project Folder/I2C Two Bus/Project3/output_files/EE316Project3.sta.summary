@@ -1,0 +1,161 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'CLOCK_50'
+Slack : -8.318
+TNS   : -1283.357
+
+Type  : Slow 1200mV 85C Model Setup 'top_level:Inst_top_level|clock_en5ms'
+Slack : -2.594
+TNS   : -42.369
+
+Type  : Slow 1200mV 85C Model Setup 'top_level:Inst_top_level|Main2State_Machine:INST_StateMachine|current_state.CLOCK_GEN_MODE'
+Slack : 0.161
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'CLOCK_50'
+Slack : -2.053
+TNS   : -11.975
+
+Type  : Slow 1200mV 85C Model Hold 'top_level:Inst_top_level|Main2State_Machine:INST_StateMachine|current_state.CLOCK_GEN_MODE'
+Slack : -1.280
+TNS   : -7.664
+
+Type  : Slow 1200mV 85C Model Hold 'top_level:Inst_top_level|clock_en5ms'
+Slack : 0.389
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'CLOCK_50'
+Slack : -1.923
+TNS   : -68.286
+
+Type  : Slow 1200mV 85C Model Recovery 'top_level:Inst_top_level|Main2State_Machine:INST_StateMachine|current_state.CLOCK_GEN_MODE'
+Slack : -0.300
+TNS   : -0.630
+
+Type  : Slow 1200mV 85C Model Removal 'top_level:Inst_top_level|Main2State_Machine:INST_StateMachine|current_state.CLOCK_GEN_MODE'
+Slack : -0.924
+TNS   : -5.373
+
+Type  : Slow 1200mV 85C Model Removal 'CLOCK_50'
+Slack : 0.637
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -3.000
+TNS   : -511.929
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'top_level:Inst_top_level|clock_en5ms'
+Slack : -1.285
+TNS   : -25.700
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'top_level:Inst_top_level|Main2State_Machine:INST_StateMachine|current_state.CLOCK_GEN_MODE'
+Slack : 0.417
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'CLOCK_50'
+Slack : -7.616
+TNS   : -1148.449
+
+Type  : Slow 1200mV 0C Model Setup 'top_level:Inst_top_level|clock_en5ms'
+Slack : -2.262
+TNS   : -36.593
+
+Type  : Slow 1200mV 0C Model Setup 'top_level:Inst_top_level|Main2State_Machine:INST_StateMachine|current_state.CLOCK_GEN_MODE'
+Slack : 0.081
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'CLOCK_50'
+Slack : -1.866
+TNS   : -10.909
+
+Type  : Slow 1200mV 0C Model Hold 'top_level:Inst_top_level|Main2State_Machine:INST_StateMachine|current_state.CLOCK_GEN_MODE'
+Slack : -1.132
+TNS   : -6.391
+
+Type  : Slow 1200mV 0C Model Hold 'top_level:Inst_top_level|clock_en5ms'
+Slack : 0.339
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'CLOCK_50'
+Slack : -1.623
+TNS   : -53.899
+
+Type  : Slow 1200mV 0C Model Recovery 'top_level:Inst_top_level|Main2State_Machine:INST_StateMachine|current_state.CLOCK_GEN_MODE'
+Slack : -0.243
+TNS   : -0.466
+
+Type  : Slow 1200mV 0C Model Removal 'top_level:Inst_top_level|Main2State_Machine:INST_StateMachine|current_state.CLOCK_GEN_MODE'
+Slack : -0.691
+TNS   : -4.214
+
+Type  : Slow 1200mV 0C Model Removal 'CLOCK_50'
+Slack : 0.575
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -3.000
+TNS   : -511.737
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'top_level:Inst_top_level|clock_en5ms'
+Slack : -1.285
+TNS   : -25.700
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'top_level:Inst_top_level|Main2State_Machine:INST_StateMachine|current_state.CLOCK_GEN_MODE'
+Slack : 0.378
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'CLOCK_50'
+Slack : -3.776
+TNS   : -466.603
+
+Type  : Fast 1200mV 0C Model Setup 'top_level:Inst_top_level|clock_en5ms'
+Slack : -0.713
+TNS   : -10.391
+
+Type  : Fast 1200mV 0C Model Setup 'top_level:Inst_top_level|Main2State_Machine:INST_StateMachine|current_state.CLOCK_GEN_MODE'
+Slack : 0.520
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'CLOCK_50'
+Slack : -1.092
+TNS   : -6.751
+
+Type  : Fast 1200mV 0C Model Hold 'top_level:Inst_top_level|Main2State_Machine:INST_StateMachine|current_state.CLOCK_GEN_MODE'
+Slack : -0.790
+TNS   : -4.357
+
+Type  : Fast 1200mV 0C Model Hold 'top_level:Inst_top_level|clock_en5ms'
+Slack : 0.175
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'CLOCK_50'
+Slack : -0.534
+TNS   : -4.301
+
+Type  : Fast 1200mV 0C Model Recovery 'top_level:Inst_top_level|Main2State_Machine:INST_StateMachine|current_state.CLOCK_GEN_MODE'
+Slack : 0.354
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'top_level:Inst_top_level|Main2State_Machine:INST_StateMachine|current_state.CLOCK_GEN_MODE'
+Slack : -0.549
+TNS   : -3.309
+
+Type  : Fast 1200mV 0C Model Removal 'CLOCK_50'
+Slack : 0.278
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -3.000
+TNS   : -505.227
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'top_level:Inst_top_level|clock_en5ms'
+Slack : -1.000
+TNS   : -20.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'top_level:Inst_top_level|Main2State_Machine:INST_StateMachine|current_state.CLOCK_GEN_MODE'
+Slack : 0.282
+TNS   : 0.000
+
+------------------------------------------------------------

@@ -1,0 +1,67 @@
+Quartus II Archive log --	U:/Project3/__EE316Project2.auto.qarlog
+
+Archive:	U:/Project3/__EE316Project2.auto.qar
+Date:		Wed Feb 21 20:43:49 2024
+Quartus II 64-Bit		13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version
+
+	=========== Files Selected: ===========
+ADC_I2C_user_logic.vhd
+ClockGeneration.vhd
+DE2_115.vhd
+EE316Project2.qsf
+EE316Project3.dpf
+EightBitToLCDLUT.vhd
+FourTo7SegLUT.vhd
+I2C_user_logic.vhd
+LCD_FSM.vhd
+LCD_user_logic.vhd
+Main4StateMachine.vhd
+PWM.vhd
+U:/Project3/db/EE316Project2.cbx.xml
+U:/Project3/db/EE316Project3.cbx.xml
+U:/Project3/db/Project3.qpf
+U:/Project3/db/abs_divider_qbg.tdf
+U:/Project3/db/add_sub_7pc.tdf
+U:/Project3/db/add_sub_8pc.tdf
+U:/Project3/db/add_sub_ckh.tdf
+U:/Project3/db/alt_u_div_i7f.tdf
+U:/Project3/db/lpm_abs_6v9.tdf
+U:/Project3/db/lpm_abs_k0a.tdf
+U:/Project3/db/lpm_divide_v0p.tdf
+U:/Project3/db/mult_93t.tdf
+U:/Project3/db/mult_b3t.tdf
+U:/Project3/output_files/Chain2.cdf
+U:/Project3/output_files/EE316Project2.flow.rpt
+U:/Project3/output_files/EE316Project2.map.rpt
+U:/Project3/output_files/EE316Project2.map.summary
+U:/Project3/output_files/EE316Project3.asm.rpt
+U:/Project3/output_files/EE316Project3.cdf
+U:/Project3/output_files/EE316Project3.done
+U:/Project3/output_files/EE316Project3.eda.rpt
+U:/Project3/output_files/EE316Project3.fit.rpt
+U:/Project3/output_files/EE316Project3.fit.smsg
+U:/Project3/output_files/EE316Project3.fit.summary
+U:/Project3/output_files/EE316Project3.flow.rpt
+U:/Project3/output_files/EE316Project3.jdi
+U:/Project3/output_files/EE316Project3.map.rpt
+U:/Project3/output_files/EE316Project3.map.summary
+U:/Project3/output_files/EE316Project3.merge.rpt
+U:/Project3/output_files/EE316Project3.merge.summary
+U:/Project3/output_files/EE316Project3.pin
+U:/Project3/output_files/EE316Project3.restore.rpt
+U:/Project3/output_files/EE316Project3.sof
+U:/Project3/output_files/EE316Project3.sta.rpt
+U:/Project3/output_files/EE316Project3.sta.summary
+U:/Project3/simulation/modelsim/top_level_tb.vhd
+assignment_defaults.qdf
+btn_debounce_toggle.vhd
+counter_pwm.vhd
+i2c_master_2.1.vhd
+reset_delay.vhd
+sine.mif
+state_machine.vhd
+top_level.vhd
+	======= Total: 56 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.

@@ -1,0 +1,59 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity ClockGeneration is
+    Port ( iClk : in STD_LOGIC;
+           Adjustvar : in STD_LOGIC_VECTOR(7 downto  0);
+           LED_ENABLE : out STD_LOGIC;
+           CLOCK_OUT : buffer STD_LOGIC;  -- Change to buffer
+           LED_STATE : out STD_LOGIC;
+           LED_ERROR : out STD_LOGIC);
+end ClockGeneration;
+
+architecture Behavioral of ClockGeneration is
+    signal clock_enable : STD_LOGIC := '1';
+    signal n1, n2, N : INTEGER :=  0; -- Change to INTEGER type
+    signal counter : INTEGER :=  0;
+    signal Adjustvar_signed : SIGNED(Adjustvar'range);
+    
+    -- Define your constants for frequency range
+    constant MIN_FREQUENCY : INTEGER :=  500;
+    constant MAX_FREQUENCY : INTEGER :=  1500;
+
+    -- Your additional constants for the equation
+    constant n1_constant : INTEGER :=  50000; -- Change as needed
+    constant n2_constant : INTEGER :=  3000;  -- Change as needed
+
+begin
+    process(iClk)
+    begin
+        if rising_edge(iClk) then
+            -- Update clock frequency based on potentiometer, thermistor, and LDR
+            if (clock_enable = '1') then
+                counter <= counter +  1;
+
+                -- Implement the equation N = n2 + (n1 - n2) /  255 * Adjustvar
+                n1 <= MAX_FREQUENCY; -- You may need to adjust this based on your requirements
+                n2 <= MIN_FREQUENCY;
+                Adjustvar_signed <= SIGNED(Adjustvar);
+                N <= n2_constant + (n1_constant - n2_constant) * to_integer(Adjustvar_signed) /  255;
+
+                -- Clock generation logic
+                if counter = N then
+                    CLOCK_OUT <= not CLOCK_OUT;
+                    counter <=  0;
+                else
+                    CLOCK_OUT <= '0';
+                end if;
+            else
+                CLOCK_OUT <= '0';
+                counter <=  0;
+            end if;
+
+            -- Update LED indicators
+            LED_ENABLE <= clock_enable;
+            LED_STATE <= clock_enable;
+        end if;
+    end process;
+end Behavioral;

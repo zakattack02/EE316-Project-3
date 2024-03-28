@@ -1,0 +1,1291 @@
+Analysis & Synthesis report for EE316Project3
+Mon Feb 26 16:50:03 2024
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Partition Status Summary
+  7. Dependent File Changes for Partition Top
+  8. Partition for Top-Level Resource Utilization by Entity
+  9. State Machine - |DE2_115|top_level:Inst_top_level|next_clkgenstate
+ 10. State Machine - |DE2_115|top_level:Inst_top_level|next_pwmstate
+ 11. State Machine - |DE2_115|top_level:Inst_top_level|current_ClkGenState
+ 12. State Machine - |DE2_115|top_level:Inst_top_level|current_PWMState
+ 13. State Machine - |DE2_115|top_level:Inst_top_level|I2C_user_logic:INST_LCD_I2C_UsrLogic|State
+ 14. State Machine - |DE2_115|top_level:Inst_top_level|I2C_user_logic:INST_LCD_I2C_UsrLogic|i2c_master:INST_I2C_master|state
+ 15. State Machine - |DE2_115|top_level:Inst_top_level|Main2State_Machine:INST_StateMachine|next_state
+ 16. State Machine - |DE2_115|top_level:Inst_top_level|Main2State_Machine:INST_StateMachine|current_state
+ 17. Registers Removed During Synthesis
+ 18. Removed Registers Triggering Further Register Optimizations
+ 19. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 20. Parameter Settings for User Entity Instance: top_level:Inst_top_level|I2C_user_logic:INST_LCD_I2C_UsrLogic|i2c_master:INST_I2C_master
+ 21. Parameter Settings for User Entity Instance: top_level:Inst_top_level|btn_debounce_toggle:Inst_Key0
+ 22. Parameter Settings for User Entity Instance: top_level:Inst_top_level|btn_debounce_toggle:Inst_Key1
+ 23. Parameter Settings for User Entity Instance: top_level:Inst_top_level|btn_debounce_toggle:Inst_Key2
+ 24. Parameter Settings for User Entity Instance: top_level:Inst_top_level|btn_debounce_toggle:INST_DebouncedKey0
+ 25. Parameter Settings for User Entity Instance: top_level:Inst_top_level|btn_debounce_toggle:INST_BTN1_DB_pulse
+ 26. Parameter Settings for User Entity Instance: top_level:Inst_top_level|btn_debounce_toggle:INST_BTN2Pulse
+ 27. Parameter Settings for User Entity Instance: top_level:Inst_top_level|PWM:INST_PWM0
+ 28. Parameter Settings for Inferred Entity Instance: top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|lpm_divide:Div0
+ 29. Partition Dependent Files
+ 30. Port Connectivity Checks: "top_level:Inst_top_level|btn_debounce_toggle:INST_BTN2Pulse"
+ 31. Port Connectivity Checks: "top_level:Inst_top_level|btn_debounce_toggle:INST_BTN1_DB_pulse"
+ 32. Port Connectivity Checks: "top_level:Inst_top_level|btn_debounce_toggle:INST_DebouncedKey0"
+ 33. Port Connectivity Checks: "top_level:Inst_top_level|btn_debounce_toggle:Inst_Key2"
+ 34. Port Connectivity Checks: "top_level:Inst_top_level|btn_debounce_toggle:Inst_Key1"
+ 35. Port Connectivity Checks: "top_level:Inst_top_level|btn_debounce_toggle:Inst_Key0"
+ 36. Port Connectivity Checks: "top_level:Inst_top_level|I2C_user_logic:INST_LCD_I2C_UsrLogic|i2c_master:INST_I2C_master"
+ 37. Elapsed Time Per Partition
+ 38. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++---------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                          ;
++------------------------------------+--------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Mon Feb 26 16:50:03 2024            ;
+; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
+; Revision Name                      ; EE316Project3                                    ;
+; Top-level Entity Name              ; DE2_115                                          ;
+; Family                             ; Cyclone IV E                                     ;
+; Total logic elements               ; N/A until Partition Merge                        ;
+;     Total combinational functions  ; N/A until Partition Merge                        ;
+;     Dedicated logic registers      ; N/A until Partition Merge                        ;
+; Total registers                    ; N/A until Partition Merge                        ;
+; Total pins                         ; N/A until Partition Merge                        ;
+; Total virtual pins                 ; N/A until Partition Merge                        ;
+; Total memory bits                  ; N/A until Partition Merge                        ;
+; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                        ;
+; Total PLLs                         ; N/A until Partition Merge                        ;
++------------------------------------+--------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP4CE115F29C7      ;                    ;
+; Top-level entity name                                                      ; DE2_115            ; EE316Project3      ;
+; Family name                                                                ; Cyclone IV E       ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 6           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-6         ; < 0.1%      ;
+;     Processors 7-12        ;   0.0%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                              ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                          ; Library ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------+---------+
+; ClockGeneration.vhd              ; yes             ; User VHDL File               ; U:/Project3/ClockGeneration.vhd                                       ;         ;
+; top_level.vhd                    ; yes             ; User VHDL File               ; U:/Project3/top_level.vhd                                             ;         ;
+; reset_delay.vhd                  ; yes             ; User VHDL File               ; U:/Project3/reset_delay.vhd                                           ;         ;
+; DE2_115.vhd                      ; yes             ; User VHDL File               ; U:/Project3/DE2_115.vhd                                               ;         ;
+; i2c_master_2.1.vhd               ; yes             ; User VHDL File               ; U:/Project3/i2c_master_2.1.vhd                                        ;         ;
+; I2C_user_logic.vhd               ; yes             ; User VHDL File               ; U:/Project3/I2C_user_logic.vhd                                        ;         ;
+; state_machine.vhd                ; yes             ; User VHDL File               ; U:/Project3/state_machine.vhd                                         ;         ;
+; PWM.vhd                          ; yes             ; User VHDL File               ; U:/Project3/PWM.vhd                                                   ;         ;
+; btn_debounce_toggle.vhd          ; yes             ; Auto-Found VHDL File         ; U:/Project3/btn_debounce_toggle.vhd                                   ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_divide.tdf      ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/abs_divider.inc     ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/sign_div_unsign.inc ;         ;
+; aglobal130.inc                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/aglobal130.inc      ;         ;
+; db/lpm_divide_92p.tdf            ; yes             ; Auto-Generated Megafunction  ; U:/Project3/db/lpm_divide_92p.tdf                                     ;         ;
+; db/abs_divider_4dg.tdf           ; yes             ; Auto-Generated Megafunction  ; U:/Project3/db/abs_divider_4dg.tdf                                    ;         ;
+; db/alt_u_div_6af.tdf             ; yes             ; Auto-Generated Megafunction  ; U:/Project3/db/alt_u_div_6af.tdf                                      ;         ;
+; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction  ; U:/Project3/db/add_sub_7pc.tdf                                        ;         ;
+; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction  ; U:/Project3/db/add_sub_8pc.tdf                                        ;         ;
+; db/lpm_abs_i0a.tdf               ; yes             ; Auto-Generated Megafunction  ; U:/Project3/db/lpm_abs_i0a.tdf                                        ;         ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------+
+; Partition Status Summary                               ;
++----------------+-------------+-------------------------+
+; Partition Name ; Synthesized ; Reason                  ;
++----------------+-------------+-------------------------+
+; Top            ; yes         ; Dependent files changed ;
++----------------+-------------+-------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Dependent File Changes for Partition Top                                                                                                                                                ;
++---------------------------------------------------------------+--------------------+-------------------+----------+----------------------------------+----------------------------------+
+; Hierarchy                                                     ; File Name          ; Relative Location ; Change   ; Old                              ; New                              ;
++---------------------------------------------------------------+--------------------+-------------------+----------+----------------------------------+----------------------------------+
+; top_level:inst_top_level|i2c_user_logic:inst_lcd_i2c_usrlogic ; I2C_user_logic.vhd ; Project Directory ; Checksum ; 36ef9822231fc7507db24708f358e0e9 ; 637bbacebb1c23524c3bea9294022959 ;
++---------------------------------------------------------------+--------------------+-------------------+----------+----------------------------------+----------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Partition for Top-Level Resource Utilization by Entity                                                                                                                                                                                                                                                                                 ;
++------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                     ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                        ; Library Name ;
++------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
+; |DE2_115                                       ; 1881 (1)          ; 275 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_115                                                                                                                                                   ; work         ;
+;    |top_level:Inst_top_level|                  ; 1880 (57)         ; 275 (53)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_115|top_level:Inst_top_level                                                                                                                          ; work         ;
+;       |ClockGeneration:INST_CLK_GEN|           ; 1329 (134)        ; 28 (28)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_115|top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN                                                                                             ; work         ;
+;          |lpm_divide:Div0|                     ; 1195 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_115|top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|lpm_divide:Div0                                                                             ; work         ;
+;             |lpm_divide_92p:auto_generated|    ; 1195 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_115|top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|lpm_divide:Div0|lpm_divide_92p:auto_generated                                               ; work         ;
+;                |abs_divider_4dg:divider|       ; 1195 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_115|top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|lpm_divide:Div0|lpm_divide_92p:auto_generated|abs_divider_4dg:divider                       ; work         ;
+;                   |alt_u_div_6af:divider|      ; 1195 (1195)       ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_115|top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|lpm_divide:Div0|lpm_divide_92p:auto_generated|abs_divider_4dg:divider|alt_u_div_6af:divider ; work         ;
+;       |I2C_user_logic:INST_LCD_I2C_UsrLogic|   ; 382 (270)         ; 102 (48)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_115|top_level:Inst_top_level|I2C_user_logic:INST_LCD_I2C_UsrLogic                                                                                     ; work         ;
+;          |i2c_master:INST_I2C_master|          ; 112 (112)         ; 54 (54)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_115|top_level:Inst_top_level|I2C_user_logic:INST_LCD_I2C_UsrLogic|i2c_master:INST_I2C_master                                                          ; work         ;
+;       |Main2State_Machine:INST_StateMachine|   ; 14 (14)           ; 14 (14)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_115|top_level:Inst_top_level|Main2State_Machine:INST_StateMachine                                                                                     ; work         ;
+;       |Reset_Delay:Inst_clk_Reset_Delay|       ; 27 (27)           ; 21 (21)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_115|top_level:Inst_top_level|Reset_Delay:Inst_clk_Reset_Delay                                                                                         ; work         ;
+;       |btn_debounce_toggle:INST_BTN1_DB_pulse| ; 24 (24)           ; 20 (20)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_115|top_level:Inst_top_level|btn_debounce_toggle:INST_BTN1_DB_pulse                                                                                   ; work         ;
+;       |btn_debounce_toggle:INST_BTN2Pulse|     ; 24 (24)           ; 20 (20)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_115|top_level:Inst_top_level|btn_debounce_toggle:INST_BTN2Pulse                                                                                       ; work         ;
+;       |btn_debounce_toggle:Inst_Key0|          ; 23 (23)           ; 17 (17)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_115|top_level:Inst_top_level|btn_debounce_toggle:Inst_Key0                                                                                            ; work         ;
++------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------+
+; State Machine - |DE2_115|top_level:Inst_top_level|next_clkgenstate                                        ;
++--------------------------+--------------------------+--------------------------+--------------------------+
+; Name                     ; next_clkgenstate.Module4 ; next_clkgenstate.Module2 ; next_clkgenstate.Module1 ;
++--------------------------+--------------------------+--------------------------+--------------------------+
+; next_clkgenstate.Module1 ; 0                        ; 0                        ; 0                        ;
+; next_clkgenstate.Module2 ; 0                        ; 1                        ; 1                        ;
+; next_clkgenstate.Module4 ; 1                        ; 0                        ; 1                        ;
++--------------------------+--------------------------+--------------------------+--------------------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |DE2_115|top_level:Inst_top_level|next_pwmstate                                                            ;
++------------------------+------------------------+------------------------+------------------------+------------------------+
+; Name                   ; next_pwmstate.PModule4 ; next_pwmstate.PModule3 ; next_pwmstate.PModule2 ; next_pwmstate.PModule1 ;
++------------------------+------------------------+------------------------+------------------------+------------------------+
+; next_pwmstate.PModule1 ; 0                      ; 0                      ; 0                      ; 0                      ;
+; next_pwmstate.PModule2 ; 0                      ; 0                      ; 1                      ; 1                      ;
+; next_pwmstate.PModule3 ; 0                      ; 1                      ; 0                      ; 1                      ;
+; next_pwmstate.PModule4 ; 1                      ; 0                      ; 0                      ; 1                      ;
++------------------------+------------------------+------------------------+------------------------+------------------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------+
+; State Machine - |DE2_115|top_level:Inst_top_level|current_ClkGenState                                                 ;
++-----------------------------+-----------------------------+-----------------------------+-----------------------------+
+; Name                        ; current_ClkGenState.Module4 ; current_ClkGenState.Module2 ; current_ClkGenState.Module1 ;
++-----------------------------+-----------------------------+-----------------------------+-----------------------------+
+; current_ClkGenState.Module1 ; 0                           ; 0                           ; 0                           ;
+; current_ClkGenState.Module2 ; 0                           ; 1                           ; 1                           ;
+; current_ClkGenState.Module4 ; 1                           ; 0                           ; 1                           ;
++-----------------------------+-----------------------------+-----------------------------+-----------------------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |DE2_115|top_level:Inst_top_level|current_PWMState                                                                        ;
++---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+
+; Name                      ; current_PWMState.PModule4 ; current_PWMState.PModule3 ; current_PWMState.PModule2 ; current_PWMState.PModule1 ;
++---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+
+; current_PWMState.PModule1 ; 0                         ; 0                         ; 0                         ; 0                         ;
+; current_PWMState.PModule2 ; 0                         ; 0                         ; 1                         ; 1                         ;
+; current_PWMState.PModule3 ; 0                         ; 1                         ; 0                         ; 1                         ;
+; current_PWMState.PModule4 ; 1                         ; 0                         ; 0                         ; 1                         ;
++---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------+
+; State Machine - |DE2_115|top_level:Inst_top_level|I2C_user_logic:INST_LCD_I2C_UsrLogic|State ;
++----------------+---------------+----------------+----------------+---------------------------+
+; Name           ; State.ADCread ; State.ADCWrite ; State.LCDwrite ; State.LCDstart            ;
++----------------+---------------+----------------+----------------+---------------------------+
+; State.LCDstart ; 0             ; 0              ; 0              ; 0                         ;
+; State.LCDwrite ; 0             ; 0              ; 1              ; 1                         ;
+; State.ADCWrite ; 0             ; 1              ; 0              ; 1                         ;
+; State.ADCread  ; 1             ; 0              ; 0              ; 1                         ;
++----------------+---------------+----------------+----------------+---------------------------+
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |DE2_115|top_level:Inst_top_level|I2C_user_logic:INST_LCD_I2C_UsrLogic|i2c_master:INST_I2C_master|state                          ;
++----------------+------------+----------------+----------------+----------+----------+----------------+---------------+-------------+-------------+
+; Name           ; state.stop ; state.mstr_ack ; state.slv_ack2 ; state.rd ; state.wr ; state.slv_ack1 ; state.command ; state.start ; state.ready ;
++----------------+------------+----------------+----------------+----------+----------+----------------+---------------+-------------+-------------+
+; state.ready    ; 0          ; 0              ; 0              ; 0        ; 0        ; 0              ; 0             ; 0           ; 0           ;
+; state.start    ; 0          ; 0              ; 0              ; 0        ; 0        ; 0              ; 0             ; 1           ; 1           ;
+; state.command  ; 0          ; 0              ; 0              ; 0        ; 0        ; 0              ; 1             ; 0           ; 1           ;
+; state.slv_ack1 ; 0          ; 0              ; 0              ; 0        ; 0        ; 1              ; 0             ; 0           ; 1           ;
+; state.wr       ; 0          ; 0              ; 0              ; 0        ; 1        ; 0              ; 0             ; 0           ; 1           ;
+; state.rd       ; 0          ; 0              ; 0              ; 1        ; 0        ; 0              ; 0             ; 0           ; 1           ;
+; state.slv_ack2 ; 0          ; 0              ; 1              ; 0        ; 0        ; 0              ; 0             ; 0           ; 1           ;
+; state.mstr_ack ; 0          ; 1              ; 0              ; 0        ; 0        ; 0              ; 0             ; 0           ; 1           ;
+; state.stop     ; 1          ; 0              ; 0              ; 0        ; 0        ; 0              ; 0             ; 0           ; 1           ;
++----------------+------------+----------------+----------------+----------+----------+----------------+---------------+-------------+-------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------+
+; State Machine - |DE2_115|top_level:Inst_top_level|Main2State_Machine:INST_StateMachine|next_state ;
++---------------------------+---------------------------+---------------------+---------------------+
+; Name                      ; next_state.CLOCK_GEN_MODE ; next_state.PWM_mode ; next_state.INIT     ;
++---------------------------+---------------------------+---------------------+---------------------+
+; next_state.INIT           ; 0                         ; 0                   ; 0                   ;
+; next_state.PWM_mode       ; 0                         ; 1                   ; 1                   ;
+; next_state.CLOCK_GEN_MODE ; 1                         ; 0                   ; 1                   ;
++---------------------------+---------------------------+---------------------+---------------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------+
+; State Machine - |DE2_115|top_level:Inst_top_level|Main2State_Machine:INST_StateMachine|current_state      ;
++------------------------------+------------------------------+------------------------+--------------------+
+; Name                         ; current_state.CLOCK_GEN_MODE ; current_state.PWM_mode ; current_state.INIT ;
++------------------------------+------------------------------+------------------------+--------------------+
+; current_state.INIT           ; 0                            ; 0                      ; 0                  ;
+; current_state.PWM_mode       ; 0                            ; 1                      ; 1                  ;
+; current_state.CLOCK_GEN_MODE ; 1                            ; 0                      ; 1                  ;
++------------------------------+------------------------------+------------------------+--------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                                                                                        ;
++---------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------+
+; Register name                                                                                           ; Reason for Removal                                                                                              ;
++---------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------+
+; top_level:Inst_top_level|SecondLine[65,66]                                                              ; Merged with top_level:Inst_top_level|oLed0                                                                      ;
+; top_level:Inst_top_level|SecondLine[60]                                                                 ; Merged with top_level:Inst_top_level|oLed1                                                                      ;
+; top_level:Inst_top_level|SecondLine[1..3,6,10,14,16,18,25,27,91,99,123]                                 ; Merged with top_level:Inst_top_level|oLed2                                                                      ;
+; top_level:Inst_top_level|SecondLine[20,56,81,105,116]                                                   ; Merged with top_level:Inst_top_level|oLed3                                                                      ;
+; top_level:Inst_top_level|SecondLine[38,98,106,110,118]                                                  ; Merged with top_level:Inst_top_level|PWN_module[1]                                                              ;
+; top_level:Inst_top_level|FirstLine[22,23]                                                               ; Merged with top_level:Inst_top_level|FirstLine[127]                                                             ;
+; top_level:Inst_top_level|SecondLine[4]                                                                  ; Merged with top_level:Inst_top_level|FirstLine[127]                                                             ;
+; top_level:Inst_top_level|FirstLine[17,18,20]                                                            ; Merged with top_level:Inst_top_level|FirstLine[127]                                                             ;
+; top_level:Inst_top_level|SecondLine[0]                                                                  ; Merged with top_level:Inst_top_level|FirstLine[127]                                                             ;
+; top_level:Inst_top_level|FirstLine[11,14,104]                                                           ; Merged with top_level:Inst_top_level|FirstLine[127]                                                             ;
+; top_level:Inst_top_level|SecondLine[15]                                                                 ; Merged with top_level:Inst_top_level|FirstLine[127]                                                             ;
+; top_level:Inst_top_level|FirstLine[9,10]                                                                ; Merged with top_level:Inst_top_level|FirstLine[127]                                                             ;
+; top_level:Inst_top_level|SecondLine[11]                                                                 ; Merged with top_level:Inst_top_level|FirstLine[127]                                                             ;
+; top_level:Inst_top_level|FirstLine[0,2,100]                                                             ; Merged with top_level:Inst_top_level|FirstLine[127]                                                             ;
+; top_level:Inst_top_level|SecondLine[124]                                                                ; Merged with top_level:Inst_top_level|FirstLine[127]                                                             ;
+; top_level:Inst_top_level|FirstLine[122]                                                                 ; Merged with top_level:Inst_top_level|FirstLine[127]                                                             ;
+; top_level:Inst_top_level|SecondLine[122]                                                                ; Merged with top_level:Inst_top_level|FirstLine[127]                                                             ;
+; top_level:Inst_top_level|FirstLine[60,116]                                                              ; Merged with top_level:Inst_top_level|FirstLine[127]                                                             ;
+; top_level:Inst_top_level|SecondLine[112]                                                                ; Merged with top_level:Inst_top_level|FirstLine[127]                                                             ;
+; top_level:Inst_top_level|FirstLine[115]                                                                 ; Merged with top_level:Inst_top_level|FirstLine[127]                                                             ;
+; top_level:Inst_top_level|SecondLine[108]                                                                ; Merged with top_level:Inst_top_level|FirstLine[127]                                                             ;
+; top_level:Inst_top_level|FirstLine[12,27,28,52,91,107,124]                                              ; Merged with top_level:Inst_top_level|FirstLine[127]                                                             ;
+; top_level:Inst_top_level|SecondLine[12]                                                                 ; Merged with top_level:Inst_top_level|FirstLine[127]                                                             ;
+; top_level:Inst_top_level|FirstLine[19,112]                                                              ; Merged with top_level:Inst_top_level|FirstLine[127]                                                             ;
+; top_level:Inst_top_level|SecondLine[80]                                                                 ; Merged with top_level:Inst_top_level|FirstLine[127]                                                             ;
+; top_level:Inst_top_level|FirstLine[6,106,123]                                                           ; Merged with top_level:Inst_top_level|FirstLine[127]                                                             ;
+; top_level:Inst_top_level|SecondLine[9,68]                                                               ; Merged with top_level:Inst_top_level|FirstLine[127]                                                             ;
+; top_level:Inst_top_level|FirstLine[4,7,8,71,120]                                                        ; Merged with top_level:Inst_top_level|FirstLine[127]                                                             ;
+; top_level:Inst_top_level|SecondLine[7]                                                                  ; Merged with top_level:Inst_top_level|FirstLine[127]                                                             ;
+; top_level:Inst_top_level|SecondLine[103,119]                                                            ; Merged with top_level:Inst_top_level|FirstLine[126]                                                             ;
+; top_level:Inst_top_level|FirstLine[39,55]                                                               ; Merged with top_level:Inst_top_level|FirstLine[126]                                                             ;
+; top_level:Inst_top_level|SecondLine[87]                                                                 ; Merged with top_level:Inst_top_level|FirstLine[126]                                                             ;
+; top_level:Inst_top_level|FirstLine[87]                                                                  ; Merged with top_level:Inst_top_level|FirstLine[126]                                                             ;
+; top_level:Inst_top_level|SecondLine[55,71,127]                                                          ; Merged with top_level:Inst_top_level|FirstLine[126]                                                             ;
+; top_level:Inst_top_level|FirstLine[99]                                                                  ; Merged with top_level:Inst_top_level|FirstLine[126]                                                             ;
+; top_level:Inst_top_level|SecondLine[111]                                                                ; Merged with top_level:Inst_top_level|FirstLine[126]                                                             ;
+; top_level:Inst_top_level|FirstLine[95]                                                                  ; Merged with top_level:Inst_top_level|FirstLine[126]                                                             ;
+; top_level:Inst_top_level|SecondLine[95]                                                                 ; Merged with top_level:Inst_top_level|FirstLine[126]                                                             ;
+; top_level:Inst_top_level|FirstLine[47]                                                                  ; Merged with top_level:Inst_top_level|FirstLine[126]                                                             ;
+; top_level:Inst_top_level|SecondLine[79]                                                                 ; Merged with top_level:Inst_top_level|FirstLine[126]                                                             ;
+; top_level:Inst_top_level|FirstLine[31,110,119]                                                          ; Merged with top_level:Inst_top_level|FirstLine[126]                                                             ;
+; top_level:Inst_top_level|SecondLine[47]                                                                 ; Merged with top_level:Inst_top_level|FirstLine[126]                                                             ;
+; top_level:Inst_top_level|FirstLine[79]                                                                  ; Merged with top_level:Inst_top_level|FirstLine[126]                                                             ;
+; top_level:Inst_top_level|SecondLine[31,39,115]                                                          ; Merged with top_level:Inst_top_level|FirstLine[126]                                                             ;
+; top_level:Inst_top_level|FirstLine[15,16,25,77,103,105,113,114]                                         ; Merged with top_level:Inst_top_level|FirstLine[126]                                                             ;
+; top_level:Inst_top_level|SecondLine[19,23]                                                              ; Merged with top_level:Inst_top_level|FirstLine[126]                                                             ;
+; top_level:Inst_top_level|FirstLine[1,3]                                                                 ; Merged with top_level:Inst_top_level|FirstLine[126]                                                             ;
+; top_level:Inst_top_level|SecondLine[121]                                                                ; Merged with top_level:Inst_top_level|FirstLine[126]                                                             ;
+; top_level:Inst_top_level|FirstLine[61,98]                                                               ; Merged with top_level:Inst_top_level|FirstLine[126]                                                             ;
+; top_level:Inst_top_level|SecondLine[113]                                                                ; Merged with top_level:Inst_top_level|FirstLine[126]                                                             ;
+; top_level:Inst_top_level|FirstLine[96,97]                                                               ; Merged with top_level:Inst_top_level|FirstLine[126]                                                             ;
+; top_level:Inst_top_level|SecondLine[89,97]                                                              ; Merged with top_level:Inst_top_level|FirstLine[126]                                                             ;
+; top_level:Inst_top_level|FirstLine[26,30,90,102,111,118,121]                                            ; Merged with top_level:Inst_top_level|FirstLine[126]                                                             ;
+; top_level:Inst_top_level|SecondLine[49]                                                                 ; Merged with top_level:Inst_top_level|FirstLine[126]                                                             ;
+; top_level:Inst_top_level|FirstLine[24,108]                                                              ; Merged with top_level:Inst_top_level|FirstLine[126]                                                             ;
+; top_level:Inst_top_level|SecondLine[5]                                                                  ; Merged with top_level:Inst_top_level|FirstLine[125]                                                             ;
+; top_level:Inst_top_level|FirstLine[5,62,101,117]                                                        ; Merged with top_level:Inst_top_level|FirstLine[125]                                                             ;
+; top_level:Inst_top_level|SecondLine[101]                                                                ; Merged with top_level:Inst_top_level|FirstLine[125]                                                             ;
+; top_level:Inst_top_level|FirstLine[53]                                                                  ; Merged with top_level:Inst_top_level|FirstLine[125]                                                             ;
+; top_level:Inst_top_level|SecondLine[93]                                                                 ; Merged with top_level:Inst_top_level|FirstLine[125]                                                             ;
+; top_level:Inst_top_level|FirstLine[42,46,48]                                                            ; Merged with top_level:Inst_top_level|FirstLine[125]                                                             ;
+; top_level:Inst_top_level|SecondLine[69]                                                                 ; Merged with top_level:Inst_top_level|FirstLine[125]                                                             ;
+; top_level:Inst_top_level|FirstLine[34,37]                                                               ; Merged with top_level:Inst_top_level|FirstLine[125]                                                             ;
+; top_level:Inst_top_level|SecondLine[62]                                                                 ; Merged with top_level:Inst_top_level|FirstLine[125]                                                             ;
+; top_level:Inst_top_level|FirstLine[109]                                                                 ; Merged with top_level:Inst_top_level|FirstLine[125]                                                             ;
+; top_level:Inst_top_level|SecondLine[53]                                                                 ; Merged with top_level:Inst_top_level|FirstLine[125]                                                             ;
+; top_level:Inst_top_level|FirstLine[29,82]                                                               ; Merged with top_level:Inst_top_level|FirstLine[125]                                                             ;
+; top_level:Inst_top_level|SecondLine[37]                                                                 ; Merged with top_level:Inst_top_level|FirstLine[125]                                                             ;
+; top_level:Inst_top_level|FirstLine[13,21,72,75,78]                                                      ; Merged with top_level:Inst_top_level|FirstLine[125]                                                             ;
+; top_level:Inst_top_level|SecondLine[13]                                                                 ; Merged with top_level:Inst_top_level|FirstLine[125]                                                             ;
+; top_level:Inst_top_level|FirstLine[45,50,54,58,86]                                                      ; Merged with top_level:Inst_top_level|FirstLine[94]                                                              ;
+; top_level:Inst_top_level|SecondLine[77]                                                                 ; Merged with top_level:Inst_top_level|FirstLine[94]                                                              ;
+; top_level:Inst_top_level|FirstLine[38]                                                                  ; Merged with top_level:Inst_top_level|FirstLine[94]                                                              ;
+; top_level:Inst_top_level|SecondLine[45]                                                                 ; Merged with top_level:Inst_top_level|FirstLine[94]                                                              ;
+; top_level:Inst_top_level|FirstLine[40,44,63]                                                            ; Merged with top_level:Inst_top_level|FirstLine[93]                                                              ;
+; top_level:Inst_top_level|SecondLine[73]                                                                 ; Merged with top_level:Inst_top_level|FirstLine[93]                                                              ;
+; top_level:Inst_top_level|FirstLine[85]                                                                  ; Merged with top_level:Inst_top_level|FirstLine[93]                                                              ;
+; top_level:Inst_top_level|SecondLine[35,44,63]                                                           ; Merged with top_level:Inst_top_level|FirstLine[93]                                                              ;
+; top_level:Inst_top_level|FirstLine[76]                                                                  ; Merged with top_level:Inst_top_level|FirstLine[93]                                                              ;
+; top_level:Inst_top_level|FirstLine[80]                                                                  ; Merged with top_level:Inst_top_level|FirstLine[92]                                                              ;
+; top_level:Inst_top_level|FirstLine[64..66,70,83,88]                                                     ; Merged with top_level:Inst_top_level|FirstLine[89]                                                              ;
+; top_level:Inst_top_level|FirstLine[49,59,81]                                                            ; Merged with top_level:Inst_top_level|FirstLine[84]                                                              ;
+; top_level:Inst_top_level|FirstLine[32,51,69]                                                            ; Merged with top_level:Inst_top_level|FirstLine[74]                                                              ;
+; top_level:Inst_top_level|FirstLine[33,35,41,43,57,67]                                                   ; Merged with top_level:Inst_top_level|FirstLine[73]                                                              ;
+; top_level:Inst_top_level|FirstLine[36]                                                                  ; Merged with top_level:Inst_top_level|FirstLine[68]                                                              ;
+; top_level:Inst_top_level|SecondLine[28,84,92,96,114,120]                                                ; Merged with top_level:Inst_top_level|SecondLine[126]                                                            ;
+; top_level:Inst_top_level|SecondLine[21,29,40,78,109]                                                    ; Merged with top_level:Inst_top_level|SecondLine[125]                                                            ;
+; top_level:Inst_top_level|SecondLine[72]                                                                 ; Merged with top_level:Inst_top_level|SecondLine[117]                                                            ;
+; top_level:Inst_top_level|SecondLine[8,17,22,24,26,30]                                                   ; Merged with top_level:Inst_top_level|SecondLine[107]                                                            ;
+; top_level:Inst_top_level|SecondLine[36,88,90,94,100,102]                                                ; Merged with top_level:Inst_top_level|SecondLine[104]                                                            ;
+; top_level:Inst_top_level|SecondLine[70]                                                                 ; Merged with top_level:Inst_top_level|SecondLine[86]                                                             ;
+; top_level:Inst_top_level|SecondLine[42,46,57,76]                                                        ; Merged with top_level:Inst_top_level|SecondLine[85]                                                             ;
+; top_level:Inst_top_level|SecondLine[61,64]                                                              ; Merged with top_level:Inst_top_level|SecondLine[83]                                                             ;
+; top_level:Inst_top_level|SecondLine[34,51]                                                              ; Merged with top_level:Inst_top_level|SecondLine[67]                                                             ;
+; top_level:Inst_top_level|SecondLine[50]                                                                 ; Merged with top_level:Inst_top_level|SecondLine[54]                                                             ;
+; top_level:Inst_top_level|SecondLine[32,33,41]                                                           ; Merged with top_level:Inst_top_level|SecondLine[43]                                                             ;
+; top_level:Inst_top_level|SecondLine[126]                                                                ; Merged with top_level:Inst_top_level|oLed2                                                                      ;
+; top_level:Inst_top_level|SecondLine[104]                                                                ; Merged with top_level:Inst_top_level|oLed3                                                                      ;
+; top_level:Inst_top_level|SecondLine[107]                                                                ; Merged with top_level:Inst_top_level|PWN_module[1]                                                              ;
+; top_level:Inst_top_level|FirstLine[126]                                                                 ; Merged with top_level:Inst_top_level|FirstLine[127]                                                             ;
+; top_level:Inst_top_level|FirstLine[56]                                                                  ; Merged with top_level:Inst_top_level|FirstLine[94]                                                              ;
+; top_level:Inst_top_level|FirstLine[84]                                                                  ; Merged with top_level:Inst_top_level|FirstLine[92]                                                              ;
+; top_level:Inst_top_level|FirstLine[68]                                                                  ; Merged with top_level:Inst_top_level|FirstLine[89]                                                              ;
+; top_level:Inst_top_level|SecondLine[83]                                                                 ; Merged with top_level:Inst_top_level|SecondLine[86]                                                             ;
+; top_level:Inst_top_level|I2C_user_logic:INST_LCD_I2C_UsrLogic|address[1,2,5]                            ; Merged with top_level:Inst_top_level|I2C_user_logic:INST_LCD_I2C_UsrLogic|address[0]                            ;
+; top_level:Inst_top_level|I2C_user_logic:INST_LCD_I2C_UsrLogic|address[6]                                ; Merged with top_level:Inst_top_level|I2C_user_logic:INST_LCD_I2C_UsrLogic|address[3]                            ;
+; top_level:Inst_top_level|I2C_user_logic:INST_LCD_I2C_UsrLogic|i2c_master:INST_I2C_master|addr_rw[7]     ; Merged with top_level:Inst_top_level|I2C_user_logic:INST_LCD_I2C_UsrLogic|i2c_master:INST_I2C_master|addr_rw[4] ;
+; top_level:Inst_top_level|I2C_user_logic:INST_LCD_I2C_UsrLogic|i2c_master:INST_I2C_master|addr_rw[2,3,6] ; Merged with top_level:Inst_top_level|I2C_user_logic:INST_LCD_I2C_UsrLogic|i2c_master:INST_I2C_master|addr_rw[1] ;
+; top_level:Inst_top_level|FirstLine[127]                                                                 ; Stuck at GND due to stuck port data_in                                                                          ;
+; top_level:Inst_top_level|PWM:INST_PWM0|PWMState_Sig[0,1]                                                ; Stuck at GND due to stuck port data_in                                                                          ;
+; top_level:Inst_top_level|FirstLine[125]                                                                 ; Stuck at VCC due to stuck port data_in                                                                          ;
+; top_level:Inst_top_level|I2C_user_logic:INST_LCD_I2C_UsrLogic|address[4]                                ; Stuck at GND due to stuck port data_in                                                                          ;
+; top_level:Inst_top_level|I2C_user_logic:INST_LCD_I2C_UsrLogic|i2c_master:INST_I2C_master|addr_rw[5]     ; Stuck at GND due to stuck port data_in                                                                          ;
+; top_level:Inst_top_level|PWM:INST_PWM0|counter[0..7]                                                    ; Stuck at GND due to stuck port clear                                                                            ;
+; top_level:Inst_top_level|I2C_user_logic:INST_LCD_I2C_UsrLogic|address[0]                                ; Merged with top_level:Inst_top_level|I2C_user_logic:INST_LCD_I2C_UsrLogic|address[3]                            ;
+; top_level:Inst_top_level|I2C_user_logic:INST_LCD_I2C_UsrLogic|i2c_master:INST_I2C_master|addr_rw[1]     ; Merged with top_level:Inst_top_level|I2C_user_logic:INST_LCD_I2C_UsrLogic|i2c_master:INST_I2C_master|addr_rw[4] ;
+; top_level:Inst_top_level|FirstLine[73,92]                                                               ; Merged with top_level:Inst_top_level|FinaloPWM                                                                  ;
+; top_level:Inst_top_level|FirstLine[94]                                                                  ; Merged with top_level:Inst_top_level|FirstLine[93]                                                              ;
+; top_level:Inst_top_level|FirstLine[74]                                                                  ; Merged with top_level:Inst_top_level|FirstLine[89]                                                              ;
+; top_level:Inst_top_level|SecondLine[48]                                                                 ; Merged with top_level:Inst_top_level|oLed0                                                                      ;
+; top_level:Inst_top_level|SecondLine[58]                                                                 ; Merged with top_level:Inst_top_level|SecondLine[75]                                                             ;
+; top_level:Inst_top_level|SecondLine[125]                                                                ; Merged with top_level:Inst_top_level|oLed2                                                                      ;
+; top_level:Inst_top_level|SecondLine[43]                                                                 ; Merged with top_level:Inst_top_level|SecondLine[86]                                                             ;
+; Total Number of Removed Registers = 266                                                                 ;                                                                                                                 ;
++---------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                                                                ;
++--------------------------------------------------------------------------+---------------------------+-----------------------------------------------------------------------------------------------------+
+; Register name                                                            ; Reason for Removal        ; Registers Removed due to This Register                                                              ;
++--------------------------------------------------------------------------+---------------------------+-----------------------------------------------------------------------------------------------------+
+; top_level:Inst_top_level|PWM:INST_PWM0|PWMState_Sig[0]                   ; Stuck at GND              ; top_level:Inst_top_level|PWM:INST_PWM0|counter[7],                                                  ;
+;                                                                          ; due to stuck port data_in ; top_level:Inst_top_level|PWM:INST_PWM0|counter[6],                                                  ;
+;                                                                          ;                           ; top_level:Inst_top_level|PWM:INST_PWM0|counter[5],                                                  ;
+;                                                                          ;                           ; top_level:Inst_top_level|PWM:INST_PWM0|counter[4],                                                  ;
+;                                                                          ;                           ; top_level:Inst_top_level|PWM:INST_PWM0|counter[3],                                                  ;
+;                                                                          ;                           ; top_level:Inst_top_level|PWM:INST_PWM0|counter[2],                                                  ;
+;                                                                          ;                           ; top_level:Inst_top_level|PWM:INST_PWM0|counter[1],                                                  ;
+;                                                                          ;                           ; top_level:Inst_top_level|PWM:INST_PWM0|counter[0]                                                   ;
+; top_level:Inst_top_level|I2C_user_logic:INST_LCD_I2C_UsrLogic|address[4] ; Stuck at GND              ; top_level:Inst_top_level|I2C_user_logic:INST_LCD_I2C_UsrLogic|i2c_master:INST_I2C_master|addr_rw[5] ;
+;                                                                          ; due to stuck port data_in ;                                                                                                     ;
++--------------------------------------------------------------------------+---------------------------+-----------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------+
+; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |DE2_115|top_level:Inst_top_level|I2C_user_logic:INST_LCD_I2C_UsrLogic|i2c_master:INST_I2C_master|data_tx[0] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |DE2_115|top_level:Inst_top_level|btn_debounce_toggle:Inst_Key0|btn_cntr[10]                                 ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |DE2_115|top_level:Inst_top_level|btn_debounce_toggle:INST_BTN1_DB_pulse|btn_cntr[5]                         ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |DE2_115|top_level:Inst_top_level|btn_debounce_toggle:INST_BTN2Pulse|btn_cntr[1]                             ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |DE2_115|top_level:Inst_top_level|FirstLine[89]                                                              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |DE2_115|top_level:Inst_top_level|SecondLine[86]                                                             ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |DE2_115|top_level:Inst_top_level|PWN_module[1]                                                              ;
+; 4:1                ; 26 bits   ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |DE2_115|top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|counter[9]                                    ;
+; 6:1                ; 12 bits   ; 48 LEs        ; 12 LEs               ; 36 LEs                 ; Yes        ; |DE2_115|top_level:Inst_top_level|I2C_user_logic:INST_LCD_I2C_UsrLogic|Counter[3]                            ;
+; 8:1                ; 3 bits    ; 15 LEs        ; 6 LEs                ; 9 LEs                  ; Yes        ; |DE2_115|top_level:Inst_top_level|I2C_user_logic:INST_LCD_I2C_UsrLogic|address[0]                            ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |DE2_115|top_level:Inst_top_level|I2C_user_logic:INST_LCD_I2C_UsrLogic|i2c_master:INST_I2C_master|bit_cnt[2] ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |DE2_115|top_level:Inst_top_level|FirstLine[74]                                                              ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |DE2_115|top_level:Inst_top_level|SecondLine[43]                                                             ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |DE2_115|top_level:Inst_top_level|SecondLine[74]                                                             ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |DE2_115|top_level:Inst_top_level|I2C_user_logic:INST_LCD_I2C_UsrLogic|Counter[15]                           ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |DE2_115|top_level:Inst_top_level|I2C_user_logic:INST_LCD_I2C_UsrLogic|Mux0                                  ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |DE2_115|top_level:Inst_top_level|Main2State_Machine:INST_StateMachine|Selector1                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: top_level:Inst_top_level|I2C_user_logic:INST_LCD_I2C_UsrLogic|i2c_master:INST_I2C_master ;
++----------------+----------+-----------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value    ; Type                                                                                                      ;
++----------------+----------+-----------------------------------------------------------------------------------------------------------+
+; input_clk      ; 50000000 ; Signed Integer                                                                                            ;
+; bus_clk        ; 100000   ; Signed Integer                                                                                            ;
++----------------+----------+-----------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: top_level:Inst_top_level|btn_debounce_toggle:Inst_Key0 ;
++----------------+------------------+-----------------------------------------------------------------+
+; Parameter Name ; Value            ; Type                                                            ;
++----------------+------------------+-----------------------------------------------------------------+
+; cntr_max       ; 1111111111111111 ; Unsigned Binary                                                 ;
++----------------+------------------+-----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: top_level:Inst_top_level|btn_debounce_toggle:Inst_Key1 ;
++----------------+------------------+-----------------------------------------------------------------+
+; Parameter Name ; Value            ; Type                                                            ;
++----------------+------------------+-----------------------------------------------------------------+
+; cntr_max       ; 1111111111111111 ; Unsigned Binary                                                 ;
++----------------+------------------+-----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: top_level:Inst_top_level|btn_debounce_toggle:Inst_Key2 ;
++----------------+------------------+-----------------------------------------------------------------+
+; Parameter Name ; Value            ; Type                                                            ;
++----------------+------------------+-----------------------------------------------------------------+
+; cntr_max       ; 1111111111111111 ; Unsigned Binary                                                 ;
++----------------+------------------+-----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: top_level:Inst_top_level|btn_debounce_toggle:INST_DebouncedKey0 ;
++----------------+------------------+--------------------------------------------------------------------------+
+; Parameter Name ; Value            ; Type                                                                     ;
++----------------+------------------+--------------------------------------------------------------------------+
+; cntr_max       ; 0000000000000001 ; Unsigned Binary                                                          ;
++----------------+------------------+--------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: top_level:Inst_top_level|btn_debounce_toggle:INST_BTN1_DB_pulse ;
++----------------+------------------+--------------------------------------------------------------------------+
+; Parameter Name ; Value            ; Type                                                                     ;
++----------------+------------------+--------------------------------------------------------------------------+
+; cntr_max       ; 0000000000000001 ; Unsigned Binary                                                          ;
++----------------+------------------+--------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: top_level:Inst_top_level|btn_debounce_toggle:INST_BTN2Pulse ;
++----------------+------------------+----------------------------------------------------------------------+
+; Parameter Name ; Value            ; Type                                                                 ;
++----------------+------------------+----------------------------------------------------------------------+
+; cntr_max       ; 0000000000000001 ; Unsigned Binary                                                      ;
++----------------+------------------+----------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: top_level:Inst_top_level|PWM:INST_PWM0 ;
++----------------+-------+------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                       ;
++----------------+-------+------------------------------------------------------------+
+; n              ; 8     ; Signed Integer                                             ;
++----------------+-------+------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|lpm_divide:Div0 ;
++------------------------+----------------+------------------------------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                                         ;
++------------------------+----------------+------------------------------------------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                                                      ;
+; LPM_WIDTHD             ; 32             ; Untyped                                                                      ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                                                      ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                                                      ;
+; LPM_PIPELINE           ; 0              ; Untyped                                                                      ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                                                      ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                                                      ;
+; CBXI_PARAMETER         ; lpm_divide_92p ; Untyped                                                                      ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                                                      ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                                      ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                                                   ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                                                 ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                                                 ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                                               ;
++------------------------+----------------+------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------+
+; Partition Dependent Files                                                                ;
++-------------------------+-------------------+---------+----------------------------------+
+; File                    ; Location          ; Library ; Checksum                         ;
++-------------------------+-------------------+---------+----------------------------------+
+; btn_debounce_toggle.vhd ; Project Directory ; work    ; e733bd2d1c661da2507ac480622f0282 ;
+; ClockGeneration.vhd     ; Project Directory ; work    ; 6c5f40547b8d4d86023319d61915eb11 ;
+; DE2_115.vhd             ; Project Directory ; work    ; 578b75689c3052b261a454656d696a93 ;
+; i2c_master_2.1.vhd      ; Project Directory ; work    ; 37d6f06320456747eab7c6879af4f785 ;
+; I2C_user_logic.vhd      ; Project Directory ; work    ; 637bbacebb1c23524c3bea9294022959 ;
+; PWM.vhd                 ; Project Directory ; work    ; b29ebae86f3170a8d38f5451fa20962d ;
+; reset_delay.vhd         ; Project Directory ; work    ; 7baa51f45faf37808282ebd27542e876 ;
+; state_machine.vhd       ; Project Directory ; work    ; 6ab93ae2f79f0d92c5c70ee3a59f057f ;
+; top_level.vhd           ; Project Directory ; work    ; d04ee482bf56f3b1098fa85fa9f6ecd4 ;
++-------------------------+-------------------+---------+----------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "top_level:Inst_top_level|btn_debounce_toggle:INST_BTN2Pulse"                            ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; btn_o    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; toggle_o ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "top_level:Inst_top_level|btn_debounce_toggle:INST_BTN1_DB_pulse"                        ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; btn_o    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; toggle_o ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "top_level:Inst_top_level|btn_debounce_toggle:INST_DebouncedKey0"                        ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; btn_o    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; toggle_o ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; pulse_o  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "top_level:Inst_top_level|btn_debounce_toggle:Inst_Key2"                                 ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; toggle_o ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; pulse_o  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "top_level:Inst_top_level|btn_debounce_toggle:Inst_Key1"                                 ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; toggle_o ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; pulse_o  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "top_level:Inst_top_level|btn_debounce_toggle:Inst_Key0"                                 ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; toggle_o ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; pulse_o  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "top_level:Inst_top_level|I2C_user_logic:INST_LCD_I2C_UsrLogic|i2c_master:INST_I2C_master" ;
++-----------+--------+----------+--------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                              ;
++-----------+--------+----------+--------------------------------------------------------------------------------------+
+; ack_error ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.  ;
++-----------+--------+----------+--------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:29     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
+    Info: Processing started: Mon Feb 26 16:49:31 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Project3 -c EE316Project3
+Info (11104): Parallel Compilation has detected 12 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 6 of the 6 physical processors detected instead.
+Info (12021): Found 2 design units, including 1 entities, in source file clockgeneration.vhd
+    Info (12022): Found design unit 1: ClockGeneration-arch
+    Info (12023): Found entity 1: ClockGeneration
+Info (12021): Found 2 design units, including 1 entities, in source file top_level.vhd
+    Info (12022): Found design unit 1: top_level-Structural
+    Info (12023): Found entity 1: top_level
+Info (12021): Found 2 design units, including 1 entities, in source file reset_delay.vhd
+    Info (12022): Found design unit 1: Reset_Delay-Arch
+    Info (12023): Found entity 1: Reset_Delay
+Info (12021): Found 2 design units, including 1 entities, in source file de2_115.vhd
+    Info (12022): Found design unit 1: DE2_115-structural
+    Info (12023): Found entity 1: DE2_115
+Info (12021): Found 2 design units, including 1 entities, in source file i2c_master_2.1.vhd
+    Info (12022): Found design unit 1: i2c_master-logic
+    Info (12023): Found entity 1: i2c_master
+Info (12021): Found 2 design units, including 1 entities, in source file i2c_user_logic.vhd
+    Info (12022): Found design unit 1: I2C_user_logic-Behavioral
+    Info (12023): Found entity 1: I2C_user_logic
+Info (12021): Found 2 design units, including 1 entities, in source file state_machine.vhd
+    Info (12022): Found design unit 1: Main2State_Machine-Behavioral
+    Info (12023): Found entity 1: Main2State_Machine
+Info (12021): Found 2 design units, including 1 entities, in source file pwm.vhd
+    Info (12022): Found design unit 1: PWM-Behavioral
+    Info (12023): Found entity 1: PWM
+Info (12127): Elaborating entity "DE2_115" for the top level hierarchy
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(16): used implicit default value for signal "HEX0" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(17): used implicit default value for signal "HEX1" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(18): used implicit default value for signal "HEX2" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(19): used implicit default value for signal "HEX3" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(20): used implicit default value for signal "HEX4" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(21): used implicit default value for signal "HEX5" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(22): used implicit default value for signal "HEX6" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(23): used implicit default value for signal "HEX7" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(25): used implicit default value for signal "LEDG" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(28): used implicit default value for signal "UART_CTS" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(30): used implicit default value for signal "UART_TXD" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(33): used implicit default value for signal "IRDA_TXD" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(37): used implicit default value for signal "DRAM_ADDR" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(38): used implicit default value for signal "DRAM_DQM" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(39): used implicit default value for signal "DRAM_WE_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(40): used implicit default value for signal "DRAM_CAS_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(41): used implicit default value for signal "DRAM_RAS_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(42): used implicit default value for signal "DRAM_CS_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(43): used implicit default value for signal "DRAM_BA" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(44): used implicit default value for signal "DRAM_CLK" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(45): used implicit default value for signal "DRAM_CKE" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(48): used implicit default value for signal "FL_ADDR" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(49): used implicit default value for signal "FL_WE_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(50): used implicit default value for signal "FL_RST_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(51): used implicit default value for signal "FL_OE_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(52): used implicit default value for signal "FL_CE_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(54): used implicit default value for signal "FL_WP_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(57): used implicit default value for signal "SRAM_ADDR" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(58): used implicit default value for signal "SRAM_UB_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(59): used implicit default value for signal "SRAM_LB_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(60): used implicit default value for signal "SRAM_WE_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(61): used implicit default value for signal "SRAM_CE_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(62): used implicit default value for signal "SRAM_OE_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(65): used implicit default value for signal "OTG_ADDR" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(66): used implicit default value for signal "OTG_CS_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(67): used implicit default value for signal "OTG_RD_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(68): used implicit default value for signal "OTG_WR_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(69): used implicit default value for signal "OTG_RST_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(74): used implicit default value for signal "OTG_DACK_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(76): used implicit default value for signal "LCD_ON" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(77): used implicit default value for signal "LCD_BLON" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(78): used implicit default value for signal "LCD_RW" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(79): used implicit default value for signal "LCD_EN" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(80): used implicit default value for signal "LCD_RS" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(89): used implicit default value for signal "I2C_SCLK" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(96): used implicit default value for signal "VGA_CLK" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(97): used implicit default value for signal "VGA_HS" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(98): used implicit default value for signal "VGA_VS" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(99): used implicit default value for signal "VGA_BLANK_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(100): used implicit default value for signal "VGA_SYNC_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(101): used implicit default value for signal "VGA_R" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(102): used implicit default value for signal "VGA_G" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(103): used implicit default value for signal "VGA_B" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(106): used implicit default value for signal "ENET_CMD" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(107): used implicit default value for signal "ENET_CS_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(108): used implicit default value for signal "ENET_WR_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(109): used implicit default value for signal "ENET_RD_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(110): used implicit default value for signal "ENET_RST_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(112): used implicit default value for signal "ENET_CLK" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(117): used implicit default value for signal "AUD_DACDAT" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(119): used implicit default value for signal "AUD_XCK" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(125): used implicit default value for signal "TD_RESET_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10873): Using initial value X (don't care) for net "LEDR[17..5]" at DE2_115.vhd(26)
+Warning (10873): Using initial value X (don't care) for net "LEDR[0]" at DE2_115.vhd(26)
+Info (12128): Elaborating entity "top_level" for hierarchy "top_level:Inst_top_level"
+Warning (10036): Verilog HDL or VHDL warning at top_level.vhd(111): object "kpPulse20ns" assigned a value but never read
+Warning (10541): VHDL Signal Declaration warning at top_level.vhd(116): used implicit default value for signal "I2CandLCDData" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at top_level.vhd(126): used implicit default value for signal "PWMmode" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Info (12128): Elaborating entity "Main2State_Machine" for hierarchy "top_level:Inst_top_level|Main2State_Machine:INST_StateMachine"
+Info (12128): Elaborating entity "I2C_user_logic" for hierarchy "top_level:Inst_top_level|I2C_user_logic:INST_LCD_I2C_UsrLogic"
+Info (12128): Elaborating entity "i2c_master" for hierarchy "top_level:Inst_top_level|I2C_user_logic:INST_LCD_I2C_UsrLogic|i2c_master:INST_I2C_master"
+Info (12128): Elaborating entity "Reset_Delay" for hierarchy "top_level:Inst_top_level|Reset_Delay:Inst_clk_Reset_Delay"
+Warning (12125): Using design file btn_debounce_toggle.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: btn_debounce_toggle-Behavioral
+    Info (12023): Found entity 1: btn_debounce_toggle
+Info (12128): Elaborating entity "btn_debounce_toggle" for hierarchy "top_level:Inst_top_level|btn_debounce_toggle:Inst_Key0"
+Info (12128): Elaborating entity "btn_debounce_toggle" for hierarchy "top_level:Inst_top_level|btn_debounce_toggle:INST_DebouncedKey0"
+Info (12128): Elaborating entity "PWM" for hierarchy "top_level:Inst_top_level|PWM:INST_PWM0"
+Warning (10492): VHDL Process Statement warning at PWM.vhd(35): signal "PWMState_Sig" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (12128): Elaborating entity "ClockGeneration" for hierarchy "top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN"
+Warning (10492): VHDL Process Statement warning at ClockGeneration.vhd(32): signal "freq_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ClockGeneration.vhd(33): signal "freq_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ClockGeneration.vhd(33): signal "divisor" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ClockGeneration.vhd(34): signal "total" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (12205): 1 design partition requires Analysis and Synthesis
+    Info (12211): Partition "Top" requires synthesis because there were changes to its dependent source files
+Info (12209): No design partitions will skip synthesis in the current incremental compilation
+Info (278001): Inferred 1 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|Div0"
+Info (12130): Elaborated megafunction instantiation "top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|lpm_divide:Div0"
+Info (12133): Instantiated megafunction "top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|lpm_divide:Div0" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTHN" = "32"
+    Info (12134): Parameter "LPM_WIDTHD" = "32"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_92p.tdf
+    Info (12023): Found entity 1: lpm_divide_92p
+Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_4dg.tdf
+    Info (12023): Found entity 1: abs_divider_4dg
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_6af.tdf
+    Info (12023): Found entity 1: alt_u_div_6af
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_7pc.tdf
+    Info (12023): Found entity 1: add_sub_7pc
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
+    Info (12023): Found entity 1: add_sub_8pc
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_i0a.tdf
+    Info (12023): Found entity 1: lpm_abs_i0a
+Info (281020): Starting Logic Optimization and Technology Mapping for Top Partition
+Warning (13034): The following nodes have both tri-state and non-tri-state drivers
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[27]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[29]" and its non-tri-state driver.
+Warning (13039): The following bidir pins have no drivers
+    Warning (13040): Bidir "DRAM_DQ[0]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[1]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[2]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[3]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[4]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[5]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[6]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[7]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[8]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[9]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[10]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[11]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[12]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[13]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[14]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[15]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[16]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[17]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[18]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[19]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[20]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[21]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[22]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[23]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[24]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[25]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[26]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[27]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[28]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[29]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[30]" has no driver
+    Warning (13040): Bidir "DRAM_DQ[31]" has no driver
+    Warning (13040): Bidir "FL_DQ[0]" has no driver
+    Warning (13040): Bidir "FL_DQ[1]" has no driver
+    Warning (13040): Bidir "FL_DQ[2]" has no driver
+    Warning (13040): Bidir "FL_DQ[3]" has no driver
+    Warning (13040): Bidir "FL_DQ[4]" has no driver
+    Warning (13040): Bidir "FL_DQ[5]" has no driver
+    Warning (13040): Bidir "FL_DQ[6]" has no driver
+    Warning (13040): Bidir "FL_DQ[7]" has no driver
+    Warning (13040): Bidir "SRAM_DQ[0]" has no driver
+    Warning (13040): Bidir "SRAM_DQ[1]" has no driver
+    Warning (13040): Bidir "SRAM_DQ[2]" has no driver
+    Warning (13040): Bidir "SRAM_DQ[3]" has no driver
+    Warning (13040): Bidir "SRAM_DQ[4]" has no driver
+    Warning (13040): Bidir "SRAM_DQ[5]" has no driver
+    Warning (13040): Bidir "SRAM_DQ[6]" has no driver
+    Warning (13040): Bidir "SRAM_DQ[7]" has no driver
+    Warning (13040): Bidir "SRAM_DQ[8]" has no driver
+    Warning (13040): Bidir "SRAM_DQ[9]" has no driver
+    Warning (13040): Bidir "SRAM_DQ[10]" has no driver
+    Warning (13040): Bidir "SRAM_DQ[11]" has no driver
+    Warning (13040): Bidir "SRAM_DQ[12]" has no driver
+    Warning (13040): Bidir "SRAM_DQ[13]" has no driver
+    Warning (13040): Bidir "SRAM_DQ[14]" has no driver
+    Warning (13040): Bidir "SRAM_DQ[15]" has no driver
+    Warning (13040): Bidir "OTG_DATA[0]" has no driver
+    Warning (13040): Bidir "OTG_DATA[1]" has no driver
+    Warning (13040): Bidir "OTG_DATA[2]" has no driver
+    Warning (13040): Bidir "OTG_DATA[3]" has no driver
+    Warning (13040): Bidir "OTG_DATA[4]" has no driver
+    Warning (13040): Bidir "OTG_DATA[5]" has no driver
+    Warning (13040): Bidir "OTG_DATA[6]" has no driver
+    Warning (13040): Bidir "OTG_DATA[7]" has no driver
+    Warning (13040): Bidir "OTG_DATA[8]" has no driver
+    Warning (13040): Bidir "OTG_DATA[9]" has no driver
+    Warning (13040): Bidir "OTG_DATA[10]" has no driver
+    Warning (13040): Bidir "OTG_DATA[11]" has no driver
+    Warning (13040): Bidir "OTG_DATA[12]" has no driver
+    Warning (13040): Bidir "OTG_DATA[13]" has no driver
+    Warning (13040): Bidir "OTG_DATA[14]" has no driver
+    Warning (13040): Bidir "OTG_DATA[15]" has no driver
+    Warning (13040): Bidir "OTG_FSPEED" has no driver
+    Warning (13040): Bidir "OTG_LSPEED" has no driver
+    Warning (13040): Bidir "LCD_DATA[0]" has no driver
+    Warning (13040): Bidir "LCD_DATA[1]" has no driver
+    Warning (13040): Bidir "LCD_DATA[2]" has no driver
+    Warning (13040): Bidir "LCD_DATA[3]" has no driver
+    Warning (13040): Bidir "LCD_DATA[4]" has no driver
+    Warning (13040): Bidir "LCD_DATA[5]" has no driver
+    Warning (13040): Bidir "LCD_DATA[6]" has no driver
+    Warning (13040): Bidir "LCD_DATA[7]" has no driver
+    Warning (13040): Bidir "SD_DAT[0]" has no driver
+    Warning (13040): Bidir "SD_DAT[1]" has no driver
+    Warning (13040): Bidir "SD_DAT[2]" has no driver
+    Warning (13040): Bidir "SD_DAT[3]" has no driver
+    Warning (13040): Bidir "SD_CMD" has no driver
+    Warning (13040): Bidir "SD_CLK" has no driver
+    Warning (13040): Bidir "I2C_SDAT" has no driver
+    Warning (13040): Bidir "PS2_DAT" has no driver
+    Warning (13040): Bidir "PS2_CLK" has no driver
+    Warning (13040): Bidir "PS2_DAT2" has no driver
+    Warning (13040): Bidir "PS2_CLK2" has no driver
+    Warning (13040): Bidir "ENET_DATA[0]" has no driver
+    Warning (13040): Bidir "ENET_DATA[1]" has no driver
+    Warning (13040): Bidir "ENET_DATA[2]" has no driver
+    Warning (13040): Bidir "ENET_DATA[3]" has no driver
+    Warning (13040): Bidir "ENET_DATA[4]" has no driver
+    Warning (13040): Bidir "ENET_DATA[5]" has no driver
+    Warning (13040): Bidir "ENET_DATA[6]" has no driver
+    Warning (13040): Bidir "ENET_DATA[7]" has no driver
+    Warning (13040): Bidir "ENET_DATA[8]" has no driver
+    Warning (13040): Bidir "ENET_DATA[9]" has no driver
+    Warning (13040): Bidir "ENET_DATA[10]" has no driver
+    Warning (13040): Bidir "ENET_DATA[11]" has no driver
+    Warning (13040): Bidir "ENET_DATA[12]" has no driver
+    Warning (13040): Bidir "ENET_DATA[13]" has no driver
+    Warning (13040): Bidir "ENET_DATA[14]" has no driver
+    Warning (13040): Bidir "ENET_DATA[15]" has no driver
+    Warning (13040): Bidir "AUD_ADCLRCK" has no driver
+    Warning (13040): Bidir "AUD_DACLRCK" has no driver
+    Warning (13040): Bidir "AUD_BCLK" has no driver
+    Warning (13040): Bidir "GPIO[0]" has no driver
+    Warning (13040): Bidir "GPIO[1]" has no driver
+    Warning (13040): Bidir "GPIO[2]" has no driver
+    Warning (13040): Bidir "GPIO[3]" has no driver
+    Warning (13040): Bidir "GPIO[4]" has no driver
+    Warning (13040): Bidir "GPIO[5]" has no driver
+    Warning (13040): Bidir "GPIO[6]" has no driver
+    Warning (13040): Bidir "GPIO[7]" has no driver
+    Warning (13040): Bidir "GPIO[8]" has no driver
+    Warning (13040): Bidir "GPIO[9]" has no driver
+    Warning (13040): Bidir "GPIO[10]" has no driver
+    Warning (13040): Bidir "GPIO[11]" has no driver
+    Warning (13040): Bidir "GPIO[12]" has no driver
+    Warning (13040): Bidir "GPIO[13]" has no driver
+    Warning (13040): Bidir "GPIO[14]" has no driver
+    Warning (13040): Bidir "GPIO[15]" has no driver
+    Warning (13040): Bidir "GPIO[16]" has no driver
+    Warning (13040): Bidir "GPIO[17]" has no driver
+    Warning (13040): Bidir "GPIO[18]" has no driver
+    Warning (13040): Bidir "GPIO[19]" has no driver
+    Warning (13040): Bidir "GPIO[20]" has no driver
+    Warning (13040): Bidir "GPIO[21]" has no driver
+    Warning (13040): Bidir "GPIO[22]" has no driver
+    Warning (13040): Bidir "GPIO[23]" has no driver
+    Warning (13040): Bidir "GPIO[24]" has no driver
+    Warning (13040): Bidir "GPIO[25]" has no driver
+    Warning (13040): Bidir "GPIO[26]" has no driver
+    Warning (13040): Bidir "GPIO[28]" has no driver
+    Warning (13040): Bidir "GPIO[30]" has no driver
+    Warning (13040): Bidir "GPIO[31]" has no driver
+    Warning (13040): Bidir "GPIO[32]" has no driver
+    Warning (13040): Bidir "GPIO[34]" has no driver
+Info (13000): Registers with preset signals will power-up high
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13009): TRI or OPNDRN buffers permanently enabled
+    Warning (13010): Node "GPIO[27]~synth"
+    Warning (13010): Node "GPIO[29]~synth"
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "HEX0[0]" is stuck at GND
+    Warning (13410): Pin "HEX0[1]" is stuck at GND
+    Warning (13410): Pin "HEX0[2]" is stuck at GND
+    Warning (13410): Pin "HEX0[3]" is stuck at GND
+    Warning (13410): Pin "HEX0[4]" is stuck at GND
+    Warning (13410): Pin "HEX0[5]" is stuck at GND
+    Warning (13410): Pin "HEX0[6]" is stuck at GND
+    Warning (13410): Pin "HEX1[0]" is stuck at GND
+    Warning (13410): Pin "HEX1[1]" is stuck at GND
+    Warning (13410): Pin "HEX1[2]" is stuck at GND
+    Warning (13410): Pin "HEX1[3]" is stuck at GND
+    Warning (13410): Pin "HEX1[4]" is stuck at GND
+    Warning (13410): Pin "HEX1[5]" is stuck at GND
+    Warning (13410): Pin "HEX1[6]" is stuck at GND
+    Warning (13410): Pin "HEX2[0]" is stuck at GND
+    Warning (13410): Pin "HEX2[1]" is stuck at GND
+    Warning (13410): Pin "HEX2[2]" is stuck at GND
+    Warning (13410): Pin "HEX2[3]" is stuck at GND
+    Warning (13410): Pin "HEX2[4]" is stuck at GND
+    Warning (13410): Pin "HEX2[5]" is stuck at GND
+    Warning (13410): Pin "HEX2[6]" is stuck at GND
+    Warning (13410): Pin "HEX3[0]" is stuck at GND
+    Warning (13410): Pin "HEX3[1]" is stuck at GND
+    Warning (13410): Pin "HEX3[2]" is stuck at GND
+    Warning (13410): Pin "HEX3[3]" is stuck at GND
+    Warning (13410): Pin "HEX3[4]" is stuck at GND
+    Warning (13410): Pin "HEX3[5]" is stuck at GND
+    Warning (13410): Pin "HEX3[6]" is stuck at GND
+    Warning (13410): Pin "HEX4[0]" is stuck at GND
+    Warning (13410): Pin "HEX4[1]" is stuck at GND
+    Warning (13410): Pin "HEX4[2]" is stuck at GND
+    Warning (13410): Pin "HEX4[3]" is stuck at GND
+    Warning (13410): Pin "HEX4[4]" is stuck at GND
+    Warning (13410): Pin "HEX4[5]" is stuck at GND
+    Warning (13410): Pin "HEX4[6]" is stuck at GND
+    Warning (13410): Pin "HEX5[0]" is stuck at GND
+    Warning (13410): Pin "HEX5[1]" is stuck at GND
+    Warning (13410): Pin "HEX5[2]" is stuck at GND
+    Warning (13410): Pin "HEX5[3]" is stuck at GND
+    Warning (13410): Pin "HEX5[4]" is stuck at GND
+    Warning (13410): Pin "HEX5[5]" is stuck at GND
+    Warning (13410): Pin "HEX5[6]" is stuck at GND
+    Warning (13410): Pin "HEX6[0]" is stuck at GND
+    Warning (13410): Pin "HEX6[1]" is stuck at GND
+    Warning (13410): Pin "HEX6[2]" is stuck at GND
+    Warning (13410): Pin "HEX6[3]" is stuck at GND
+    Warning (13410): Pin "HEX6[4]" is stuck at GND
+    Warning (13410): Pin "HEX6[5]" is stuck at GND
+    Warning (13410): Pin "HEX6[6]" is stuck at GND
+    Warning (13410): Pin "HEX7[0]" is stuck at GND
+    Warning (13410): Pin "HEX7[1]" is stuck at GND
+    Warning (13410): Pin "HEX7[2]" is stuck at GND
+    Warning (13410): Pin "HEX7[3]" is stuck at GND
+    Warning (13410): Pin "HEX7[4]" is stuck at GND
+    Warning (13410): Pin "HEX7[5]" is stuck at GND
+    Warning (13410): Pin "HEX7[6]" is stuck at GND
+    Warning (13410): Pin "LEDG[0]" is stuck at GND
+    Warning (13410): Pin "LEDG[1]" is stuck at GND
+    Warning (13410): Pin "LEDG[2]" is stuck at GND
+    Warning (13410): Pin "LEDG[3]" is stuck at GND
+    Warning (13410): Pin "LEDG[4]" is stuck at GND
+    Warning (13410): Pin "LEDG[5]" is stuck at GND
+    Warning (13410): Pin "LEDG[6]" is stuck at GND
+    Warning (13410): Pin "LEDG[7]" is stuck at GND
+    Warning (13410): Pin "LEDG[8]" is stuck at GND
+    Warning (13410): Pin "LEDR[0]" is stuck at GND
+    Warning (13410): Pin "LEDR[5]" is stuck at GND
+    Warning (13410): Pin "LEDR[6]" is stuck at GND
+    Warning (13410): Pin "LEDR[7]" is stuck at GND
+    Warning (13410): Pin "LEDR[8]" is stuck at GND
+    Warning (13410): Pin "LEDR[9]" is stuck at GND
+    Warning (13410): Pin "LEDR[10]" is stuck at GND
+    Warning (13410): Pin "LEDR[11]" is stuck at GND
+    Warning (13410): Pin "LEDR[12]" is stuck at GND
+    Warning (13410): Pin "LEDR[13]" is stuck at GND
+    Warning (13410): Pin "LEDR[14]" is stuck at GND
+    Warning (13410): Pin "LEDR[15]" is stuck at GND
+    Warning (13410): Pin "LEDR[16]" is stuck at GND
+    Warning (13410): Pin "LEDR[17]" is stuck at GND
+    Warning (13410): Pin "UART_CTS" is stuck at GND
+    Warning (13410): Pin "UART_TXD" is stuck at GND
+    Warning (13410): Pin "IRDA_TXD" is stuck at GND
+    Warning (13410): Pin "DRAM_ADDR[0]" is stuck at GND
+    Warning (13410): Pin "DRAM_ADDR[1]" is stuck at GND
+    Warning (13410): Pin "DRAM_ADDR[2]" is stuck at GND
+    Warning (13410): Pin "DRAM_ADDR[3]" is stuck at GND
+    Warning (13410): Pin "DRAM_ADDR[4]" is stuck at GND
+    Warning (13410): Pin "DRAM_ADDR[5]" is stuck at GND
+    Warning (13410): Pin "DRAM_ADDR[6]" is stuck at GND
+    Warning (13410): Pin "DRAM_ADDR[7]" is stuck at GND
+    Warning (13410): Pin "DRAM_ADDR[8]" is stuck at GND
+    Warning (13410): Pin "DRAM_ADDR[9]" is stuck at GND
+    Warning (13410): Pin "DRAM_ADDR[10]" is stuck at GND
+    Warning (13410): Pin "DRAM_ADDR[11]" is stuck at GND
+    Warning (13410): Pin "DRAM_ADDR[12]" is stuck at GND
+    Warning (13410): Pin "DRAM_DQM[0]" is stuck at GND
+    Warning (13410): Pin "DRAM_DQM[1]" is stuck at GND
+    Warning (13410): Pin "DRAM_DQM[2]" is stuck at GND
+    Warning (13410): Pin "DRAM_DQM[3]" is stuck at GND
+    Warning (13410): Pin "DRAM_WE_N" is stuck at GND
+    Warning (13410): Pin "DRAM_CAS_N" is stuck at GND
+    Warning (13410): Pin "DRAM_RAS_N" is stuck at GND
+    Warning (13410): Pin "DRAM_CS_N" is stuck at GND
+    Warning (13410): Pin "DRAM_BA[0]" is stuck at GND
+    Warning (13410): Pin "DRAM_BA[1]" is stuck at GND
+    Warning (13410): Pin "DRAM_CLK" is stuck at GND
+    Warning (13410): Pin "DRAM_CKE" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[0]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[1]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[2]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[3]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[4]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[5]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[6]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[7]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[8]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[9]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[10]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[11]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[12]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[13]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[14]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[15]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[16]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[17]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[18]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[19]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[20]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[21]" is stuck at GND
+    Warning (13410): Pin "FL_ADDR[22]" is stuck at GND
+    Warning (13410): Pin "FL_WE_N" is stuck at GND
+    Warning (13410): Pin "FL_RST_N" is stuck at GND
+    Warning (13410): Pin "FL_OE_N" is stuck at GND
+    Warning (13410): Pin "FL_CE_N" is stuck at GND
+    Warning (13410): Pin "FL_WP_N" is stuck at GND
+    Warning (13410): Pin "SRAM_ADDR[0]" is stuck at GND
+    Warning (13410): Pin "SRAM_ADDR[1]" is stuck at GND
+    Warning (13410): Pin "SRAM_ADDR[2]" is stuck at GND
+    Warning (13410): Pin "SRAM_ADDR[3]" is stuck at GND
+    Warning (13410): Pin "SRAM_ADDR[4]" is stuck at GND
+    Warning (13410): Pin "SRAM_ADDR[5]" is stuck at GND
+    Warning (13410): Pin "SRAM_ADDR[6]" is stuck at GND
+    Warning (13410): Pin "SRAM_ADDR[7]" is stuck at GND
+    Warning (13410): Pin "SRAM_ADDR[8]" is stuck at GND
+    Warning (13410): Pin "SRAM_ADDR[9]" is stuck at GND
+    Warning (13410): Pin "SRAM_ADDR[10]" is stuck at GND
+    Warning (13410): Pin "SRAM_ADDR[11]" is stuck at GND
+    Warning (13410): Pin "SRAM_ADDR[12]" is stuck at GND
+    Warning (13410): Pin "SRAM_ADDR[13]" is stuck at GND
+    Warning (13410): Pin "SRAM_ADDR[14]" is stuck at GND
+    Warning (13410): Pin "SRAM_ADDR[15]" is stuck at GND
+    Warning (13410): Pin "SRAM_ADDR[16]" is stuck at GND
+    Warning (13410): Pin "SRAM_ADDR[17]" is stuck at GND
+    Warning (13410): Pin "SRAM_ADDR[18]" is stuck at GND
+    Warning (13410): Pin "SRAM_ADDR[19]" is stuck at GND
+    Warning (13410): Pin "SRAM_UB_N" is stuck at GND
+    Warning (13410): Pin "SRAM_LB_N" is stuck at GND
+    Warning (13410): Pin "SRAM_WE_N" is stuck at GND
+    Warning (13410): Pin "SRAM_CE_N" is stuck at GND
+    Warning (13410): Pin "SRAM_OE_N" is stuck at GND
+    Warning (13410): Pin "OTG_ADDR[0]" is stuck at GND
+    Warning (13410): Pin "OTG_ADDR[1]" is stuck at GND
+    Warning (13410): Pin "OTG_CS_N" is stuck at GND
+    Warning (13410): Pin "OTG_RD_N" is stuck at GND
+    Warning (13410): Pin "OTG_WR_N" is stuck at GND
+    Warning (13410): Pin "OTG_RST_N" is stuck at GND
+    Warning (13410): Pin "OTG_DACK_N[0]" is stuck at GND
+    Warning (13410): Pin "OTG_DACK_N[1]" is stuck at GND
+    Warning (13410): Pin "LCD_ON" is stuck at GND
+    Warning (13410): Pin "LCD_BLON" is stuck at GND
+    Warning (13410): Pin "LCD_RW" is stuck at GND
+    Warning (13410): Pin "LCD_EN" is stuck at GND
+    Warning (13410): Pin "LCD_RS" is stuck at GND
+    Warning (13410): Pin "I2C_SCLK" is stuck at GND
+    Warning (13410): Pin "VGA_CLK" is stuck at GND
+    Warning (13410): Pin "VGA_HS" is stuck at GND
+    Warning (13410): Pin "VGA_VS" is stuck at GND
+    Warning (13410): Pin "VGA_BLANK_N" is stuck at GND
+    Warning (13410): Pin "VGA_SYNC_N" is stuck at GND
+    Warning (13410): Pin "VGA_R[0]" is stuck at GND
+    Warning (13410): Pin "VGA_R[1]" is stuck at GND
+    Warning (13410): Pin "VGA_R[2]" is stuck at GND
+    Warning (13410): Pin "VGA_R[3]" is stuck at GND
+    Warning (13410): Pin "VGA_R[4]" is stuck at GND
+    Warning (13410): Pin "VGA_R[5]" is stuck at GND
+    Warning (13410): Pin "VGA_R[6]" is stuck at GND
+    Warning (13410): Pin "VGA_R[7]" is stuck at GND
+    Warning (13410): Pin "VGA_G[0]" is stuck at GND
+    Warning (13410): Pin "VGA_G[1]" is stuck at GND
+    Warning (13410): Pin "VGA_G[2]" is stuck at GND
+    Warning (13410): Pin "VGA_G[3]" is stuck at GND
+    Warning (13410): Pin "VGA_G[4]" is stuck at GND
+    Warning (13410): Pin "VGA_G[5]" is stuck at GND
+    Warning (13410): Pin "VGA_G[6]" is stuck at GND
+    Warning (13410): Pin "VGA_G[7]" is stuck at GND
+    Warning (13410): Pin "VGA_B[0]" is stuck at GND
+    Warning (13410): Pin "VGA_B[1]" is stuck at GND
+    Warning (13410): Pin "VGA_B[2]" is stuck at GND
+    Warning (13410): Pin "VGA_B[3]" is stuck at GND
+    Warning (13410): Pin "VGA_B[4]" is stuck at GND
+    Warning (13410): Pin "VGA_B[5]" is stuck at GND
+    Warning (13410): Pin "VGA_B[6]" is stuck at GND
+    Warning (13410): Pin "VGA_B[7]" is stuck at GND
+    Warning (13410): Pin "ENET_CMD" is stuck at GND
+    Warning (13410): Pin "ENET_CS_N" is stuck at GND
+    Warning (13410): Pin "ENET_WR_N" is stuck at GND
+    Warning (13410): Pin "ENET_RD_N" is stuck at GND
+    Warning (13410): Pin "ENET_RST_N" is stuck at GND
+    Warning (13410): Pin "ENET_CLK" is stuck at GND
+    Warning (13410): Pin "AUD_DACDAT" is stuck at GND
+    Warning (13410): Pin "AUD_XCK" is stuck at GND
+    Warning (13410): Pin "TD_RESET_N" is stuck at GND
+Critical Warning (18061): Ignored Power-Up Level option on the following registers
+    Critical Warning (18010): Register top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|states will power up to High
+Info (286030): Timing-Driven Synthesis is running
+Info (17016): Found the following redundant logic cells in design
+    Info (17048): Logic cell "top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|two[24]~0"
+    Info (17048): Logic cell "top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|two[23]~2"
+    Info (17048): Logic cell "top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|two[22]~4"
+    Info (17048): Logic cell "top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|two[21]~6"
+    Info (17048): Logic cell "top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|two[20]~8"
+    Info (17048): Logic cell "top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|two[19]~10"
+    Info (17048): Logic cell "top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|two[18]~12"
+    Info (17048): Logic cell "top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|two[17]~14"
+    Info (17048): Logic cell "top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|two[16]~16"
+    Info (17048): Logic cell "top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|two[15]~18"
+    Info (17048): Logic cell "top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|two[14]~20"
+    Info (17048): Logic cell "top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|two[13]~22"
+    Info (17048): Logic cell "top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|two[12]~24"
+    Info (17048): Logic cell "top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|two[11]~26"
+    Info (17048): Logic cell "top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|two[10]~28"
+    Info (17048): Logic cell "top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|two[9]~30"
+    Info (17048): Logic cell "top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|two[8]~32"
+    Info (17048): Logic cell "top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|two[7]~34"
+    Info (17048): Logic cell "top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|two[6]~36"
+    Info (17048): Logic cell "top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|two[5]~38"
+    Info (17048): Logic cell "top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|two[4]~40"
+    Info (17048): Logic cell "top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|two[3]~42"
+    Info (17048): Logic cell "top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|two[2]~44"
+    Info (17048): Logic cell "top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|two[1]~46"
+    Info (17048): Logic cell "top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|two[0]~48"
+Info (21057): Implemented 2377 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 47 input pins
+    Info (21059): Implemented 216 output pins
+    Info (21060): Implemented 148 bidirectional pins
+    Info (21061): Implemented 1966 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 439 warnings
+    Info: Peak virtual memory: 4709 megabytes
+    Info: Processing ended: Mon Feb 26 16:50:04 2024
+    Info: Elapsed time: 00:00:33
+    Info: Total CPU time (on all processors): 00:00:31
+
+

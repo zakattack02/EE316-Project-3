@@ -1,0 +1,64 @@
+Quartus II Archive log --	U:/Project3/Project3_tmp_archive.qarlog
+
+Archive:	U:/Project3/Project3_tmp_archive.qar
+Date:		Wed Feb 21 20:43:50 2024
+Quartus II 64-Bit		13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version
+
+	=========== Files Selected: ===========
+U:/Project3/ADC_I2C_user_logic.vhd
+U:/Project3/ClockGeneration.vhd
+U:/Project3/DE2_115.vhd
+U:/Project3/EE316Project2.qsf
+U:/Project3/EE316Project3.dpf
+U:/Project3/EE316Project3.qsf
+U:/Project3/EightBitToLCDLUT.vhd
+U:/Project3/FourTo7SegLUT.vhd
+U:/Project3/I2C_user_logic.vhd
+U:/Project3/LCD_FSM.vhd
+U:/Project3/LCD_user_logic.vhd
+U:/Project3/Main4StateMachine.vhd
+U:/Project3/PWM.vhd
+U:/Project3/Project3.qpf
+U:/Project3/assignment_defaults.qdf
+U:/Project3/btn_debounce_toggle.vhd
+U:/Project3/counter_pwm.vhd
+U:/Project3/i2c_master_2.1.vhd
+U:/Project3/incremental_db/compiled_partitions/EE316Project2.db_info
+U:/Project3/incremental_db/compiled_partitions/EE316Project3.db_info
+U:/Project3/output_files/Chain2.cdf
+U:/Project3/output_files/EE316Project2.flow.rpt
+U:/Project3/output_files/EE316Project2.map.rpt
+U:/Project3/output_files/EE316Project2.map.summary
+U:/Project3/output_files/EE316Project3.asm.rpt
+U:/Project3/output_files/EE316Project3.cdf
+U:/Project3/output_files/EE316Project3.done
+U:/Project3/output_files/EE316Project3.eda.rpt
+U:/Project3/output_files/EE316Project3.fit.rpt
+U:/Project3/output_files/EE316Project3.fit.smsg
+U:/Project3/output_files/EE316Project3.fit.summary
+U:/Project3/output_files/EE316Project3.flow.rpt
+U:/Project3/output_files/EE316Project3.jdi
+U:/Project3/output_files/EE316Project3.map.rpt
+U:/Project3/output_files/EE316Project3.map.summary
+U:/Project3/output_files/EE316Project3.merge.rpt
+U:/Project3/output_files/EE316Project3.merge.summary
+U:/Project3/output_files/EE316Project3.pin
+U:/Project3/output_files/EE316Project3.restore.rpt
+U:/Project3/output_files/EE316Project3.sof
+U:/Project3/output_files/EE316Project3.sta.rpt
+U:/Project3/output_files/EE316Project3.sta.summary
+U:/Project3/reset_delay.vhd
+U:/Project3/simulation/modelsim/top_level_tb.vhd
+U:/Project3/sine.mif
+U:/Project3/state_machine.vhd
+U:/Project3/top_level.vhd
+	======= Total: 47 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
+
+
+******* Archived project restoration attempt on Wed Feb 21 20:43:54 2024
+Source archive file:	U:/Project3/Project3_tmp_archive.qar
+Archive was extracted into	U:/MasudulADXL/
+		 - successfully.

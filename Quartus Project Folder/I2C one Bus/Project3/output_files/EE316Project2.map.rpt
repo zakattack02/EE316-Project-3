@@ -1,0 +1,291 @@
+Analysis & Elaboration report for EE316Project2
+Wed Feb 21 20:43:47 2024
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Elaboration Summary
+  3. Parallel Compilation
+  4. Analysis & Elaboration Settings
+  5. Analysis & Elaboration Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++---------------------------------------------------------------------------------------+
+; Analysis & Elaboration Summary                                                        ;
++------------------------------------+--------------------------------------------------+
+; Analysis & Elaboration Status      ; Failed - Wed Feb 21 20:43:47 2024                ;
+; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
+; Revision Name                      ; EE316Project2                                    ;
+; Top-level Entity Name              ; DE2_115                                          ;
+; Family                             ; Cyclone IV E                                     ;
+; Total logic elements               ; N/A until Partition Merge                        ;
+;     Total combinational functions  ; N/A until Partition Merge                        ;
+;     Dedicated logic registers      ; N/A until Partition Merge                        ;
+; Total registers                    ; N/A until Partition Merge                        ;
+; Total pins                         ; N/A until Partition Merge                        ;
+; Total virtual pins                 ; N/A until Partition Merge                        ;
+; Total memory bits                  ; N/A until Partition Merge                        ;
+; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                        ;
+; Total PLLs                         ; N/A until Partition Merge                        ;
++------------------------------------+--------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-12        ;   0.0%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Elaboration Settings                                                                                      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP4CE115F29C7      ;                    ;
+; Top-level entity name                                                      ; DE2_115            ; EE316Project2      ;
+; Family name                                                                ; Cyclone IV E       ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++---------------------------------+
+; Analysis & Elaboration Messages ;
++---------------------------------+
+Warning (125092): Tcl Script File ROMP.qip not found
+    Info (125063): set_global_assignment -name QIP_FILE ROMP.qip
+Info (11104): Parallel Compilation has detected 12 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 6 of the 6 physical processors detected instead.
+Info (12021): Found 2 design units, including 1 entities, in source file top_level.vhd
+    Info (12022): Found design unit 1: top_level-Structural
+    Info (12023): Found entity 1: top_level
+Info (12021): Found 2 design units, including 1 entities, in source file reset_delay.vhd
+    Info (12022): Found design unit 1: Reset_Delay-Arch
+    Info (12023): Found entity 1: Reset_Delay
+Info (12021): Found 2 design units, including 1 entities, in source file main4statemachine.vhd
+    Info (12022): Found design unit 1: Main4State_Machine-Behavioral
+    Info (12023): Found entity 1: Main4State_Machine
+Info (12021): Found 2 design units, including 1 entities, in source file de2_115.vhd
+    Info (12022): Found design unit 1: DE2_115-structural
+    Info (12023): Found entity 1: DE2_115
+Info (12021): Found 2 design units, including 1 entities, in source file btn_debounce_toggle.vhd
+    Info (12022): Found design unit 1: btn_debounce_toggle-Behavioral
+    Info (12023): Found entity 1: btn_debounce_toggle
+Info (12021): Found 2 design units, including 1 entities, in source file lcd_fsm.vhd
+    Info (12022): Found design unit 1: LCD_FSM-Behavioral
+    Info (12023): Found entity 1: LCD_FSM
+Info (12021): Found 2 design units, including 1 entities, in source file lcd_user_logic.vhd
+    Info (12022): Found design unit 1: LCD_user_logic-Behavioral
+    Info (12023): Found entity 1: LCD_user_logic
+Warning (12019): Can't analyze file -- file univ_bin_counter.vhd is missing
+Info (12021): Found 2 design units, including 1 entities, in source file eightbittolcdlut.vhd
+    Info (12022): Found design unit 1: EightBitToLCDLUT-Behavioral
+    Info (12023): Found entity 1: EightBitToLCDLUT
+Info (12021): Found 2 design units, including 1 entities, in source file fourto7seglut.vhd
+    Info (12022): Found design unit 1: FourTo7SegLUT-Behavioral
+    Info (12023): Found entity 1: FourTo7SegLUT
+Info (12021): Found 2 design units, including 1 entities, in source file i2c_master_2.1.vhd
+    Info (12022): Found design unit 1: i2c_master-logic
+    Info (12023): Found entity 1: i2c_master
+Info (12021): Found 2 design units, including 1 entities, in source file i2c_user_logic.vhd
+    Info (12022): Found design unit 1: LCDI2C_user_logic-Behavioral
+    Info (12023): Found entity 1: LCDI2C_user_logic
+Info (12021): Found 2 design units, including 1 entities, in source file simulation/modelsim/top_level_tb.vhd
+    Info (12022): Found design unit 1: top_level_tb-Structural
+    Info (12023): Found entity 1: top_level_tb
+Info (12021): Found 2 design units, including 1 entities, in source file counter_pwm.vhd
+    Info (12022): Found design unit 1: counter_pwm-arch
+    Info (12023): Found entity 1: counter_pwm
+Info (12021): Found 2 design units, including 1 entities, in source file pwm.vhd
+    Info (12022): Found design unit 1: PWM-Behavioral
+    Info (12023): Found entity 1: PWM
+Info (12127): Elaborating entity "DE2_115" for the top level hierarchy
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(16): used implicit default value for signal "HEX0" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(17): used implicit default value for signal "HEX1" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(18): used implicit default value for signal "HEX2" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(19): used implicit default value for signal "HEX3" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(25): used implicit default value for signal "LEDG" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(28): used implicit default value for signal "UART_CTS" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(30): used implicit default value for signal "UART_TXD" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(33): used implicit default value for signal "IRDA_TXD" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(37): used implicit default value for signal "DRAM_ADDR" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(38): used implicit default value for signal "DRAM_DQM" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(39): used implicit default value for signal "DRAM_WE_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(40): used implicit default value for signal "DRAM_CAS_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(41): used implicit default value for signal "DRAM_RAS_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(42): used implicit default value for signal "DRAM_CS_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(43): used implicit default value for signal "DRAM_BA" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(44): used implicit default value for signal "DRAM_CLK" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(45): used implicit default value for signal "DRAM_CKE" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(48): used implicit default value for signal "FL_ADDR" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(49): used implicit default value for signal "FL_WE_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(50): used implicit default value for signal "FL_RST_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(51): used implicit default value for signal "FL_OE_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(52): used implicit default value for signal "FL_CE_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(54): used implicit default value for signal "FL_WP_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(57): used implicit default value for signal "SRAM_ADDR" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(58): used implicit default value for signal "SRAM_UB_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(59): used implicit default value for signal "SRAM_LB_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(60): used implicit default value for signal "SRAM_WE_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(61): used implicit default value for signal "SRAM_CE_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(62): used implicit default value for signal "SRAM_OE_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(65): used implicit default value for signal "OTG_ADDR" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(66): used implicit default value for signal "OTG_CS_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(67): used implicit default value for signal "OTG_RD_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(68): used implicit default value for signal "OTG_WR_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(69): used implicit default value for signal "OTG_RST_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(74): used implicit default value for signal "OTG_DACK_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(76): used implicit default value for signal "LCD_ON" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(77): used implicit default value for signal "LCD_BLON" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(78): used implicit default value for signal "LCD_RW" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(79): used implicit default value for signal "LCD_EN" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(80): used implicit default value for signal "LCD_RS" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(89): used implicit default value for signal "I2C_SCLK" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(96): used implicit default value for signal "VGA_CLK" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(97): used implicit default value for signal "VGA_HS" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(98): used implicit default value for signal "VGA_VS" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(99): used implicit default value for signal "VGA_BLANK_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(100): used implicit default value for signal "VGA_SYNC_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(101): used implicit default value for signal "VGA_R" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(102): used implicit default value for signal "VGA_G" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(103): used implicit default value for signal "VGA_B" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(106): used implicit default value for signal "ENET_CMD" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(107): used implicit default value for signal "ENET_CS_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(108): used implicit default value for signal "ENET_WR_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(109): used implicit default value for signal "ENET_RD_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(110): used implicit default value for signal "ENET_RST_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(112): used implicit default value for signal "ENET_CLK" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(117): used implicit default value for signal "AUD_DACDAT" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(119): used implicit default value for signal "AUD_XCK" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_115.vhd(125): used implicit default value for signal "TD_RESET_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10873): Using initial value X (don't care) for net "LEDR[17..1]" at DE2_115.vhd(26)
+Info (12128): Elaborating entity "top_level" for hierarchy "top_level:Inst_top_level"
+Warning (10036): Verilog HDL or VHDL warning at top_level.vhd(125): object "kpPulse20ns" assigned a value but never read
+Warning (10541): VHDL Signal Declaration warning at top_level.vhd(130): used implicit default value for signal "I2CandLCDData" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at top_level.vhd(138): used implicit default value for signal "PWMmode" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (12125): Using design file adc_i2c_user_logic.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: ADC_I2C_user_logic-Behavioral
+    Info (12023): Found entity 1: ADC_I2C_user_logic
+Info (12128): Elaborating entity "ADC_I2C_user_logic" for hierarchy "top_level:Inst_top_level|ADC_I2C_user_logic:INST_ADC_I2C_USRLOGIC"
+Info (12128): Elaborating entity "i2c_master" for hierarchy "top_level:Inst_top_level|ADC_I2C_user_logic:INST_ADC_I2C_USRLOGIC|i2c_master:INST_I2C_master"
+Info (12128): Elaborating entity "LCDI2C_user_logic" for hierarchy "top_level:Inst_top_level|LCDI2C_user_logic:INST_LCD_I2C_UsrLogic"
+Info (12128): Elaborating entity "Reset_Delay" for hierarchy "top_level:Inst_top_level|Reset_Delay:Inst_clk_Reset_Delay"
+Info (12128): Elaborating entity "btn_debounce_toggle" for hierarchy "top_level:Inst_top_level|btn_debounce_toggle:Inst_Key0"
+Info (12128): Elaborating entity "btn_debounce_toggle" for hierarchy "top_level:Inst_top_level|btn_debounce_toggle:INST_DebouncedKey0"
+Info (12128): Elaborating entity "PWM" for hierarchy "top_level:Inst_top_level|PWM:INST_PWM0"
+Warning (10492): VHDL Process Statement warning at PWM.vhd(35): signal "PWMState_Sig" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (12125): Using design file clockgeneration.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: ClockGeneration-Behavioral
+    Info (12023): Found entity 1: ClockGeneration
+Info (12128): Elaborating entity "ClockGeneration" for hierarchy "top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN"
+Warning (10540): VHDL Signal Declaration warning at clockgeneration.vhd(13): used explicit default value for signal "clock_enable" because signal was never assigned a value
+Error (12006): Node instance "INST_StateMachine" instantiates undefined entity "Main2State_Machine" File: U:/Project3/top_level.vhd Line: 339
+
+

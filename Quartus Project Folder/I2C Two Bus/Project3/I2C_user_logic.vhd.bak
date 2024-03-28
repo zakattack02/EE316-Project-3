@@ -1,0 +1,200 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.std_logic_unsigned.all;
+
+entity I2C_user_logic is							-- Modified from SPI usr logic from last year
+    Port ( iclk : in STD_LOGIC;
+           dataIn : in STD_LOGIC_VECTOR (15 downto 0);
+           oSDA : inout STD_LOGIC;
+           oSCL : inout STD_LOGIC);
+end I2C_user_logic;
+
+architecture Behavioral of I2C_user_logic is
+
+------------------------------------------------------------------------------------------------------------------
+component i2c_master IS
+  GENERIC(
+    input_clk : INTEGER := 50_000_000; --input clock speed from user logic in Hz
+    bus_clk   : INTEGER := 400_000);   --speed the i2c bus (scl) will run at in Hz (7-Segment can run from 100khz(slow mode) to 400khz(high speed mode))
+  PORT(
+    clk       : IN     STD_LOGIC;                    --system clock
+    reset_n   : IN     STD_LOGIC;                    --active low reset
+    ena       : IN     STD_LOGIC;                    --latch in command
+    addr      : IN     STD_LOGIC_VECTOR(6 DOWNTO 0); --address of target slave
+    rw        : IN     STD_LOGIC;                    --'0' is write, '1' is read
+    data_wr   : IN     STD_LOGIC_VECTOR(7 DOWNTO 0); --data to write to slave
+    busy      : OUT    STD_LOGIC;                    --indicates transaction in progress
+    data_rd   : OUT    STD_LOGIC_VECTOR(7 DOWNTO 0); --data read from slave
+    ack_error : BUFFER STD_LOGIC;                    --flag if improper acknowledge from slave
+    sda       : INOUT  STD_LOGIC;                    --serial data output of i2c bus
+    scl       : INOUT  STD_LOGIC);                   --serial clock output of i2c bus
+END component i2c_master;
+------------------------------------------------------------------------------------------------------------------
+signal regBusy,sigBusy,reset,enable,rw_sig : std_logic;
+
+signal wData : std_logic_vector(15 downto 0);
+
+signal dataOut : std_logic_vector(7 downto 0):= "00000000";
+
+signal byteSel : integer range 0 to 200:= 0;
+
+type state_type is (start,write,stop);
+
+signal State : state_type := start;
+
+signal address : std_logic_vector(6 downto 0);
+
+signal Counter : integer := 187497;			-- delay time when a new data transaction occurs
+
+signal led : std_LOGIC;
+
+
+begin
+------------------------------------------------------------------------------------------------------------------
+INST_I2C_master: i2c_master
+	Generic map(input_clk => 50_000_000,bus_clk=> 9600)
+	port map (
+		clk=>iclk,
+		reset_n=>reset,
+		ena=>enable,
+		addr=>address,						-- For implementation of 2 or more components, link address to a mux to select which component.
+		rw=>rw_sig,
+		data_wr=>dataOut,
+		busy=>sigBusy,
+		data_rd=>OPEN,
+		ack_error=>open,					--Prof told to leave open :D, not my fault if 7 Seg blows up for somereason ¯\_(ツ)_/¯ 		
+		sda=>oSDA,
+		scl=>oSCL
+		);
+	
+------------------------------------------------------------------------------------------------------------------
+StateChange: process (iClk)
+begin
+	if rising_edge(iClk) then
+		case State is
+		
+			when start =>
+				if Counter /= 0 then
+					Counter<=Counter-1;
+					reset<='0';
+					State<=start;
+					enable<='0';
+				else
+					reset<='1';					-- Sent to I2C master to start ready transaction
+
+					
+					address<="0100111";		-- Hardcoded to X"27", LCD's default address
+					rw_sig<='0';				-- Only writing in this project
+					State<=write;
+				end if;
+			
+			when write=>
+				enable<='1';				-- Sent to I2C master to transition to start state.
+				regBusy <= sigBusy;
+				wData <= dataOut & dataOut;
+			
+				if regBusy /= sigBusy and sigBusy = '0' then
+					if byteSel /= 56 then
+						byteSel <= byteSel+1;
+						State <= write;
+					else
+						byteSel <= 45;
+						State<=stop;
+					end if;
+				end if;
+			
+			when stop=>
+				enable<='0';
+				if wData/=dataOut & dataOut then	-- Halts transaction at slv_ack2 state until new iData comes in
+					State<=start;
+				else
+					State<=stop;
+				end if;
+			end case;
+	end if;
+end process;
+------------------------------------------------------------------------------------------------------------------
+process(byteSel,iClk)
+begin
+    case byteSel is
+	 -- D7, D6, D5, D4, LED:= '1', EN ,R/W , RS
+when 1  => dataOut <= x"3" & '1' & '1' & '0' & '0';
+when 2  => dataOut <= x"3" & '1' & '0' & '0' & '0';
+when 3  => dataOut <= x"8" & '1' & '1' & '0' & '0';
+when 4  => dataOut <= x"8" & '1' & '0' & '0' & '0';
+
+when 5  => dataOut <= x"3" & '1' & '1' & '0' & '0';
+when 6  => dataOut <= x"3" & '1' & '0' & '0' & '0';
+when 7  => dataOut <= x"8" & '1' & '1' & '0' & '0';
+when 8  => dataOut <= x"8" & '1' & '0' & '0' & '0';
+
+when 9  => dataOut <= x"3" & '1' & '1' & '0' & '0';
+when 10  => dataOut <= x"3" & '1' & '0' & '0' & '0';
+when 11  => dataOut <= x"8" & '1' & '1' & '0' & '0';
+when 12  => dataOut <= x"8" & '1' & '0' & '0' & '0';
+
+when 13  => dataOut <= x"3" & '1' & '1' & '0' & '0';
+when 14  => dataOut <= x"3" & '1' & '0' & '0' & '0';
+when 15  => dataOut <= x"8" & '1' & '1' & '0' & '0';
+when 16  => dataOut <= x"8" & '1' & '0' & '0' & '0';
+
+when 17  => dataOut <= x"3" & '1' & '1' & '0' & '0';
+when 18  => dataOut <= x"3" & '1' & '0' & '0' & '0';
+when 19  => dataOut <= x"8" & '1' & '1' & '0' & '0';
+when 20  => dataOut <= x"8" & '1' & '0' & '0' & '0';
+
+when 21  => dataOut <= x"3" & '1' & '1' & '0' & '0';     --INIT
+when 22  => dataOut <= x"3" & '1' & '0' & '0' & '0';
+when 23  => dataOut <= x"8" & '1' & '1' & '0' & '0';
+when 24  => dataOut <= x"8" & '1' & '0' & '0' & '0';
+
+when 25  => dataOut <= x"0" & '1' & '1' & '0' & '0';     --4bit mode
+when 26  => dataOut <= x"0" & '1' & '0' & '0' & '0';
+when 27  => dataOut <= x"2" & '1' & '1' & '0' & '0';
+when 28  => dataOut <= x"2" & '1' & '0' & '0' & '0';
+
+when 29  => dataOut <= x"2" & '1' & '1' & '0' & '0';     --Clear First line
+when 30  => dataOut <= x"2" & '1' & '0' & '0' & '0';
+when 31  => dataOut <= x"8" & '1' & '1' & '0' & '0';
+when 32  => dataOut <= x"8" & '1' & '0' & '0' & '0';
+    
+when 33  => dataOut <= x"0" & '1' & '1' & '0' & '0';     --Some setting I forgor :)
+when 34  => dataOut <= x"0" & '1' & '0' & '0' & '0';
+when 35  => dataOut <= x"1" & '1' & '1' & '0' & '0';
+when 36  => dataOut <= x"1" & '1' & '0' & '0' & '0';
+
+when 37  => dataOut <= x"0" & '1' & '1' & '0' & '0';     --Cursor @firstline first spot
+when 38  => dataOut <= x"0" & '1' & '0' & '0' & '0';
+when 39  => dataOut <= x"C" & '1' & '1' & '0' & '0';
+when 40  => dataOut <= x"C" & '1' & '0' & '0' & '0';
+        
+when 41  => dataOut <= x"0" & '1' & '1' & '0' & '0';     --Entry Mode set
+when 42  => dataOut <= x"0" & '1' & '0' & '0' & '0';
+when 43  => dataOut <= x"6" & '1' & '1' & '0' & '0';
+when 44  => dataOut <= x"6" & '1' & '0' & '0' & '0';
+
+when 45  => dataOut <= x"8" & '1' & '1' & '0' & '0';     --First line
+when 46  => dataOut <= x"8" & '1' & '0' & '0' & '0';
+when 47  => dataOut <= x"0" & '1' & '1' & '0' & '0';
+when 48  => dataOut <= x"0" & '1' & '0' & '0' & '0';
+
+when 49  => dataOut <= x"4" & '1' & '1' & '0' & '1';     --i
+when 50  => dataOut <= x"4" & '1' & '0' & '0' & '1';
+when 51  => dataOut <= x"9" & '1' & '1' & '0' & '1';
+when 52  => dataOut <= x"9" & '1' & '0' & '0' & '1';
+
+when 53  => dataOut <= x"4" & '1' & '1' & '0' & '1';     --t
+when 54  => dataOut <= x"4" & '1' & '0' & '0' & '1';
+when 55  => dataOut <= x"9" & '1' & '1' & '0' & '1';
+when 56  => dataOut <= x"9" & '1' & '0' & '0' & '1';
+
+        when others => dataOut <= x"00";
+    end case;
+end process;
+------------------------------------------------------------------------------------------------------------------
+end Behavioral;
+
+
+
+--TODO:
+-- Fully implement read functionality of I2C(including NACK)

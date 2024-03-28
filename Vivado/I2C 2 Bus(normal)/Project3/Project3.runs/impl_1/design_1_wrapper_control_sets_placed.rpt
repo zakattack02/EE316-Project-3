@@ -1,0 +1,99 @@
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
+| Date         : Sun Feb 25 14:53:12 2024
+| Host         : CB195-UL-33 running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file design_1_wrapper_control_sets_placed.rpt
+| Design       : design_1_wrapper
+| Device       : xc7z010
+---------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    21 |
+|    Minimum number of control sets                        |    21 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    40 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    21 |
+| >= 0 to < 4        |     0 |
+| >= 4 to < 6        |     1 |
+| >= 6 to < 8        |     2 |
+| >= 8 to < 10       |     5 |
+| >= 10 to < 12      |     1 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     2 |
+| >= 16              |    10 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              54 |           23 |
+| No           | No                    | Yes                    |              79 |           34 |
+| No           | Yes                   | No                     |              48 |           12 |
+| Yes          | No                    | No                     |             103 |           36 |
+| Yes          | No                    | Yes                    |              68 |           36 |
+| Yes          | Yes                   | No                     |               0 |            0 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++-----------------------------------------------------------------+------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------+------------------+----------------+
+|                           Clock Signal                          |                                    Enable Signal                                   |                                        Set/Reset Signal                                        | Slice Load Count | Bel Load Count |
++-----------------------------------------------------------------+------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------+------------------+----------------+
+|  design_1_i/processing_system7_0/inst/FCLK_CLK0                 | design_1_i/top_level_0/U0/INST_StateMachine/E[0]                                   |                                                                                                |                3 |              4 |
+|  design_1_i/processing_system7_0/inst/FCLK_CLK0                 | design_1_i/top_level_0/U0/INST_LCD_I2C_UsrLogic/INST_I2C_master/data_clk_reg_1[0]  | design_1_i/top_level_0/U0/INST_LCD_I2C_UsrLogic/INST_I2C_master/FSM_onehot_state[8]_i_3_n_0    |                5 |              7 |
+|  design_1_i/processing_system7_0/inst/FCLK_CLK0                 | design_1_i/top_level_0/U0/INST_LCD_I2C_UsrLogic/INST_I2C_master/addr_rw0           |                                                                                                |                2 |              7 |
+|  design_1_i/processing_system7_0/inst/FCLK_CLK0                 | design_1_i/top_level_0/U0/INST_LCD_I2C_UsrLogic/INST_I2C_master/E[0]               |                                                                                                |                3 |              8 |
+|  design_1_i/processing_system7_0/inst/FCLK_CLK0                 | design_1_i/top_level_0/U0/INST_StateMachine/counter[7]_i_1__0_n_0                  |                                                                                                |                3 |              8 |
+|  design_1_i/processing_system7_0/inst/FCLK_CLK0                 | design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/data_rd[7]_i_1_n_0 | design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/FSM_onehot_state[8]_i_3__0_n_0 |                4 |              8 |
+|  design_1_i/top_level_0/FSM_onehot_current_state_reg[2]_i_1_n_0 |                                                                                    |                                                                                                |                5 |              8 |
+|  design_1_i/processing_system7_0/inst/FCLK_CLK0                 | design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/busy1              | design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/FSM_onehot_state[8]_i_3__0_n_0 |                3 |              9 |
+|  design_1_i/processing_system7_0/inst/FCLK_CLK0                 | design_1_i/top_level_0/FSM_onehot_current_state_reg[2]_i_1_n_0                     | design_1_i/top_level_0/U0/Inst_Key0/AR[0]                                                      |                7 |             10 |
+|  design_1_i/processing_system7_0/inst/FCLK_CLK0                 | design_1_i/top_level_0/U0/INST_LCD_I2C_UsrLogic/Counter[0]_i_1_n_0                 |                                                                                                |                4 |             14 |
+|  design_1_i/processing_system7_0/inst/FCLK_CLK0                 | design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/E[0]               |                                                                                                |                5 |             14 |
+|  design_1_i/processing_system7_0/inst/FCLK_CLK0                 |                                                                                    | design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/FSM_onehot_state[8]_i_3__0_n_0 |               10 |             16 |
+|  design_1_i/processing_system7_0/inst/FCLK_CLK0                 |                                                                                    | design_1_i/top_level_0/U0/INST_LCD_I2C_UsrLogic/INST_I2C_master/FSM_onehot_state[8]_i_3_n_0    |               10 |             16 |
+|  design_1_i/processing_system7_0/inst/FCLK_CLK0                 |                                                                                    | design_1_i/top_level_0/U0/Inst_Key0/btn_cntr[0]_i_1_n_0                                        |                4 |             16 |
+|  design_1_i/top_level_0/FSM_onehot_current_state_reg[2]_i_1_n_0 |                                                                                    | design_1_i/top_level_0/U0/INST_BTN1_DB_pulse/btn_cntr[0]_i_1__0_n_0                            |                4 |             16 |
+|  design_1_i/top_level_0/FSM_onehot_current_state_reg[2]_i_1_n_0 |                                                                                    | design_1_i/top_level_0/U0/INST_BTN2Pulse/btn_cntr[0]_i_1__1_n_0                                |                4 |             16 |
+|  design_1_i/processing_system7_0/inst/FCLK_CLK0                 | design_1_i/top_level_0/U0/Inst_clk_Reset_Delay/oRESET_i_1_n_0                      |                                                                                                |                5 |             20 |
+|  design_1_i/processing_system7_0/inst/FCLK_CLK0                 | design_1_i/top_level_0/U0/INST_LCD_I2C_UsrLogic/enable                             |                                                                                                |               11 |             28 |
+|  design_1_i/processing_system7_0/inst/FCLK_CLK0                 | design_1_i/top_level_0/U0/INST_StateMachine/FSM_onehot_current_state_reg[1]_0      | design_1_i/top_level_0/U0/Inst_Key0/AR[0]                                                      |               17 |             34 |
+|  design_1_i/processing_system7_0/inst/FCLK_CLK0                 |                                                                                    |                                                                                                |               18 |             46 |
+|  design_1_i/processing_system7_0/inst/FCLK_CLK0                 |                                                                                    | design_1_i/top_level_0/U0/Inst_Key0/AR[0]                                                      |               14 |             47 |
++-----------------------------------------------------------------+------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------+------------------+----------------+
+
+

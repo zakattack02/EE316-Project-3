@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="EE316Project3">
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2_115|top_level:Inst_top_level|ClockGeneration:INST_CLK_GEN|lpm_divide:Div0" CBX_FILE_NAME="lpm_divide_92p.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

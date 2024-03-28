@@ -1,0 +1,448 @@
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
+| Date         : Sun Feb 25 14:53:31 2024
+| Host         : CB195-UL-33 running 64-bit major release  (build 9200)
+| Command      : report_methodology -file design_1_wrapper_methodology_drc_routed.rpt -pb design_1_wrapper_methodology_drc_routed.pb -rpx design_1_wrapper_methodology_drc_routed.rpx
+| Design       : design_1_wrapper
+| Device       : xc7z010clg225-1
+| Speed File   : -1
+| Design State : Fully Routed
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Report Methodology
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+             Max violations: <unlimited>
+             Violations found: 82
++-----------+------------------+-------------------------------+------------+
+| Rule      | Severity         | Description                   | Violations |
++-----------+------------------+-------------------------------+------------+
+| TIMING-17 | Critical Warning | Non-clocked sequential cell   | 40         |
+| LUTAR-1   | Warning          | LUT drives async reset alert  | 3          |
+| TIMING-16 | Warning          | Large setup violation         | 28         |
+| TIMING-18 | Warning          | Missing input or output delay | 11         |
++-----------+------------------+-------------------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+TIMING-17#1 Critical Warning
+Non-clocked sequential cell  
+The clock pin design_1_i/top_level_0/U0/INST_BTN1_DB_pulse/btn_cntr_reg[0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#2 Critical Warning
+Non-clocked sequential cell  
+The clock pin design_1_i/top_level_0/U0/INST_BTN1_DB_pulse/btn_cntr_reg[10]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#3 Critical Warning
+Non-clocked sequential cell  
+The clock pin design_1_i/top_level_0/U0/INST_BTN1_DB_pulse/btn_cntr_reg[11]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#4 Critical Warning
+Non-clocked sequential cell  
+The clock pin design_1_i/top_level_0/U0/INST_BTN1_DB_pulse/btn_cntr_reg[12]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#5 Critical Warning
+Non-clocked sequential cell  
+The clock pin design_1_i/top_level_0/U0/INST_BTN1_DB_pulse/btn_cntr_reg[13]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#6 Critical Warning
+Non-clocked sequential cell  
+The clock pin design_1_i/top_level_0/U0/INST_BTN1_DB_pulse/btn_cntr_reg[14]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#7 Critical Warning
+Non-clocked sequential cell  
+The clock pin design_1_i/top_level_0/U0/INST_BTN1_DB_pulse/btn_cntr_reg[15]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#8 Critical Warning
+Non-clocked sequential cell  
+The clock pin design_1_i/top_level_0/U0/INST_BTN1_DB_pulse/btn_cntr_reg[1]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#9 Critical Warning
+Non-clocked sequential cell  
+The clock pin design_1_i/top_level_0/U0/INST_BTN1_DB_pulse/btn_cntr_reg[2]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#10 Critical Warning
+Non-clocked sequential cell  
+The clock pin design_1_i/top_level_0/U0/INST_BTN1_DB_pulse/btn_cntr_reg[3]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#11 Critical Warning
+Non-clocked sequential cell  
+The clock pin design_1_i/top_level_0/U0/INST_BTN1_DB_pulse/btn_cntr_reg[4]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#12 Critical Warning
+Non-clocked sequential cell  
+The clock pin design_1_i/top_level_0/U0/INST_BTN1_DB_pulse/btn_cntr_reg[5]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#13 Critical Warning
+Non-clocked sequential cell  
+The clock pin design_1_i/top_level_0/U0/INST_BTN1_DB_pulse/btn_cntr_reg[6]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#14 Critical Warning
+Non-clocked sequential cell  
+The clock pin design_1_i/top_level_0/U0/INST_BTN1_DB_pulse/btn_cntr_reg[7]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#15 Critical Warning
+Non-clocked sequential cell  
+The clock pin design_1_i/top_level_0/U0/INST_BTN1_DB_pulse/btn_cntr_reg[8]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#16 Critical Warning
+Non-clocked sequential cell  
+The clock pin design_1_i/top_level_0/U0/INST_BTN1_DB_pulse/btn_cntr_reg[9]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#17 Critical Warning
+Non-clocked sequential cell  
+The clock pin design_1_i/top_level_0/U0/INST_BTN1_DB_pulse/btn_pulse_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#18 Critical Warning
+Non-clocked sequential cell  
+The clock pin design_1_i/top_level_0/U0/INST_BTN1_DB_pulse/btn_reg_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#19 Critical Warning
+Non-clocked sequential cell  
+The clock pin design_1_i/top_level_0/U0/INST_BTN1_DB_pulse/btn_sync_reg[0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#20 Critical Warning
+Non-clocked sequential cell  
+The clock pin design_1_i/top_level_0/U0/INST_BTN1_DB_pulse/btn_sync_reg[1]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#21 Critical Warning
+Non-clocked sequential cell  
+The clock pin design_1_i/top_level_0/U0/INST_BTN2Pulse/btn_cntr_reg[0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#22 Critical Warning
+Non-clocked sequential cell  
+The clock pin design_1_i/top_level_0/U0/INST_BTN2Pulse/btn_cntr_reg[10]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#23 Critical Warning
+Non-clocked sequential cell  
+The clock pin design_1_i/top_level_0/U0/INST_BTN2Pulse/btn_cntr_reg[11]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#24 Critical Warning
+Non-clocked sequential cell  
+The clock pin design_1_i/top_level_0/U0/INST_BTN2Pulse/btn_cntr_reg[12]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#25 Critical Warning
+Non-clocked sequential cell  
+The clock pin design_1_i/top_level_0/U0/INST_BTN2Pulse/btn_cntr_reg[13]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#26 Critical Warning
+Non-clocked sequential cell  
+The clock pin design_1_i/top_level_0/U0/INST_BTN2Pulse/btn_cntr_reg[14]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#27 Critical Warning
+Non-clocked sequential cell  
+The clock pin design_1_i/top_level_0/U0/INST_BTN2Pulse/btn_cntr_reg[15]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#28 Critical Warning
+Non-clocked sequential cell  
+The clock pin design_1_i/top_level_0/U0/INST_BTN2Pulse/btn_cntr_reg[1]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#29 Critical Warning
+Non-clocked sequential cell  
+The clock pin design_1_i/top_level_0/U0/INST_BTN2Pulse/btn_cntr_reg[2]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#30 Critical Warning
+Non-clocked sequential cell  
+The clock pin design_1_i/top_level_0/U0/INST_BTN2Pulse/btn_cntr_reg[3]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#31 Critical Warning
+Non-clocked sequential cell  
+The clock pin design_1_i/top_level_0/U0/INST_BTN2Pulse/btn_cntr_reg[4]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#32 Critical Warning
+Non-clocked sequential cell  
+The clock pin design_1_i/top_level_0/U0/INST_BTN2Pulse/btn_cntr_reg[5]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#33 Critical Warning
+Non-clocked sequential cell  
+The clock pin design_1_i/top_level_0/U0/INST_BTN2Pulse/btn_cntr_reg[6]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#34 Critical Warning
+Non-clocked sequential cell  
+The clock pin design_1_i/top_level_0/U0/INST_BTN2Pulse/btn_cntr_reg[7]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#35 Critical Warning
+Non-clocked sequential cell  
+The clock pin design_1_i/top_level_0/U0/INST_BTN2Pulse/btn_cntr_reg[8]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#36 Critical Warning
+Non-clocked sequential cell  
+The clock pin design_1_i/top_level_0/U0/INST_BTN2Pulse/btn_cntr_reg[9]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#37 Critical Warning
+Non-clocked sequential cell  
+The clock pin design_1_i/top_level_0/U0/INST_BTN2Pulse/btn_pulse_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#38 Critical Warning
+Non-clocked sequential cell  
+The clock pin design_1_i/top_level_0/U0/INST_BTN2Pulse/btn_reg_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#39 Critical Warning
+Non-clocked sequential cell  
+The clock pin design_1_i/top_level_0/U0/INST_BTN2Pulse/btn_sync_reg[0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#40 Critical Warning
+Non-clocked sequential cell  
+The clock pin design_1_i/top_level_0/U0/INST_BTN2Pulse/btn_sync_reg[1]/C is not reached by a timing clock
+Related violations: <none>
+
+LUTAR-1#1 Warning
+LUT drives async reset alert  
+LUT cell design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/addr_rw[0]_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/FSM_onehot_state_reg[1]/CLR, design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/FSM_onehot_state_reg[2]/CLR, design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/FSM_onehot_state_reg[3]/CLR, design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/FSM_onehot_state_reg[4]/CLR, design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/FSM_onehot_state_reg[5]/CLR, design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/FSM_onehot_state_reg[6]/CLR, design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/FSM_onehot_state_reg[7]/CLR, design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/FSM_onehot_state_reg[8]/CLR, design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/count_reg[0]/CLR, design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/count_reg[1]/CLR, design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/count_reg[2]/CLR, design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/count_reg[3]/CLR, design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/count_reg[4]/CLR, design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/count_reg[5]/CLR, design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/count_reg[6]/CLR (the first 15 of 33 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#2 Warning
+LUT drives async reset alert  
+LUT cell design_1_i/top_level_0/U0/INST_LCD_I2C_UsrLogic/INST_I2C_master/LCD_I2C_SCL_IOBUF_inst_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) design_1_i/top_level_0/U0/INST_LCD_I2C_UsrLogic/INST_I2C_master/FSM_onehot_state_reg[1]/CLR, design_1_i/top_level_0/U0/INST_LCD_I2C_UsrLogic/INST_I2C_master/FSM_onehot_state_reg[2]/CLR, design_1_i/top_level_0/U0/INST_LCD_I2C_UsrLogic/INST_I2C_master/FSM_onehot_state_reg[3]/CLR, design_1_i/top_level_0/U0/INST_LCD_I2C_UsrLogic/INST_I2C_master/FSM_onehot_state_reg[4]/CLR, design_1_i/top_level_0/U0/INST_LCD_I2C_UsrLogic/INST_I2C_master/FSM_onehot_state_reg[5]/CLR, design_1_i/top_level_0/U0/INST_LCD_I2C_UsrLogic/INST_I2C_master/FSM_onehot_state_reg[8]/CLR, design_1_i/top_level_0/U0/INST_LCD_I2C_UsrLogic/INST_I2C_master/count_reg[0]/CLR, design_1_i/top_level_0/U0/INST_LCD_I2C_UsrLogic/INST_I2C_master/count_reg[1]/CLR, design_1_i/top_level_0/U0/INST_LCD_I2C_UsrLogic/INST_I2C_master/count_reg[2]/CLR, design_1_i/top_level_0/U0/INST_LCD_I2C_UsrLogic/INST_I2C_master/count_reg[3]/CLR, design_1_i/top_level_0/U0/INST_LCD_I2C_UsrLogic/INST_I2C_master/count_reg[4]/CLR, design_1_i/top_level_0/U0/INST_LCD_I2C_UsrLogic/INST_I2C_master/count_reg[5]/CLR, design_1_i/top_level_0/U0/INST_LCD_I2C_UsrLogic/INST_I2C_master/count_reg[6]/CLR, design_1_i/top_level_0/U0/INST_LCD_I2C_UsrLogic/INST_I2C_master/count_reg[7]/CLR, design_1_i/top_level_0/U0/INST_LCD_I2C_UsrLogic/INST_I2C_master/count_reg[8]/CLR (the first 15 of 23 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#3 Warning
+LUT drives async reset alert  
+LUT cell design_1_i/top_level_0/U0/Inst_Key0/FinaloPWM_i_3, with 2 or more inputs, drives asynchronous preset/clear pin(s) design_1_i/top_level_0/U0/FSM_onehot_current_ClkGenState_reg[1]/CLR, design_1_i/top_level_0/U0/FSM_onehot_current_ClkGenState_reg[2]/CLR, design_1_i/top_level_0/U0/FSM_onehot_current_PWMState_reg[1]/CLR, design_1_i/top_level_0/U0/FSM_onehot_current_PWMState_reg[2]/CLR, design_1_i/top_level_0/U0/FSM_onehot_current_PWMState_reg[3]/CLR, design_1_i/top_level_0/U0/FinaloPWM_reg/CLR, design_1_i/top_level_0/U0/FirstLine_reg[56]/CLR, design_1_i/top_level_0/U0/FirstLine_reg[88]/CLR, design_1_i/top_level_0/U0/FirstLine_reg[92]/CLR, design_1_i/top_level_0/U0/PWN_module_reg[0]/CLR, design_1_i/top_level_0/U0/PWN_module_reg[1]/CLR, design_1_i/top_level_0/U0/SecondLine_reg[116]/CLR, design_1_i/top_level_0/U0/SecondLine_reg[120]/CLR, design_1_i/top_level_0/U0/SecondLine_reg[24]/CLR, design_1_i/top_level_0/U0/SecondLine_reg[52]/CLR (the first 15 of 91 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+TIMING-16#1 Warning
+Large setup violation  
+There is a large setup violation of -47.157 ns between design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/data_rd_reg[7]/C (clocked by clk_fpga_0) and design_1_i/top_level_0/U0/INST_CLK_GEN/counter_reg[14]/D (clocked by clk_fpga_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#2 Warning
+Large setup violation  
+There is a large setup violation of -47.158 ns between design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/data_rd_reg[7]/C (clocked by clk_fpga_0) and design_1_i/top_level_0/U0/INST_CLK_GEN/counter_reg[15]/D (clocked by clk_fpga_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#3 Warning
+Large setup violation  
+There is a large setup violation of -47.164 ns between design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/data_rd_reg[7]/C (clocked by clk_fpga_0) and design_1_i/top_level_0/U0/INST_CLK_GEN/counter_reg[5]/D (clocked by clk_fpga_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#4 Warning
+Large setup violation  
+There is a large setup violation of -47.167 ns between design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/data_rd_reg[7]/C (clocked by clk_fpga_0) and design_1_i/top_level_0/U0/INST_CLK_GEN/counter_reg[13]/D (clocked by clk_fpga_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#5 Warning
+Large setup violation  
+There is a large setup violation of -47.168 ns between design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/data_rd_reg[7]/C (clocked by clk_fpga_0) and design_1_i/top_level_0/U0/INST_CLK_GEN/counter_reg[12]/D (clocked by clk_fpga_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#6 Warning
+Large setup violation  
+There is a large setup violation of -47.168 ns between design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/data_rd_reg[7]/C (clocked by clk_fpga_0) and design_1_i/top_level_0/U0/INST_CLK_GEN/counter_reg[19]/D (clocked by clk_fpga_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#7 Warning
+Large setup violation  
+There is a large setup violation of -47.168 ns between design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/data_rd_reg[7]/C (clocked by clk_fpga_0) and design_1_i/top_level_0/U0/INST_CLK_GEN/counter_reg[20]/D (clocked by clk_fpga_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#8 Warning
+Large setup violation  
+There is a large setup violation of -47.171 ns between design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/data_rd_reg[7]/C (clocked by clk_fpga_0) and design_1_i/top_level_0/U0/INST_CLK_GEN/counter_reg[25]/D (clocked by clk_fpga_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#9 Warning
+Large setup violation  
+There is a large setup violation of -47.173 ns between design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/data_rd_reg[7]/C (clocked by clk_fpga_0) and design_1_i/top_level_0/U0/INST_CLK_GEN/counter_reg[10]/D (clocked by clk_fpga_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#10 Warning
+Large setup violation  
+There is a large setup violation of -47.174 ns between design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/data_rd_reg[7]/C (clocked by clk_fpga_0) and design_1_i/top_level_0/U0/INST_CLK_GEN/counter_reg[16]/D (clocked by clk_fpga_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#11 Warning
+Large setup violation  
+There is a large setup violation of -47.174 ns between design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/data_rd_reg[7]/C (clocked by clk_fpga_0) and design_1_i/top_level_0/U0/INST_CLK_GEN/counter_reg[9]/D (clocked by clk_fpga_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#12 Warning
+Large setup violation  
+There is a large setup violation of -47.175 ns between design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/data_rd_reg[7]/C (clocked by clk_fpga_0) and design_1_i/top_level_0/U0/INST_CLK_GEN/counter_reg[8]/D (clocked by clk_fpga_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#13 Warning
+Large setup violation  
+There is a large setup violation of -47.176 ns between design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/data_rd_reg[7]/C (clocked by clk_fpga_0) and design_1_i/top_level_0/U0/INST_CLK_GEN/counter_reg[18]/D (clocked by clk_fpga_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#14 Warning
+Large setup violation  
+There is a large setup violation of -47.178 ns between design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/data_rd_reg[7]/C (clocked by clk_fpga_0) and design_1_i/top_level_0/U0/INST_CLK_GEN/clock_out_reg/D (clocked by clk_fpga_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#15 Warning
+Large setup violation  
+There is a large setup violation of -47.178 ns between design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/data_rd_reg[7]/C (clocked by clk_fpga_0) and design_1_i/top_level_0/U0/INST_CLK_GEN/counter_reg[7]/D (clocked by clk_fpga_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#16 Warning
+Large setup violation  
+There is a large setup violation of -47.179 ns between design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/data_rd_reg[7]/C (clocked by clk_fpga_0) and design_1_i/top_level_0/U0/INST_CLK_GEN/states_reg/D (clocked by clk_fpga_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#17 Warning
+Large setup violation  
+There is a large setup violation of -47.182 ns between design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/data_rd_reg[7]/C (clocked by clk_fpga_0) and design_1_i/top_level_0/U0/INST_CLK_GEN/counter_reg[3]/D (clocked by clk_fpga_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#18 Warning
+Large setup violation  
+There is a large setup violation of -47.182 ns between design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/data_rd_reg[7]/C (clocked by clk_fpga_0) and design_1_i/top_level_0/U0/INST_CLK_GEN/counter_reg[4]/D (clocked by clk_fpga_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#19 Warning
+Large setup violation  
+There is a large setup violation of -47.185 ns between design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/data_rd_reg[7]/C (clocked by clk_fpga_0) and design_1_i/top_level_0/U0/INST_CLK_GEN/counter_reg[11]/D (clocked by clk_fpga_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#20 Warning
+Large setup violation  
+There is a large setup violation of -47.187 ns between design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/data_rd_reg[7]/C (clocked by clk_fpga_0) and design_1_i/top_level_0/U0/INST_CLK_GEN/counter_reg[2]/D (clocked by clk_fpga_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#21 Warning
+Large setup violation  
+There is a large setup violation of -47.204 ns between design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/data_rd_reg[7]/C (clocked by clk_fpga_0) and design_1_i/top_level_0/U0/INST_CLK_GEN/counter_reg[1]/D (clocked by clk_fpga_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#22 Warning
+Large setup violation  
+There is a large setup violation of -47.208 ns between design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/data_rd_reg[7]/C (clocked by clk_fpga_0) and design_1_i/top_level_0/U0/INST_CLK_GEN/counter_reg[0]/D (clocked by clk_fpga_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#23 Warning
+Large setup violation  
+There is a large setup violation of -47.318 ns between design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/data_rd_reg[7]/C (clocked by clk_fpga_0) and design_1_i/top_level_0/U0/INST_CLK_GEN/counter_reg[6]/D (clocked by clk_fpga_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#24 Warning
+Large setup violation  
+There is a large setup violation of -47.323 ns between design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/data_rd_reg[7]/C (clocked by clk_fpga_0) and design_1_i/top_level_0/U0/INST_CLK_GEN/counter_reg[17]/D (clocked by clk_fpga_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#25 Warning
+Large setup violation  
+There is a large setup violation of -47.352 ns between design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/data_rd_reg[7]/C (clocked by clk_fpga_0) and design_1_i/top_level_0/U0/INST_CLK_GEN/counter_reg[24]/D (clocked by clk_fpga_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#26 Warning
+Large setup violation  
+There is a large setup violation of -47.356 ns between design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/data_rd_reg[7]/C (clocked by clk_fpga_0) and design_1_i/top_level_0/U0/INST_CLK_GEN/counter_reg[23]/D (clocked by clk_fpga_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#27 Warning
+Large setup violation  
+There is a large setup violation of -47.381 ns between design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/data_rd_reg[7]/C (clocked by clk_fpga_0) and design_1_i/top_level_0/U0/INST_CLK_GEN/counter_reg[22]/D (clocked by clk_fpga_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#28 Warning
+Large setup violation  
+There is a large setup violation of -47.385 ns between design_1_i/top_level_0/U0/INST_ADC_I2C_USRLOGIC/INST_I2C_master/data_rd_reg[7]/C (clocked by clk_fpga_0) and design_1_i/top_level_0/U0/INST_CLK_GEN/counter_reg[21]/D (clocked by clk_fpga_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-18#1 Warning
+Missing input or output delay  
+An input delay is missing on iBTN0 relative to clock(s) clk_fpga_0
+Related violations: <none>
+
+TIMING-18#2 Warning
+Missing input or output delay  
+An input delay is missing on oADC_SCL relative to clock(s) clk_fpga_0
+Related violations: <none>
+
+TIMING-18#3 Warning
+Missing input or output delay  
+An input delay is missing on oADC_SDA relative to clock(s) clk_fpga_0
+Related violations: <none>
+
+TIMING-18#4 Warning
+Missing input or output delay  
+An input delay is missing on oLCD_SCL relative to clock(s) clk_fpga_0
+Related violations: <none>
+
+TIMING-18#5 Warning
+Missing input or output delay  
+An input delay is missing on oLCD_SDA relative to clock(s) clk_fpga_0
+Related violations: <none>
+
+TIMING-18#6 Warning
+Missing input or output delay  
+An output delay is missing on oClk_gen relative to clock(s) clk_fpga_0
+Related violations: <none>
+
+TIMING-18#7 Warning
+Missing input or output delay  
+An output delay is missing on oLed0 relative to clock(s) clk_fpga_0
+Related violations: <none>
+
+TIMING-18#8 Warning
+Missing input or output delay  
+An output delay is missing on oLed1 relative to clock(s) clk_fpga_0
+Related violations: <none>
+
+TIMING-18#9 Warning
+Missing input or output delay  
+An output delay is missing on oLed2 relative to clock(s) clk_fpga_0
+Related violations: <none>
+
+TIMING-18#10 Warning
+Missing input or output delay  
+An output delay is missing on oLed3 relative to clock(s) clk_fpga_0
+Related violations: <none>
+
+TIMING-18#11 Warning
+Missing input or output delay  
+An output delay is missing on oPwm relative to clock(s) clk_fpga_0
+Related violations: <none>
+
+
